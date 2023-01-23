@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Gos.Core.Search;
 using Gos.Core.Search.Queries;
@@ -69,24 +70,28 @@ namespace Gos.Infrastructure.Search
             var indexProvider = indexProviderFactory.GetProvider<EsConcordanceDto>();
             var indexName = indexProvider.IndexName;
 
-            var request = new BulkRequest(indexName)
+            // Batch entities by 1000
+            foreach (var batch in entities.Chunk(1000))
             {
-                Operations = new List<IBulkOperation>(),
-                Timeout = TimeSpan.FromMinutes(5)
-            };
+                var request = new BulkRequest(indexName)
+                {
+                    Operations = new List<IBulkOperation>(),
+                    Timeout = TimeSpan.FromMinutes(5)
+                };
 
-            // Get converter and convert entities to dtos
-            var converter = esDtoConverterFactory.GetConverter<TEntity, EsConcordanceDto>();
-            foreach (var entity in entities)
-            {
-                var dto = await converter.Convert(entity);
-                request.Operations.Add(new BulkIndexOperation<EsConcordanceDto>(dto));
-            }
+                // Get converter and convert entities to dtos
+                var converter = esDtoConverterFactory.GetConverter<TEntity, EsConcordanceDto>();
+                foreach (var entity in batch)
+                {
+                    var dto = await converter.Convert(entity);
+                    request.Operations.Add(new BulkIndexOperation<EsConcordanceDto>(dto));
+                }
 
-            var response = await client.BulkAsync(request);
-            if (!response.IsValid)
-            {
-                throw new Exception($"Invalid response from Elastic: {response.DebugInformation}!");
+                var response = await client.BulkAsync(request);
+                if (!response.IsValid)
+                {
+                    throw new Exception($"Invalid response from Elastic: {response.DebugInformation}!");
+                }
             }
         }
 
