@@ -1,0 +1,86 @@
+﻿@import 'cjvt-theme';
+
+body.index {
+    .primary-navbar {
+        &.index {
+            height: auto;
+        }
+
+        .index-stats {
+            margin-bottom: 5.125rem;
+        }
+    }
+
+    .search-options {
+        display: flex;
+        margin: 0.5rem 0 1rem 0;
+
+        .area {
+            border-right: 1px solid $white;
+            margin-right: 1rem;
+            padding-right: 1rem;
+        }
+
+        .advanced {
+            margin-left: auto;
+            text-align: right;
+        }
+
+        a {
+            align-items: center;
+            border-radius: 1.75rem;
+            color: $white;
+            display: inline-flex;
+            font-size: 0.75rem;
+            font-weight: 600;
+            height: 2rem;
+            margin-right: 0.5rem;
+            padding: 0 1rem;
+            text-decoration: none;
+
+            img {
+                height: 1rem;
+                margin-right: 0.5rem;
+                width: 1rem;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:hover {
+                background-color: $red;
+                background-blend-mode: multiply;
+                background-image: linear-gradient(to bottom, $grey-b-96, $grey-b-96);
+            }
+
+            &.active {
+                background: $ui-black;
+            }
+        }
+    }
+
+    .search-input #historyIcon {
+        position: absolute;
+        right: 0;
+    }
+
+    .search-help {
+        margin-top: 1rem;
+
+        > p {
+            color: $white;
+            font-size: 0.75rem;
+            padding-left: 0.875rem;
+        }
+
+        a {
+            color: $white;
+            text-decoration: none;
+        }
+    }
+
+    .module {
+        margin: 1rem 0;
+    }
+}

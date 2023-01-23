@@ -1,0 +1,23 @@
+﻿@using Gos.Core.Entities
+@model (string posName, string msdsName, SelectList posSelectList)
+
+<div class="pos dropdown">
+    @Html.Hidden(Model.posName)
+    @Html.Hidden(Model.msdsName)
+    <p class="dropdown-field">
+        <b class="dropdown-value"></b>
+    </p>
+    <ul class="dropdown-list">
+        <li data-value=""><span class="name">@SharedResource["Any"]</span></li>
+        @foreach (PartOfSpeech pos in Model.posSelectList.Items)
+        {
+            <li data-value="@pos.Id" data-text="@pos.Title">
+                <span class="name">@pos.Title</span>
+                @if (pos.Attributes.Count > 0)
+                {
+                    <button type="button" class="details"><img src="~/images/add.svg"/>@SharedResource["Details"]</button>
+                }
+            </li>
+        }
+    </ul>
+</div>

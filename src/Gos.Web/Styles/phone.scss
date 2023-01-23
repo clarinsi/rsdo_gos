@@ -1,0 +1,44 @@
+@import 'cjvt-theme';
+@media (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+  header.navbar {
+    top:-8rem;
+  }
+  .primary-navbar {
+    height: auto;
+  }
+  .filters {
+    white-space: nowrap;
+    overflow-x: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+  }
+  .tab-header {
+    white-space: nowrap;
+    overflow-x: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .example-caret {
+    display:none;
+  }
+  .select-tag {
+    &:hover {
+      background:white;
+      color:$red;
+    }
+    &.active {
+      background:$red;
+      color:white;
+    }
+  }
+}

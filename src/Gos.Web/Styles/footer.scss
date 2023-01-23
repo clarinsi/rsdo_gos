@@ -1,0 +1,56 @@
+@import 'cjvt-theme';
+
+footer {
+  background: $ui-black;
+  padding-bottom:10rem;
+  .footer-col-content {
+    position: relative;
+    padding-left:1.5rem;
+    height:12rem;
+    border-left:1px solid $grey-b-40;
+    color: white;
+    margin-bottom:2rem;
+    h5 {
+      padding-top:1.5rem;
+      color:$grey-b-70;
+      font-size: 12px;
+      font-weight: normal;
+      line-height: 1.33;
+      letter-spacing: 0.32px;
+    }
+    p,a {
+      font-size: 12px;
+      font-weight: normal;
+      line-height: 1.33;
+      letter-spacing: 0.32px;
+    }
+    a {
+      color: white;
+      text-decoration:none;
+      &:hover {
+        opacity:0.9;
+      }
+    }
+    img {
+      width:100%;
+    }
+  }
+  .to-bottom {
+    position: absolute;
+    bottom:0;
+    &.ft-cjvt-logo {
+      bottom:-4.5%;
+    }
+  }
+}
+
+@media only screen and (max-width: 42rem) {
+  footer {
+    .footer-col-content {
+      border-left: none;
+    }
+    img {
+      max-height: 8rem;
+    }
+  }
+}

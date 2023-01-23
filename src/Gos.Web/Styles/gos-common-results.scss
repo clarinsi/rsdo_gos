@@ -1,0 +1,200 @@
+﻿@import 'cjvt-theme';
+
+body.results {
+    .search-input .nav-input {
+        align-items: center;
+        display: flex;
+
+        .area, .form {
+            border-right: 1px solid $grey-b-94;
+            display: inline-flex;
+            padding: 0 0.5rem;
+
+            a {
+                border-radius: 1rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                height: 2rem;
+                width: 2rem;
+
+                img {
+                    height: 1rem;
+                    width: 1rem;
+                }
+
+
+                &.active {
+                    background-color: $ui-black;
+                }
+            }
+        }
+
+        input {
+            margin-left: 0.5rem;
+            flex-grow: 1;
+            top: unset;
+        }
+    }
+
+    .secondary-navbar {
+        .search-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h3 {
+                color: $red;
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+
+            p {
+                color: $grey-b-70;
+                font-size: 0.75rem;
+            }
+        }
+    }
+
+    .module.export {
+        margin-bottom: 1rem;
+
+        p {
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        input[type="number"] {
+            margin-right: 0.5rem;
+            padding: 1rem;
+            width: 6rem;
+        }
+    }
+
+    /* Aggregations */
+    .result-filters {
+        padding: 1rem;
+
+        .filters-section {
+            margin-bottom: 1.375rem;
+
+            .filters-header {
+                font-size: 0.875rem;
+            }
+
+            .filters-options {
+                .filter-category {
+                    align-items: center;
+                    cursor: pointer;
+                    display: flex;
+                    padding: 0.25rem 0;
+
+                    .expand, .close {
+                        height: 1rem;
+                        margin-right: 0.25rem;
+                        width: 1rem;
+                    }
+
+                    .close {
+                        display: none;
+                    }
+
+                    .title {
+                        flex-grow: 1;
+                        font-size: 0.875rem;
+                    }
+
+                    .count {
+                        border: 1px solid $ui-black;
+                        border-radius: 0.125rem;
+                        font-size: 0.75rem;
+                        height: 1rem;
+                        padding: 0.125rem 0.25rem;
+                    }
+
+                    &.active, &:hover {
+                        background-color: $grey-b-98;
+
+                        .count {
+                            background-color: $ui-black;
+                            color: $white;
+                        }
+                    }
+
+                    &.active {
+                        img.close {
+                            display: block;
+                        }
+                    }
+                }
+            }
+
+            &.collapsed .filters-options {
+                li:nth-of-type(1n+6) {
+                    display: none;
+                }
+
+                li.expand {
+                    display: flex;
+                }
+
+                li.collapse {
+                    display: none;
+                }
+            }
+
+            &.expanded .filters-options {
+                li.collapse {
+                    display: flex;
+                }
+
+                li.expand {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .pager {
+        border-bottom: 1px solid $grey-b-94;
+        padding: 0.5rem 1rem;
+
+        .bx--row {
+            align-items: center;
+        }
+
+        .count {
+            font-size: 0.75rem;
+        }
+
+        .pages {
+            text-align: right;
+
+            > div {
+                display: inline-flex;
+
+                a {
+                    display: inline-block;
+                    font-size: 0.75rem;
+                    padding: 0.25rem 0.5rem;
+                    text-decoration: none;
+                }
+
+                > div.active a {
+                    background-color: $ui-black;
+                    border-radius: 0.75rem;
+                    color: $white;
+                }
+            }
+        }
+
+        &.bottom {
+            border-bottom: none;
+            border-top: 1px solid $grey-b-94;
+
+            .count {
+                color: $grey-b-70;
+            }
+        }
+    }
+}

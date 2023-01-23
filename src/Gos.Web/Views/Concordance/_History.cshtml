@@ -1,0 +1,36 @@
+﻿@using Gos.ServiceModel.Requests.Concordance
+@using Gos.ServiceModel.Enums
+@using Gos.Web.UrlHelpers
+@model (IEnumerable<ConcordanceSearch> searches, Dictionary<int, Gos.Core.Entities.PartOfSpeech> partOfSpeeches)
+
+@if (!Model.searches.Any())
+{
+    <div>@SharedResource["HistoryEmpty"]</div>
+}
+else
+{
+    @foreach (var search in Model.searches)
+    {
+        <a href="@Url.ConcordanceSearchLink(search)">
+            @if (!string.IsNullOrEmpty(search.Query))
+            {
+                <p class="query">@search.Query</p>
+                <p class="description">@(search.TranscriptionType == TranscriptionType.Conversational ? ConcordanceResource["TranscriptionTypeConversational"] : ConcordanceResource["TranscriptionTypeStandard"])</p>
+            }
+            else
+            {
+                <p class="query">@search.MainWord.Form</p>
+                <p class="description">@(search.MainWord.TranscriptionType == TranscriptionType.Conversational ? ConcordanceResource["TranscriptionTypeConversational"] : ConcordanceResource["TranscriptionTypeStandard"])</p>
+                <p class="description">@ConcordanceResource["HistoryPartOfSpeech"] @(search.MainWord.PartOfSpeechCondition == ConditionType.Is ? SharedResource["IsCondition"] : SharedResource["IsNotCondition"]): @(search.MainWord.PartOfSpeechId.HasValue ? Model.partOfSpeeches[search.MainWord.PartOfSpeechId.Value].Title : SharedResource["Any"].Value)</p>
+                @foreach (var wordInContext in search.WordsInContext)
+                {
+                    <br />
+                    <p class="description">@ConcordanceResource["HistoryWordInContext"] @(wordInContext.Condition == ConditionType.Is ? SharedResource["IsCondition"] : SharedResource["IsNotCondition"]): @wordInContext.Form</p>
+                    <p class="description">@(wordInContext.TranscriptionType == TranscriptionType.Conversational ? ConcordanceResource["TranscriptionTypeConversational"] : ConcordanceResource["TranscriptionTypeStandard"])</p>
+                    <p class="description">@ConcordanceResource["HistoryPartOfSpeech"] @(wordInContext.PartOfSpeechCondition == ConditionType.Is ? SharedResource["IsCondition"] : SharedResource["IsNotCondition"]): @(wordInContext.PartOfSpeechId.HasValue ? Model.partOfSpeeches[wordInContext.PartOfSpeechId.Value].Title : SharedResource["Any"].Value)</p>
+                    <p class="description">@ConcordanceResource["HistoryWordInContextDistance"]: @wordInContext.LeftPosition @ConcordanceResource["HistoryLeft"], @wordInContext.RightPosition @ConcordanceResource["HistoryRight"]</p>
+                }
+            }
+        </a>
+    }
+}

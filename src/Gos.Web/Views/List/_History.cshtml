@@ -1,0 +1,19 @@
+﻿@using Gos.ServiceModel.Requests.List
+@using Gos.Web.UrlHelpers
+@using Gos.ServiceModel.Enums
+@model IEnumerable<ListSearch> 
+
+@if (!Model.Any())
+{
+    <div>@SharedResource["HistoryEmpty"]</div>
+}
+else
+{
+    @foreach (var search in Model)
+    {
+        <a href="@Url.ListSearchLink(search)">
+            <p class="query">@search.Query</p>
+            <p class="description">@(search.TranscriptionType == TranscriptionType.Conversational ? ConcordanceResource["TranscriptionTypeConversational"] : ConcordanceResource["TranscriptionTypeStandard"])</p>
+        </a>
+    }
+}

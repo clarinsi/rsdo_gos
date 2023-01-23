@@ -1,0 +1,41 @@
+﻿@using Gos.ServiceModel.Types
+@using Gos.Core
+@using Gos.Web.Extensions
+@using Gos.Web.UrlHelpers
+@model Aggregation
+
+@if (Model.Items.Count > 0)
+{
+    var queryStringKey = Model.Type.ToQueryStringKey();
+    var displayExpand = Model.Items.Count > 5;
+    var filteredCount = Model.Items.Count(x => Url.IsFiltered(queryStringKey, x.Key.ToString()));
+    var title = SharedResource[$"{Model.Type.ToString()}Aggregation"];
+
+    <div class="filters-section @(displayExpand ? "collapsed" : "") @(filteredCount > 0 ? "mobile-open" : "")">
+        <h5 class="filters-header">@title</h5>
+        <ul class="filters-options">
+            @foreach (var item in Model.Items)
+            {
+                var value = item.Key.ToString();
+                var isFiltered = Url.IsFiltered(queryStringKey, value);
+                var url = isFiltered ? Url.GetRemoveFilterUrl(queryStringKey, value) : Url.GetFilterUrl(queryStringKey, value);
+                <li class="filter-category @(isFiltered ? "active" : "")" data-url="@url">
+                    <img class="close" src="~/images/close.svg" alt="Remove filter"/>
+                    <span class="title">@item.Title</span>
+                    <span class="count">@item.Count.ToString(Constants.Formats.CountsFormat)</span>
+                </li>
+            }
+            @if (displayExpand)
+            {
+                <li class="filter-category expand">
+                    <img class="expand" src="~/images/add.svg" alt="Expand"/>
+                    <span class="title">Več</span>
+                </li>
+                <li class="filter-category collapse">
+                    <img class="expand" src="~/images/subtract.svg" alt="Collapse"/>
+                    <span class="title">Manj</span>
+                </li>
+            }
+        </ul>
+    </div>
+}

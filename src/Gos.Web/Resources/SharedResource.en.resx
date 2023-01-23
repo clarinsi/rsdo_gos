@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="About" xml:space="preserve">
+        <value>About</value>
+    </data>
+    <data name="ProvidedBy" xml:space="preserve">
+        <value>Provided by</value>
+    </data>
+    <data name="Cjvt" xml:space="preserve">
+        <value>Centre for Language Resources and Technologies</value>
+    </data>
+    <data name="Information" xml:space="preserve">
+        <value>Information</value>
+    </data>
+    <data name="Licence" xml:space="preserve">
+        <value>Licence</value>
+    </data>
+    <data name="LicenceInfo" xml:space="preserve">
+        <value>This work is available under</value>
+    </data>
+    <data name="Download" xml:space="preserve">
+        <value>Download source</value>
+    </data>
+    <data name="Corpora" xml:space="preserve">
+        <value>The corpus of spoken Slovene</value>
+    </data>
+    <data name="List" xml:space="preserve">
+        <value>List</value>
+    </data>
+    <data name="Concordance" xml:space="preserve">
+        <value>Search</value>
+    </data>
+    <data name="StatsDiscourses" xml:space="preserve">
+        <value>discourses</value>
+    </data>
+    <data name="StatsStatements" xml:space="preserve">
+        <value>statements</value>
+    </data>
+    <data name="StatsWords" xml:space="preserve">
+        <value>words</value>
+    </data>
+    <data name="DiscourseTypeAggregation" xml:space="preserve">
+        <value>Discourse type</value>
+    </data>
+    <data name="DiscourseChannelAggregation" xml:space="preserve">
+        <value>Medium</value>
+    </data>
+    <data name="DiscourseRegionAggregation" xml:space="preserve">
+        <value>Region</value>
+    </data>
+    <data name="DiscourseYearAggregation" xml:space="preserve">
+        <value>Year</value>
+    </data>
+    <data name="DiscourseEventAggregation" xml:space="preserve">
+        <value>Event type</value>
+    </data>
+    <data name="SpeakerSexAggregation" xml:space="preserve">
+        <value>Gender of the speaker</value>
+    </data>
+    <data name="SpeakerAgeAggregation" xml:space="preserve">
+        <value>Age of the speaker</value>
+    </data>
+    <data name="SpeakerRegionAggregation" xml:space="preserve">
+        <value>Region of the speaker</value>
+    </data>
+    <data name="SpeakerEducationAggregation" xml:space="preserve">
+        <value>Education of the speaker</value>
+    </data>
+    <data name="SpeakerLanguageAggregation" xml:space="preserve">
+        <value>Speaker's first language</value>
+    </data>
+    <data name="IsCondition" xml:space="preserve">
+        <value>is</value>
+    </data>
+    <data name="IsNotCondition" xml:space="preserve">
+        <value>is not</value>
+    </data>
+    <data name="Any" xml:space="preserve">
+        <value>Any</value>
+    </data>
+    <data name="Details" xml:space="preserve">
+        <value>Details</value>
+    </data>
+    <data name="Apply" xml:space="preserve">
+        <value>Apply</value>
+    </data>
+    <data name="Clear" xml:space="preserve">
+        <value>Clear</value>
+    </data>
+    <data name="Export" xml:space="preserve">
+        <value>Export</value>
+    </data>
+    <data name="ExportData" xml:space="preserve">
+        <value>Export data</value>
+    </data>
+    <data name="ExportFirst" xml:space="preserve">
+        <value>first</value>
+    </data>
+    <data name="ExportMax" xml:space="preserve">
+        <value>You can export up to 1000 records!</value>
+    </data>
+    <data name="ExportRandom" xml:space="preserve">
+        <value>random</value>
+    </data>
+    <data name="ExportRecords" xml:space="preserve">
+        <value>records.</value>
+    </data>
+    <data name="ExportTotal" xml:space="preserve">
+        <value>The number of records is {0}.</value>
+    </data>
+    <data name="LemmaAggregation" xml:space="preserve">
+        <value>Standardized basic form</value>
+    </data>
+    <data name="PartOfSpeechAggregation" xml:space="preserve">
+        <value>Part of speech</value>
+    </data>
+    <data name="Find" xml:space="preserve">
+        <value>Find</value>
+    </data>
+    <data name="HistoryEmpty" xml:space="preserve">
+        <value>Search history is empty!</value>
+    </data>
+    <data name="History" xml:space="preserve">
+        <value>Search history</value>
+    </data>
+    <data name="TranscriptionTypeConversational" xml:space="preserve">
+        <value>Pronunciation-based spelling</value>
+    </data>
+    <data name="TranscriptionTypeStandard" xml:space="preserve">
+        <value>Standardized spelling</value>
+    </data>
+    <data name="LemmasAlternateSearch" xml:space="preserve">
+        <value>Basic forms</value>
+    </data>
+    <data name="NoResults" xml:space="preserve">
+        <value>No results were found for your search.</value>
+    </data>
+    <data name="AllSources" xml:space="preserve">
+        <value>All sources</value>
+    </data>
+    <data name="ExportType" xml:space="preserve">
+        <value>Export</value>
+    </data>
+    <data name="TranscriptionTypeConversationalShort" xml:space="preserve">
+        <value>Pronunciation-based</value>
+    </data>
+    <data name="TranscriptionTypeStandardShort" xml:space="preserve">
+        <value>Standardized</value>
+    </data>
+    <data name="ConcordanceHint" xml:space="preserve">
+        <value>Simple search</value>
+    </data>
+    <data name="ListHint" xml:space="preserve">
+        <value>List search</value>
+    </data>
+</root>

@@ -1,0 +1,140 @@
+﻿@using Gos.Web.UrlHelpers
+@using Gos.ServiceModel.Enums
+@using Gos.Core
+@model BaseViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    // Navigation variables
+    var controller = ViewContext.RouteData.Values["controller"].ToString();
+    var lang = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+    var indexViewModel = (IIndexViewModel)Model;
+    
+    // Concordance
+    var concordanceClass = controller.Equals("Concordance", StringComparison.OrdinalIgnoreCase) ? "active" : null;
+    var concordanceImage = lang.Equals("sl", StringComparison.OrdinalIgnoreCase) ? "search-icon-i.svg" : "search-icon-s.svg";
+
+    // List
+    var listClass = controller.Equals("List", StringComparison.OrdinalIgnoreCase) ? "active" : null;
+    var listImage = lang.Equals("sl", StringComparison.OrdinalIgnoreCase) ? "search-icon-s.svg" : "search-icon-l.svg";
+    
+    // Transcription type
+    var conversationalFormClass = indexViewModel.TranscriptionType == TranscriptionType.Conversational ? "active" : null;
+    var standardFormClass = indexViewModel.TranscriptionType == TranscriptionType.Standard ? "active" : null;
+}
+
+<header class="navbar bg-red">
+    <div class="bx--grid primary-navbar index">
+        <div class="bx--row">
+            <div class="bx--col-md-4">
+                <a href="@Url.Action("Index", "Concordance")" class="logo">
+                    <img src="~/images/logo-full.svg" alt="CJVT Gos" class="hide-on-phone" />
+                    <img src="~/images/logo.svg" alt="CJVT Gos" class="show-on-phone" />
+                </a>
+            </div>
+            <div class="bx--col-md-4">
+                <div class="pages">
+                    <a href="@Url.Action("About", "System")"><span>@SharedResource["About"]</span></a>
+                    <div class="dropdown">
+                        <a class="dropbtn">
+                            @Model.CurrentUiName
+                            <div class="carbon-icon" data-icon="chevron--down--white"><img src="~/images/chevron--down--white.svg"></div>
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="@Url.Action("SetLanguage", "System", new {culture = Constants.InterfaceLanguages.Slovene, returnUrl = Url.GetReturnUrl()})">@Constants.InterfaceLanguages.SloveneName</a>
+                            <a href="@Url.Action("SetLanguage", "System", new {culture = Constants.InterfaceLanguages.English, returnUrl = Url.GetReturnUrl()})">@Constants.InterfaceLanguages.EnglishName</a>
+                        </div>
+                        <a class="viri-btn-full" href="https://viri.cjvt.si/"><div class="carbon-icon" data-icon="switcher"><img src="~/images/switcher.svg"></div> <span>@SharedResource["AllSources"]</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bx--row">
+            <div class="bx--col-md-1"></div>
+            <div class="bx--col-md-6">
+                <div class="title" style="padding-left: 0;">
+                    <h2>@SharedResource["Corpora"]</h2>
+                </div>
+                <div class="search-options">
+                    <div class="area">
+                        <a class="@concordanceClass" href="@Url.Action("Index", "Concordance")"><img src="~/images/@concordanceImage" alt="@SharedResource["Concordance"]"/>@SharedResource["Concordance"]</a>
+                        <a class="@listClass" href="@Url.Action("Index", "List")"><img src="~/images/@listImage" alt="@SharedResource["List"]"/>@SharedResource["List"]</a>
+                    </div>
+                    <div class="form">
+                        <a class="@conversationalFormClass" data-form="@TranscriptionType.Conversational" href="#"><img src="~/images/voice-activate-white.svg" alt="@SharedResource["TranscriptionTypeConversational"]"/>@SharedResource["TranscriptionTypeConversational"]</a>
+                        <a class="@standardFormClass" data-form="@TranscriptionType.Standard" href="#"><img src="~/images/pen--fountain--white.svg" alt="@SharedResource["TranscriptionTypeStandard"]"/>@SharedResource["TranscriptionTypeStandard"]</a>
+                    </div>
+                    <div class="advanced">
+                        <a href="@Url.Action("Advanced", "Concordance")"><img src="~/images/search--advanced.svg" alt="@ConcordanceResource["AdvancedSearch"]"/>@ConcordanceResource["AdvancedSearch"]</a>
+                    </div>
+                </div>
+                <div class="search-input search-input-bigger">
+                    @await RenderSectionAsync("InputSection", required: false)
+                </div>
+                <div class="search-help">
+                    @await RenderSectionAsync("HelpSection", required: false)
+                </div>
+                <div class="bx--row hide-on-phone">
+                    <div class="bx--col-md-2">
+                        <div class="index-stats">
+                            <div class="line line-white m-b-10"></div>
+                            <h1>@indexViewModel.Discourses.ToString("N0")</h1>
+                            <p>@SharedResource["StatsDiscourses"]</p>
+                        </div>
+                    </div>
+                    <div class="bx--col-md-2">
+                        <div class="index-stats">
+                            <div class="line line-white m-b-10"></div>
+                            <h1>@indexViewModel.Statements.ToString("N0")</h1>
+                            <p>@SharedResource["StatsStatements"]</p>
+                        </div>
+                    </div>
+                    <div class="bx--col-md-2">
+                        <div class="index-stats">
+                            <div class="line line-white m-b-10"></div>
+                            <h1>@indexViewModel.Words.ToString("N0")</h1>
+                            <p>@SharedResource["StatsWords"]</p>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <div class="bx--col-md-1"></div>
+        </div>
+    </div>
+    <div class="bg-white secondary-navbar">
+        <div class="bx--grid">
+            <div class="bx--row" style="height: 4rem;">
+                <div class="bx--col">
+                    <div style="position: relative; padding-top: 0.5rem;">
+                        <div class="icons">
+                            <div class="icon-item" id="share-fb"><div class="carbon-icon" data-icon="logo--facebook"><img src="~/images/logo--facebook.svg" alt="Facebook" /></div></div>
+                            <div class="icon-item" id="share-twitter"><div class="carbon-icon" data-icon="logo--twitter"><img src="~/images/logo--twitter.svg" alt="Twitter"></div></div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="bx--grid" style="margin-top: 2rem;">
+    <div class="bx--row">
+        <div class="bx--col bx--col-sm-4">
+            <div class="index-list">
+                <p>In venenatis enim lacus, vitae commodo nisl interdum sit amet. Cras tincidunt lorem sed porttitor dapibus. Aliquam eu nisi viverra, rutrum felis id, convallis leo. In quis metus nisl. Ut eu vestibulum diam, at euismod quam. Sed sollicitudin arcu odio, et consequat est blandit non. Vestibulum euismod mattis risus, quis pellentesque ligula efficitur sed. Aenean sed scelerisque sem, sed luctus neque.</p>
+            </div>
+        </div>
+        <div class="bx--col bx--col-sm-4">
+            <div class="index-list">
+                <p>Cras sed feugiat nunc. In ac mollis metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque at nunc nec enim congue cursus. Duis accumsan dignissim justo, ac aliquam ex maximus vitae. Vivamus erat sapien, auctor sit amet nibh eu, dapibus sagittis dui. Integer arcu nisi, pretium vitae hendrerit quis, venenatis at risus. Quisque sodales congue tellus, ac dapibus augue sodales eu. Nullam viverra sapien et mattis lacinia. In eros ex, molestie vitae risus nec, sollicitudin venenatis nunc.</p>
+            </div>
+        </div>
+        <div class="bx--col bx--col-sm-4">
+            <div class="index-list">
+                <p>Praesent vel justo at ante dignissim laoreet. Nam vulputate turpis feugiat ultrices pellentesque. Integer a viverra ipsum. Nulla mollis ornare mauris, et mattis nulla porttitor sit amet. Maecenas tempor rutrum cursus. Duis dictum felis ut aliquam pretium. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris pharetra ligula sed felis convallis, id vestibulum massa dignissim. Ut lorem nulla, malesuada sit amet aliquam quis, vestibulum nec arcu. Etiam accumsan luctus dui vitae sodales.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@RenderBody()

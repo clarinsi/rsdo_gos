@@ -1,0 +1,87 @@
+@import 'cjvt-theme';
+
+.text-right {
+    text-align: right;
+}
+
+.search-dropdown {
+    background-color: $white;
+    border: 1px solid $grey-b-94;
+    position: absolute;
+    width: 100%;
+    z-index: 100000;
+
+    &.history {
+        max-height: 17.5rem;
+        overflow: auto;
+
+        a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+
+            .query {
+                color: $ui-black;
+                font-size: 0.875rem;
+            }
+
+            .description {
+                color: $grey-b-70;
+                font-size: 0.75rem;
+            }
+
+            &:hover {
+                background-color: $grey-b-96;
+            }
+        }
+    }
+}
+
+.module {
+    background: $white;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.module {
+    &.help, &.export {
+        padding: 1rem;
+        position: relative;
+
+        .btn-exit {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+
+            img {
+                height: 1.125rem;
+                width: 1.125rem;
+            }
+        }
+
+        h3 {
+            color: $ui-black;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        h5 {
+            color: $ui-black;
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+        }
+    }
+
+    &.help {
+        p {
+            color: $ui-black;
+            font-size: 0.75rem;
+
+            &:not(:last-child) {
+                margin-bottom: 0.8rem;
+            }
+        }
+    }
+}

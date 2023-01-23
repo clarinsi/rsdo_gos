@@ -1,0 +1,88 @@
+﻿@using Microsoft.AspNetCore.Http.Extensions
+@model BaseViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Gos @ViewData["Title"]</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600;700" rel="stylesheet">
+    <link href="https://unpkg.com/carbon-components@10.56.0/css/carbon-components.min.css"  rel="stylesheet">    
+    
+    <script src="~/js/gos.js" asp-append-version="true"></script>
+    <script>
+        const posUrl = '@Url.Action("Details", "PartOfSpeech")';    
+    </script>
+</head>
+<body class="@Model.BodyCssClass">
+@RenderBody()
+<footer>
+    <div class="bx--grid">
+        <div class="bx--row">
+            <div class="bx--col-md-1">
+                <div class="footer-col-content">
+                    <h5>Izdal</h5>
+                    <div class="to-bottom">
+                        <a class="uni-logo" href="https://www.uni-lj.si/" target="_blank">
+                            <img src="~/images/unilj_logo.svg" alt="Univerza v Ljubljani">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bx--col-md-1">
+                <div class="footer-col-content">
+                    <h5>@SharedResource["ProvidedBy"]</h5>
+                    <div class="to-bottom">
+                        <a href="http://www.cjvt.si" target="_blank" class="click_trigger_event">
+                            <img src="~/images/cjvt_logo.svg" alt="Center za jezikovne vire in tehnologije Univerze v Ljubljani">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bx--col-md-1">
+                <div class="footer-col-content">
+                    <h5>@SharedResource["Download"]</h5>
+                    <div class="to-bottom">
+                        <a href="https://www.clarin.si/repository/xmlui/handle/11356/1040" target="_blank"><img src="~/images/clarin_logo.svg" alt="Clarin"/></a>
+                    </div>
+                </div>
+            </div>
+            <div class="bx--col-md-2">
+                <div class="footer-col-content">
+                    <h5>@SharedResource["Licence"]</h5>
+                    <div class="to-bottom">
+                        <div class="cc-block">
+                            <p>@SharedResource["LicenceInfo"] <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a></p>
+                            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" style="width:40%;margin-top:1rem;" alt="Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bx--col-md-2">
+                <div class="footer-col-content">
+                    <h5>@SharedResource["Information"]</h5>
+                    <div class="to-bottom">
+                        <div style="float: left; width: 45%;">
+                            <p>@SharedResource["Cjvt"]</p><br />
+                            <p class="text-grey-70">Večna pot 113 <br/>SI-1000 Ljubljana</p>
+                        </div>
+                        <div style="float: right; width: 45%;">
+                            <p class="text-grey-70">Telefon</p>
+                            <p><a href="#">+386 1 479 82 99</a></p>
+                            <br/>
+                            <p class="text-grey-70">Email</p>
+                            <p><a href="mailto:info@cjvt.si">info@cjvt.si</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+@await RenderSectionAsync("Scripts", required: false)
+<script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿P;Attribute (sl);Value (sl);Code (sl);Attribute (en);Value (en);Code (en)
+0;besedna_vrsta;pridevnik;P;CATEGORY;Adjective;A
+1;vrsta;splošni;p;Type;general;g
+;;svojilni;s;;possessive;s
+;;deležniški;d;;participle;p
+2;stopnja;nedoločeno;n;Degree;positive;p
+;;primernik;p;;comparative;c
+;;presežnik;s;;superlative;s
+3;spol;moški;m;Gender;masculine;m
+;;ženski;z;;feminine;f
+;;srednji;s;;neuter;n
+4;število;ednina;e;Number;singular;s
+;;dvojina;d;;dual;d
+;;množina;m;;plural;p
+5;sklon;imenovalnik;i;Case;nominative;n
+;;rodilnik;r;;genitive;g
+;;dajalnik;d;;dative;d
+;;tožilnik;t;;accusative;a
+;;mestnik;m;;locative;l
+;;orodnik;o;;instrumental;i
+6;določnost;ne;n;Definiteness;no;n
+;;da;d;;yes;y

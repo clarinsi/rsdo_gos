@@ -1,0 +1,25 @@
+﻿@using Gos.ServiceModel.Types
+@using Gos.ServiceModel.Requests.Concordance
+@using Gos.Web.UrlHelpers
+@using Gos.Core
+@model AlternateSearch<ConcordanceSearch>
+
+@if (Model != null && Model.Items.Count > 0)
+{
+    <div class="filters-section">
+        <h5 class="filters-header" style="padding-top: 0.8rem;">@SharedResource[$"{Model.Type.ToString()}AlternateSearch"] <i class="material-icons pull-right show-on-phone" style="display: none;">arrow_drop_down</i></h5>
+        <ul class="filters-options">
+            @foreach (var item in Model.Items)
+            {
+                var isFiltered = Url.IsActiveSearch(item.Search);
+                var url = isFiltered ? Url.ConcordanceSearchLink(Model.OriginalSearch) : Url.ConcordanceSearchLink(item.Search);
+                <li class="filter-category @(isFiltered ? "active" : "")" data-url="@url">
+                    <img class="close" src="~/images/close.svg" alt="Remove filter"/>
+                    <span class="title">@item.Title</span>
+                    <span class="count">@item.Count.ToString(Constants.Formats.CountsFormat)</span>
+                </li>
+            }
+        </ul>
+    </div>
+}
+

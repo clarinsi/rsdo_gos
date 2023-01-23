@@ -1,0 +1,445 @@
+@import 'cjvt-theme';
+.tab {
+  padding-bottom:2rem;
+  border-top: 1px solid $grey-b-96;
+  border-radius: 2px;
+  background: white;
+  .word {
+    position:relative;
+    display: inline-block;
+    line-height:2rem;
+    height:2rem;
+    margin-top:0.5rem;
+    margin-bottom:0.5rem;
+    border-radius: 1rem;
+    padding:0 1rem 0 1rem;
+    a {
+      text-decoration: none;
+      cursor:pointer;
+    }
+    &.caret {
+      .carbon-icon {left:0}
+    }
+    h5 {
+      display: inline;
+      vertical-align: baseline;
+    }
+    .carbon-icon {
+      position:relative;
+      top:0.16rem;
+      left:0.25rem;
+      img {
+        height:1.125rem;
+        width:1.125rem;
+      }
+    }
+  }
+}
+.tab-header {
+  padding-top:0.5rem;
+  padding-bottom:0.5rem;
+  .sense-number {
+    margin-left: 1.55rem;
+    width: 1rem;
+    height: 1rem;
+    position: relative;
+    top: 0.3rem;
+  }
+
+  .context-name {
+    display: inline-block;
+    .word:first-child {
+      padding-right:0;
+    }
+    .word.caret {
+      padding:0 0.5rem;
+    }
+    .word.translation {
+      margin-right:0.5rem;
+      background: $indigo-blue;
+      color: white;
+      h5 {vertical-align: baseline;}
+      a {
+        cursor: default;
+        color:inherit;
+        &[href] {
+          cursor: pointer;
+        }
+      }
+      .approximation {
+        position:relative;
+        left:-0.4rem;
+      }
+      .contrastive {
+        .carbon-icon{
+          position:absolute;
+          img {
+            width: 0.825rem;
+          }
+        }
+        position: relative;
+        left: -0.8rem;
+        top: -0.35rem;
+        margin-right: 0.8rem;
+      }
+    }
+    .trans-label {
+      margin-right:0.5rem;
+      color:$grey-b-40;
+    }
+  }
+}
+.cluster-divider {
+  display: inline-block;
+  margin-right:0.3rem;
+  margin-top:0.5rem;
+  margin-bottom:0.5rem;
+  line-height: 2rem;
+  content: "&nbsp;";
+  height: 2rem;
+  border-left:1px solid $grey-b-94;
+
+}
+
+.tab-content {
+  border-left: 2px solid $red;
+  padding-left:0.5rem;
+  padding-right:2rem;
+  margin-left:2rem;
+  margin-right:0.5rem;
+  div.hr {
+    border-top:1px solid $grey-b-96;
+    padding-top:1rem;
+    margin:0 1rem;
+  }
+
+  .collocations {
+    padding-bottom:0.5rem;
+    .collocat {
+      .word:first-child {
+        padding-right:0;
+        margin-right:0.5rem;
+      }
+      .word.original span {
+        position: relative;
+        top:-0.068rem;
+      }
+      .word.caret {
+        padding:0 0;
+        width:1.25rem;
+        margin-right:0.2rem;
+      }
+      .word.translation {
+        box-sizing: border-box;
+        background:$grey-b-96;
+        margin-right:0.5rem;
+        font-size: 1rem;
+      }
+      a {
+        cursor: default;
+        position: relative;
+        top:-0.068rem;
+        &[href] {
+          cursor: pointer;
+        }
+      }
+      .approximation {
+        position:relative;
+        left:-0.4rem;
+      }
+      .contrastive {
+        .carbon-icon{
+          position:absolute;
+          img {
+            width: 0.825rem;
+          }
+        }
+        position: relative;
+        left: -0.8rem;
+        top: -0.35rem;
+        margin-right: 0.8rem;
+      }
+    }
+    .vhr {
+      display: inline-block;
+      width: 0;
+      border-left: 1px solid $grey-b-96;
+      height: 2rem;
+      margin: 0 0.5rem;
+      position: relative;
+      top:0.6rem;
+    }
+  }
+
+  .example-container {
+    position:relative;
+    padding-left:1rem;
+    padding-right:1rem;
+    margin-bottom:1rem;
+    .example-caret {
+      position:absolute;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      margin:auto;
+    }
+    .example {
+      font-family:'IBM Plex Serif', serif;
+      letter-spacing: 0.2px;
+      position:relative;
+      padding: 0.5rem 1rem;
+      padding-right: 3rem;
+      background: $grey-b-96;
+      border-radius: 2px;
+      >p {
+        font-size: 0.875rem;
+        i {
+          font-weight: bold;
+          letter-spacing: 0.16px;
+        }
+      }
+      .carbon-icon {
+        position:absolute;
+        height:20px;
+        top:0%;
+        bottom:0%;
+        margin:auto;
+        right:0.5rem;
+      }
+      .approximation {
+        display:block;
+        float:left;
+        padding-right: 0.5rem;
+      }
+      .contrastive {
+        .carbon-icon {
+          position:static;
+          img {
+          width:0.825rem;
+          }
+        }
+        display: block;
+        float:left;
+        position:relative;
+        left:-0.2rem;
+      }
+    }
+  }
+  .stalne-besedne-zveze {
+    .collocat .word.translation {
+      background:white;
+      border: 1px solid $indigo-blue;
+      color: $indigo-blue;
+    }
+  }
+}
+
+
+.tab-nav {
+  padding-left: 1.5rem;
+  border-bottom: 1px solid $grey-b-94;
+  box-sizing: border-box;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  .tab-nav-item {
+    display:inline-block;
+    line-height:3rem;
+    margin-right:1.5rem;
+    color: $grey-b-40;
+    cursor:pointer;
+    border-bottom: 1px solid white;
+    &:hover {
+      border-bottom: 1px solid $grey-b-40;
+    }
+    &:active,&.active {
+      color: $ui-black;
+      border-bottom: 1px solid $ui-black;
+    }
+  }
+}
+
+.filters {
+  padding: 1rem 1.5rem;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  .sense-filter-container {
+    display: inline-block;
+    margin-left:1rem;
+  }
+}
+.switch {
+  float:left;
+  border-radius: 2px;
+  border: solid 1px $ui-black;
+  display: inline-block;
+  cursor:pointer;
+  transition: all 0.3s ease-out;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  &:hover {
+    background:$grey-b-94;
+  }
+  .carbon-icon {
+    margin-top:0.3rem;
+  }
+  &.disabled {
+    opacity:0.40;
+    cursor: default;
+    &:hover {
+      background:none;
+    }
+  }
+}
+/*.switch {
+  float:left;
+  border-radius: 2px;
+  border: solid 1px $ui-black;
+  display: inline-block;
+  cursor:pointer;
+  .switch-option {
+    transition: all 0.3s ease-out;
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    background: $ui-black;
+    color:white;
+    float:left;
+    &.active {
+      background: white;
+      color: $ui-black;
+      .carbon-icon img {
+        filter: invert(0);
+      }
+    }
+    .carbon-icon {
+      margin-top:0.4rem;
+      img {
+        filter:invert(1);
+      }
+    }
+  }
+}*/
+
+.select-tag {
+  box-sizing: border-box;
+  position:relative;
+  border-radius: 2px;
+  border: solid 1px $red;
+  display: inline-block;
+  padding:0.5rem;
+  padding-left:2rem;
+  padding-top:0.375rem;
+  padding-bottom:0.375rem;
+  color: $red;
+  cursor: pointer;
+  margin-right:0.4rem;
+  &:hover,&.active {
+    background:$red;
+    color:white;
+    .carbon-icon img {
+      border: 1px solid white;
+      border-radius: 1px;
+    }
+    &:active {
+      opacity:0.9;
+    }
+  }
+  .carbon-icon {
+    position: absolute;
+    display:inline-block;
+    width:1rem;
+    height:1rem;
+    top:0.5rem;
+    left:0.5rem;
+  }
+}
+
+.recomendation-panel {
+  background: white;
+  padding: 1.5rem;
+  padding-bottom:1rem;
+  border-radius: 2px;
+  margin-bottom:2rem;
+  min-height: 11.75rem;
+  >h5 {
+    line-height: 1;
+    padding-bottom:1rem;
+    .carbon-icon {
+      position:relative;
+      top:0.2rem;
+    }
+    a {
+      text-decoration: none;
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+}
+.povezane-iztocnice > h5 {
+  margin-bottom: 1.75rem;
+}
+
+
+.related-headword {
+  position:relative;
+  padding:0.5rem 0.75rem;
+  padding-top: 0.375rem;
+  border-radius: 2px;
+  border: solid 1px $ui-black;
+  width:12rem;
+  display:inline-block;
+  text-decoration: none;
+  margin-right:0.5rem;
+  p {
+    color: $grey-b-40;
+    font-size:0.825rem;
+  }
+  .carbon-icon {
+    position:absolute;
+    right:0.5rem;
+    top:1.1rem;
+  }
+  &:hover {
+
+  }
+}
+.synonyms {
+  margin: 0 1rem;
+}
+.synonym {
+  background:$grey-b-98;
+  height:3.5rem;
+  display:block;
+  padding:0.5rem;
+  position:relative;
+  cursor:pointer;
+  text-decoration: none;
+  margin-bottom:0.5rem;
+  overflow: hidden;
+  >h5 {
+    position: relative;
+    top:-0.068rem;
+  }
+  &:hover {
+    background: $grey-b-94;
+  }
+  p {
+    font-size:0.75rem;
+    position: relative;
+    top: -0.068rem;
+    color:$grey-b-40;
+  }
+  .carbon-icon {
+    position:absolute;
+    right:0.5rem;
+    top:1.2rem;
+  }
+}
+
+.carbon-icon[data-icon*="volume--up"] {
+  cursor: pointer;
+}

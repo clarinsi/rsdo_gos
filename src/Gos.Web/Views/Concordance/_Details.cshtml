@@ -1,0 +1,67 @@
+﻿@using Gos.Web.Models.Concordance
+@using Gos.Web.UrlHelpers
+@model ConcordanceDetailsViewModel
+
+<div class="bx--row">
+    <div class="bx--col">
+        <div class="header">
+            <div class="bx--row">
+                <div class="bx--col nav">
+                    <ul>
+                        <li class="active"><a href="#" role="tab" target="#tab-statement">@ConcordanceResource["DetailsInformation"]</a></li>
+                        <li><a href="#" role="tab" target="#tab-annotation">@ConcordanceResource["DetailsCorpusAnnotation"]</a></li>
+                    </ul>
+                </div>
+                <div class="bx--col text-right buttons">
+                    <a class="play" href="#" data-sounds="@Url.ConcordanceSoundLinks(Model.Result.AllSoundFiles)}"><img src="~/images/volume--up.svg" alt="@ConcordanceResource["PlayAll"]"/> @ConcordanceResource["PlayAll"]</a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="tab-statement" role="tab-pane">
+            <div class="statements">
+                <div class="bx--row">
+                    <div class="bx--col">
+                        @{ await Html.RenderPartialAsync("_DetailsStatementConversationalForm", (Model.Result.PreviousStatement, false)); }
+                    </div>
+                    <div class="bx--col">
+                        @{ await Html.RenderPartialAsync("_DetailsStatementConversationalForm", (Model.Result.Statement, true)); }
+                    </div>
+                    <div class="bx--col">
+                        @{ await Html.RenderPartialAsync("_DetailsStatementConversationalForm", (Model.Result.NextStatement, false)); }
+                    </div>
+                </div>
+            </div>
+            <div class="bx--row">
+                <div class="bx--col">
+                    @{ await Html.RenderPartialAsync("_DetailsStatementInfo", (model: Model.Result.PreviousStatement, isVisible: false)); }
+                    @{ await Html.RenderPartialAsync("_DetailsStatementInfo", (model: Model.Result.Statement, isVisible: true)); }
+                    @{ await Html.RenderPartialAsync("_DetailsStatementInfo", (model: Model.Result.NextStatement, isVisible: false)); }
+                </div>
+            </div>
+        </div>
+        
+        <div id="tab-annotation" role="tab-pane" style="display: none">
+            <div class="statements">
+                <div class="bx--row">
+                    <div class="bx--col">
+                        @{ await Html.RenderPartialAsync("_DetailsStatementStandardForm", (Model.Result.PreviousStatement, false)); }
+                    </div>
+                    <div class="bx--col">
+                        @{ await Html.RenderPartialAsync("_DetailsStatementStandardForm", (Model.Result.Statement, true)); }
+                    </div>
+                    <div class="bx--col">
+                        @{ await Html.RenderPartialAsync("_DetailsStatementStandardForm", (Model.Result.NextStatement, false)); }
+                    </div>
+                </div>
+            </div>
+            <div class="bx--row">
+                <div class="bx--col">
+                    @{ await Html.RenderPartialAsync("_DetailsStatementTokens", (model: Model.Result.PreviousStatement, isVisible: false)); }
+                    @{ await Html.RenderPartialAsync("_DetailsStatementTokens", (model: Model.Result.Statement, isVisible: true)); }
+                    @{ await Html.RenderPartialAsync("_DetailsStatementTokens", (model: Model.Result.NextStatement, isVisible: false)); }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

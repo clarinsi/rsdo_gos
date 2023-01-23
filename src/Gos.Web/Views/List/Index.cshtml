@@ -1,0 +1,61 @@
+﻿@using Gos.ServiceModel.Requests.List
+@using Gos.Web.Models.List
+@using Gos.ServiceModel.Enums
+@using Gos.Core.Entities
+@model ListIndexViewModel
+@{
+    Layout = "~/Views/Shared/_IndexLayout.cshtml";
+}
+
+@section InputSection {
+    @using (Html.BeginForm("Search", "List", FormMethod.Get))
+    {
+        var conditionName = $"{nameof(ListSearch.Condition)}";
+        var conditionIsId = $"{conditionName}_{ConditionType.Is.ToString()}";
+        var conditionIsNotId = $"{conditionName}_{ConditionType.IsNot.ToString()}";
+        
+        @Html.Hidden(nameof(Model.Request.TranscriptionType), Model.Request.TranscriptionType)
+        @Html.Hidden(nameof(Model.Request.Condition))
+        @Html.Hidden(nameof(Model.Request.PartOfSpeechIds))
+        @Html.Hidden(nameof(Model.Request.Msds))
+        <div class="carbon-icon" data-icon="search"><img src="~/images/search.svg"></div>
+        @Html.TextBox(nameof(ListSearch.Query), Model.Request.Query, new { autocapitalize = "off", autocomplete = "off", autocorrect = "off", spellcheck = "false" })
+        <div id="posIcon" class="carbon-icon" data-icon="pos"><a href="#"><img src="~/images/caret--down.svg" /></a></div>
+        <div id="historyIcon" class="carbon-icon" data-icon="search"><a href="#" data-history-url="@Url.Action("History", "List")" data-history-key="list-search-history" title="@SharedResource["History"]"><img src="~/images/zoom--reset.svg" alt="@SharedResource["History"]" /></a></div>
+        <div class="search-dropdown history" style="display: none;"></div>
+        <div class="search-dropdown pos" style="display: none;">
+            <div class="condition">
+                <h3>@ConcordanceResource["PartOfSpeech"]</h3>
+                <div class="form-radio-control-buttons">
+                    @Html.RadioButton(conditionName, ConditionType.Is, true, new { id = conditionIsId }) <label for="@conditionIsId">@SharedResource["IsCondition"]</label>
+                </div>
+                <div class="form-radio-control-buttons">
+                    @Html.RadioButton(conditionName, ConditionType.IsNot, false, new { id = conditionIsNotId }) <label for="@conditionIsNotId">@SharedResource["IsNotCondition"]</label>
+                </div>
+            </div>
+            <div class="pos">
+                <ul>
+                    <li data-value=""><span class="name">@SharedResource["Any"]</span></li>
+                    @foreach (PartOfSpeech pos in Model.PartOfSpeechesList.Items)
+                    {
+                        <li data-value="@pos.Id">
+                            <span class="name">@pos.Title</span>
+                            @if (pos.Attributes.Count > 0)
+                            {
+                                <button type="button" class="details"><img src="~/images/add.svg"/>@SharedResource["Details"]</button>
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>            
+        </div>
+    }
+}
+
+@section HelpSection {
+    <p>@ListResource["ListSearchInUse"]</p>
+    @{ await Html.RenderPartialAsync("_Help"); }
+}
+
+<div class="pos-holder" style="display: none;">
+</div>

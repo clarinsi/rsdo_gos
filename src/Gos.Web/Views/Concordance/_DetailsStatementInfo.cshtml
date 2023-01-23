@@ -1,0 +1,75 @@
+﻿@using Gos.ServiceModel.Requests.Concordance
+@using Gos.Core.Extensions
+@model (ConcordanceDetailsResponseStatement model, bool isVisible)
+@{
+    var data = Model.model;
+    var display = Model.isVisible ? "visible" : "none";
+}
+
+@if (data != null)
+{
+    <div class="statement-wrapper" data-statement-id="@data.Id" style="display: @display;">
+        <div class="bx--row">
+            <div class="bx--col-lg-8">
+                <div class="bx--row">
+                    <div class="bx--col">
+                        <h3><img src="~/images/information--filled.svg" alt="Podatki o dogodku"/> Podatki o dogodku</h3>
+                    </div>
+                </div>
+                <div class="bx--row">
+                    <div class="bx--col">
+                        <h4>Tip diskurza</h4>
+                        <p>@data.DiscourseType</p>
+                        <h4>@ConcordanceResource["DetailsDiscourseChannel"]</h4>
+                        <p>@data.DiscourseChannel</p>
+                        <h4>@ConcordanceResource["DetailsDiscourseEvent"]</h4>
+                        <p>@data.DiscourseEvent</p>
+                        <h4>@ConcordanceResource["DetailsNumberOfSpeakers"]</h4>
+                        <p>@data.NumberOfSpeakers</p>
+                    </div>
+                    <div class="bx--col">
+                        <h4>@ConcordanceResource["DetailsDiscourseSource"]</h4>
+                        <p>@data.DiscourseSource</p>
+                        <h4>@ConcordanceResource["DetailsDiscourseRegion"]</h4>
+                        <p>@data.DiscourseRegion</p>
+                        <h4>@ConcordanceResource["DetailsDiscourseDescription"]</h4>
+                        <p>@data.DiscourseDescription</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bx--col-lg-4">
+                <div class="bx--row">
+                    <div class="bx--col">
+                        <h3><img src="~/images/user--avatar--filled.svg" alt="Podatki o govorcu"/>Podatki o govorcu</h3>
+                    </div>
+                </div>
+                <div class="bx--row">
+                    <div class="bx--col">
+                        <h4>@ConcordanceResource["DetailsSpeakerSex"]</h4>
+                        <p>@data.SpeakerSex</p>
+                        <h4>@ConcordanceResource["DetailsSpeakerAge"]:</h4>
+                        <p>@data.SpeakerAge</p>
+                        <h4>@ConcordanceResource["DetailsSpeakerEducation"]:</h4>
+                        <p>@data.SpeakerEducation</p>
+                    </div>
+                    <div class="bx--col">
+                        <h4>@ConcordanceResource["DetailsSpeakerRegion"]:</h4>
+                        <p>@data.SpeakerRegion</p>
+                        <h4>@ConcordanceResource["DetailsSpeakerLanguage"]:</h4>
+                        <p>@data.SpeakerLanguage</p>
+                        <h4>@ConcordanceResource["DetailsSpeakerCode"]:</h4>
+                        <p>@data.SpeakerCode</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--
+<div class="bx--row">
+    <div class="bx--col">
+        <h4>@ConcordanceResource["DetailsStandardForm"]</h4>
+        <p>@data.Tokens.ToStandardFormText()</p>
+    </div>
+</div>
+-->
+    </div>
+}

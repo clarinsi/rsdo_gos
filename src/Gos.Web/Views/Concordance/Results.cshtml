@@ -1,0 +1,88 @@
+﻿@using Gos.Web.Models.Concordance
+@using Gos.Core.Extensions
+@using Gos.ServiceModel.Requests.Concordance
+@using Gos.Web.UrlHelpers
+@model ConcordanceResultsViewModel
+@{
+    Layout = "~/Views/Shared/_ResultsLayout.cshtml";
+}
+
+<div id="main-content" style="min-height: 80vh; margin-bottom: 2rem;">
+    <div class="bx--grid" style="margin-top: 2rem;">
+        <div class="bx--row">
+            @if (!Model.Result.Items.IsNullOrEmpty())
+            {
+                <div class="bx--col-md-3 bx--col-lg-3" style="padding-right: 2rem;">
+                    <div class="module result-filters">
+                        @await Html.PartialAsync("_AlternateSearch", Model.Result.LemmasAlternateSearch)
+                        @foreach (var aggregation in Model.Result.Aggregations)
+                        {
+                            @await Html.PartialAsync("_Aggregation", aggregation)
+                        }
+                    </div>
+                </div>
+                <div class="bx--col-md-5 bx--col-lg-9">
+                    @await Html.PartialAsync("_ResultsHistory")
+                    @await Html.PartialAsync("_Export", Model.Result)
+                    <div class="module">
+                        <div class="pager">
+                            <div class="bx--row">
+                                <div class="bx--col count">@Html.Raw(Model.ResultsInfo)</div>
+                                <div class="bx--col pages">
+                                    @if (Model.Result.Total > 20)
+                                    {
+                                        <pager offset="@Model.Result.Offset" total="@Model.Result.Total"></pager>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="concordances">
+                            @foreach (var item in Model.Result.Items)
+                            {
+                                <div class="concordance-item">
+                                    <div class="bx--row">
+                                        <div class="bx--col text" style="padding-right: 0.125rem;">
+                                            <div class="left">
+                                                <a class="play" href="#" data-sounds="@Url.ConcordanceSoundLinks(item.SoundFiles)"><img src="~/images/volume--up.svg" alt="@ConcordanceResource["Play"]"/></a>
+                                                @await Html.PartialAsync("_Context", (item.LeftContext, false))
+                                            </div>
+                                        </div>
+                                        <div class="bx--col text" style="padding-left: 0;">
+                                            <div class="right">
+                                                @await Html.PartialAsync("_Context", (new List<ConcordanceToken> { item.CenterContext }, false))
+                                                @await Html.PartialAsync("_Context", (item.RightContext, false))
+                                                <a class="show-details" href="#" data-url="@Url.ConcordanceDetailsLink(Model.Request, item.CenterContext.StatementId, item.CenterContext.TokenOrder)"><img src="~/images/chevron--down.svg" alt="Details"/></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="details-item" style="display:none"></div>
+                            }
+                        </div>
+                        <div class="pager bottom">
+                            <div class="bx--row">
+                                <div class="bx--col count">@Html.Raw(Model.ResultsInfo)</div>
+                                <div class="bx--col pages">
+                                    @if (Model.Result.Total > 20)
+                                    {
+                                        <pager offset="@Model.Result.Offset" total="@Model.Result.Total"></pager>
+                                    }
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="pure-u-1-1 pure-u-lg-1-4 pure-u-md-1-3 u-mobile-hidden" style="padding-right: 2rem;"></div>
+                <div class="pure-u-1-1 pure-u-lg-3-4 pure-u-md-2-3">
+                    @await Html.PartialAsync("_ResultsHistory")
+                    <div class="module no-results">
+                        <p>@SharedResource["NoResults"]</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿P;Attribute (sl);Value (sl);Code (sl);Attribute (en);Value (en);Code (en)
+0;besedna_vrsta;glagol;G;CATEGORY;Verb;V
+1;vrsta;glavni;g;Type;main;m
+;;pomožni;p;;auxiliary;a
+2;vid;dovršni;d;Aspect;perfective;e
+;;nedovršni;n;;progressive;p
+;;dvovidski;v;;biaspectual;b
+3;oblika;nedoločnik;n;VForm;infinitive;n
+;;namenilnik;m;;supine;u
+;;deležnik;d;;participle;p
+;;sedanjik;s;;present;r
+;;prihodnjik;p;;future;f
+;;pogojnik;g;;conditional;c
+;;velelnik;v;;imperative;m
+4;oseba;prva;p;Person;first;1
+;;druga;d;;second;2
+;;tretja;t;;third;3
+5;število;ednina;e;Number;singular;s
+;;množina;m;;plural;p
+;;dvojina;d;;dual;d
+6;spol;moški;m;Gender;masculine;m
+;;ženski;z;;feminine;f
+;;srednji;s;;neuter;n
+7;nikalnost;nezanikani;n;Negative;no;n
+;;zanikani;d;;yes;y

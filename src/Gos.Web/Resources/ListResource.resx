@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="ListSearchInUse" xml:space="preserve">
+        <value>Uporabljaš &lt;a class="show-help" href="#"&gt;iskanje po seznamih&lt;/a&gt;</value>
+    </data>
+    <data name="Additional" xml:space="preserve">
+        <value>Dodatno</value>
+    </data>
+    <data name="HelpAdditional" xml:space="preserve">
+        <value>V meniju &lt;strong&gt;Dodatno&lt;/strong&gt; določimo besedno vrsto in druge lastnosti iskane besede.</value>
+    </data>
+    <data name="SortConversationalAsc" xml:space="preserve">
+        <value>Pogovorni zapis (A-Ž)</value>
+    </data>
+    <data name="SortConversationalDesc" xml:space="preserve">
+        <value>Pogovorni zapis (Ž-A)</value>
+    </data>
+    <data name="SortStandardAsc" xml:space="preserve">
+        <value>Standardizirana oblika (A-Ž)</value>
+    </data>
+    <data name="SortStandardDesc" xml:space="preserve">
+        <value>Standardizirana oblika (Ž-A)</value>
+    </data>
+    <data name="SortMsdAsc" xml:space="preserve">
+        <value>Oblik. lastnosti (A-Ž)</value>
+    </data>
+    <data name="SortMsdDesc" xml:space="preserve">
+        <value>Oblik. lastnosti (Ž-A)</value>
+    </data>
+    <data name="SortFrequencyAsc" xml:space="preserve">
+        <value>Število pojavitev (naraščajoče)</value>
+    </data>
+    <data name="SortFrequencyDesc" xml:space="preserve">
+        <value>Število pojavitev (padajoče)</value>
+    </data>
+    <data name="ResultsInfo" xml:space="preserve">
+        <value>Prikazujem {0}-{1} od &lt;strong&gt;{2}&lt;/strong&gt; besed.</value>
+    </data>
+    <data name="PartOfSpeech" xml:space="preserve">
+        <value>Besedna vrsta</value>
+    </data>
+    <data name="ConversationalForm" xml:space="preserve">
+        <value>Pogovorni zapis</value>
+    </data>
+    <data name="StandardForm" xml:space="preserve">
+        <value>Standardizirana oblika</value>
+    </data>
+    <data name="Frequency" xml:space="preserve">
+        <value>Število pojavitev</value>
+    </data>
+    <data name="Msd" xml:space="preserve">
+        <value>Oblikoslovne lastnosti standardizirane oblike</value>
+    </data>
+    <data name="GroupByMsd" xml:space="preserve">
+        <value>Loči besede glede na oblikoslovne lastnosti</value>
+    </data>
+</root>

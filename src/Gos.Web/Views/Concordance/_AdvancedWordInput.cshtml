@@ -1,0 +1,13 @@
+﻿@model (string name, SelectList wordSelectList)
+<div class="word-input">
+    <div class="input-dropdown">
+        @Html.TextBox(Model.name, null, new {@class="form-control"})
+        <ul class="dropdown-list">
+            @foreach (var word in Model.wordSelectList)
+            {
+                <li data-value="@word.Value">@word.Text</li>
+            }
+        </ul>
+    </div>
+    <div class="word-selector"></div>
+</div>

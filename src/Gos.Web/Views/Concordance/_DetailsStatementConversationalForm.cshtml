@@ -1,0 +1,18 @@
+﻿@using Gos.ServiceModel.Requests.Concordance
+@using Gos.Web.UrlHelpers
+@model (ConcordanceDetailsResponseStatement model, bool isActive)
+@{
+    var data = Model.model;
+    var css = Model.isActive ? "active" : null;
+}
+
+@if (data != null)
+{
+    <div class="statement-text @css" data-statement-id="@data.Id">
+        <div class="wrapper">@await Html.PartialAsync("_Context", (data.Tokens, false))</div>
+        <div class="buttons">
+            <a class="play" href="#" data-sounds="@Url.ConcordanceSoundLinks(data.SoundFiles)"><img src="~/images/volume--up.svg" alt="@ConcordanceResource["Play"]"/></a>
+            <span class="conversational">@SharedResource["TranscriptionTypeConversationalShort"]</span> <img src="~/images/voice-activate.svg" alt="@SharedResource["TranscriptionTypeConversational"]"/>
+        </div>
+    </div>
+}

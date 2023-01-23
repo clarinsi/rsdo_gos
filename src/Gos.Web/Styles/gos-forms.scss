@@ -1,0 +1,140 @@
+﻿@import 'cjvt-theme';
+
+/* Text input */
+input[type="text"].form-control, input[type="number"].form-control  {
+    background-color: $grey-b-98;
+    border: 1px solid $grey-b-98;
+    border-radius: 0.125rem;
+    color: $ui-black;
+    font-size: 0.875rem;
+    height: 3.5rem;
+    padding: 1rem 3rem 1rem 1rem;
+
+    &:focus-visible {
+        background-color: $white;
+        outline: none;
+    }
+}
+
+/* Radio button */
+.form-radio-control input[type="radio"] {
+    position: absolute;
+    left: -9999px;
+
+    & + label {
+        background-image: url('~/images/radio-button.svg');
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: 1rem;
+        display: block;
+        font-size: 0.875rem;
+        padding: 0.25rem 0 0.25rem 1.5rem;
+    }
+
+    &:checked + label {
+        background-image: url('~/images/radio-button--checked.svg');
+    }
+}
+
+/* Radio button as buttons */
+.form-radio-control-buttons {
+    display: inline-flex;
+
+    input[type="radio"] {
+        position: absolute;
+        left: -9999px;
+
+        & + label {
+            border: 1px solid $ui-black;
+            border-radius: 1.75rem;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+        }
+
+        &:checked + label {
+            background-color: $ui-black;
+            color: $white;
+        }
+    }
+
+    &:not(:last-child) {
+        margin-right: 0.5rem;
+    }
+}
+
+/* Checkbox */
+.form-check-control input[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+
+    & + label {
+        background-image: url('~/images/checkbox.svg');
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: 1rem;
+        display: block;
+        font-size: 0.875rem;
+        padding: 0.25rem 0 0.25rem 1.5rem;
+    }
+
+    &:checked + label {
+        background-image: url('~/images/checkbox--checked--filled.svg');
+    }
+}
+
+/* Label */
+label.form-control {
+    color: $grey-b-40;
+    display: block;
+    font-size: 0.75rem;
+    margin: 1.25rem 0 0.75rem 0;
+}
+
+/* Button */
+button.form-control {
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid $ui-black;
+    border-radius: 1rem;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.5rem 0.875rem;
+
+    img {
+        height: 1rem;
+        margin-right: 0.5rem;
+        width: 1rem;
+    }
+
+    &.medium {
+        border-radius: 1.25rem;
+        height: 2.5rem;
+        font-size: 0.875rem;
+        padding: 0 1rem;
+    }
+
+    &.large {
+        border-radius: 1.5rem;
+        height: 3rem;
+        font-size: 0.875rem;
+        padding: 0 2rem;
+    }
+
+    &.primary {
+        background-color: $ui-black;
+        color: $white;
+    }
+
+    &.borderless {
+        border: none;
+    }
+
+    &:not(.primary):hover {
+        background-color: $grey-b-96;
+    }
+}

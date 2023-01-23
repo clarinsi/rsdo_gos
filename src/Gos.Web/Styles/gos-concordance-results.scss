@@ -1,0 +1,213 @@
+﻿@import 'cjvt-theme';
+
+body.concordance.results #main-content {
+    /* Results */
+    .concordances {
+        padding: 0 1rem;
+
+        .concordance-item {
+            border-bottom: 1px solid $grey-b-94;
+            padding: 0.25rem;
+
+            .text {
+                overflow: hidden;
+                text-overflow: clip;
+                white-space: nowrap;
+
+                .left {
+                    display: inline-block;
+                    float: right;
+                    min-width: 100%;
+                    overflow: visible;
+                    text-align: right;
+                    position: relative;
+
+                    img {
+                        float: left;
+                        height: 1.125rem;
+                        width: 1.125rem;
+                    }
+                }
+
+                .center-word {
+                    background-color: $grey-b-96;
+                    border-radius: 0.125rem;
+                    display: inline-block;
+                    font-size: 0.875rem;
+                    font-weight: 600;
+                    padding: 0.0625rem 0.5rem;
+                }
+
+                .right {
+                    img {
+                        float: right;
+                        height: 1.125rem;
+                        width: 1.125rem;
+                    }
+                }
+            }
+        }
+
+        .details-item {
+            border-bottom: 1px solid $grey-b-94;
+            padding: 0.5rem 0 1rem 0;
+
+            .header {
+                border-bottom: 1px solid $grey-b-94;
+                margin-bottom: 1rem;
+
+                .nav {
+                    display: flex;
+                    align-items: flex-end;
+
+                    ul {
+                        li {
+                            display: inline-block;
+                            margin-right: 1rem;
+                            padding-bottom: 1rem;
+
+                            a {
+                                color: $grey-b-40;
+                                font-size: 0.75rem;
+                                font-weight: 600;
+                                text-decoration: none;
+                            }
+
+                            &.active {
+                                border-bottom: 1px solid $ui-black;
+
+                                a {
+                                    color: $ui-black;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .buttons a {
+                    align-items: center;
+                    background-color: $grey-b-98;
+                    border-radius: 1rem;
+                    display: inline-flex;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                    padding: 0.5rem 0.875rem;
+                    text-decoration: none;
+
+                    img {
+                        height: 1.125rem;
+                        width: 1.125rem;
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+
+            .statements {
+                margin-bottom: 1.5rem;
+
+                .statement-text {
+                    background-color: $grey-b-98;
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 0.75rem;
+                    height: 9rem;
+                    padding: 1rem;
+
+                    .wrapper {
+                        flex-grow: 1;
+                        margin-bottom: 0.5rem;
+                        max-height: 5.75rem;
+                        overflow: auto;
+                    }
+
+                    img {
+                        height: 1.125rem;
+                        width: 1.125rem;
+                    }
+
+                    .buttons {
+                        align-items: center;
+                        display: flex;
+                    }
+
+                    .conversational {
+                        color: $grey-b-70;
+                        font-size: 0.75rem;
+                        margin: 0 0.5rem 0 auto;
+                    }
+
+                    &.active {
+                        background-color: $grey-b-96;
+                    }
+                }
+            }
+
+            .statement-wrapper {
+                h3 {
+                    align-items: center;
+                    color: $ui-black;
+                    display: flex;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+
+                    img {
+                        height: 1.125rem;
+                        width: 1.125rem;
+                        margin-right: 0.5rem;
+                    }
+                }
+
+                h4 {
+                    color: $grey-b-70;
+                    font-size: 0.75rem;
+                }
+
+                p {
+                    color: $ui-black;
+                    font-size: 0.75rem;
+                    margin-bottom: 1rem;
+                }
+            }
+
+            .annotation-wrapper {
+                .annotation-header,
+                .annotation-item {
+                    border-bottom: 1px solid $grey-b-94;
+                    font-size: 0.75rem;
+                    padding: 0.5rem;
+                }
+
+                .annotation-header {
+                    background-color: $grey-b-98;
+                    font-weight: 600;
+                }
+
+                .annotation-item {
+                    &:nth-child(even) {
+                        background-color: $grey-b-98;
+                    }
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+
+            .statements, .annotation-wrapper {
+                .center-word {
+                    color: $red;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                }
+
+                .word-in-context {
+                    color: $red;
+                    font-size: 0.75rem;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}

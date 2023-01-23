@@ -1,0 +1,47 @@
+﻿@using Gos.ServiceModel.Requests.Concordance
+@model (List<ConcordanceToken> tokens, bool isStandard)
+
+@for (var i = 0; i < Model.tokens.Count; i++)
+{
+    var token = Model.tokens[i];
+
+    if (i > 0)
+    {
+        if (token.StatementId != Model.tokens[i - 1].StatementId)
+        {
+            <text> /// </text>
+        }
+        else if (token.SegmentId != Model.tokens[i - 1].SegmentId)
+        {
+            <text> / </text>
+        }
+        else
+        {
+            <text> </text>
+        }
+    }
+
+    if (!string.IsNullOrEmpty(token.LeftMark))
+    {
+        <text>@token.LeftMark </text>
+    }
+
+    var form = Model.isStandard ? token.StandardForm : token.ConversationalForm;
+    if (token.IsCenterMatch)
+    {
+        <span class="center-word">@form</span>
+    }
+    else if (token.IsWordInContextMatch)
+    {
+        <span class="word-in-context">@form</span>
+    }
+    else
+    {
+        <text>@form</text>
+    }
+
+    if (!string.IsNullOrEmpty(token.RightMark))
+    {
+        <text> @token.RightMark</text>
+    }
+}

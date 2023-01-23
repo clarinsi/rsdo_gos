@@ -1,0 +1,36 @@
+﻿@using Gos.ServiceModel.Requests.List
+@using Gos.Web.HtmlHelpers
+@using Gos.Core
+@model ListSearchResponse
+
+@{
+    var rows = Math.Min(Model.Total, 100);
+    var maxRows = Math.Min(Model.Total, 1000);
+}
+
+<div class="module export" data-total="@Model.Total" style="display: none;">
+    <a class="btn-exit" href="#">
+        <img src="~/images/close.svg" alt="Close"/>
+    </a>
+    @using (Html.BeginForm("Export", "List", FormMethod.Get))
+    {
+        @Html.CreateHiddenInputsFromQueryString()
+        <h3>@SharedResource["ExportData"]</h3>
+        <p class="total">@string.Format(SharedResource["ExportTotal"].Value, Model.Total.ToString(Constants.Formats.CountsFormat))</p>
+        <div class="bx--row">
+            <div class="bx--col">
+                <label style="margin-right:0.5rem;">@SharedResource["ExportType"]</label><input class="form-control" type="number" name="@nameof(ListExport.Rows)" min="1" max="@maxRows" step="1" value="@rows" /><label>@SharedResource["ExportRecords"]</label>
+            </div>
+        </div>
+        <div class="bx--row max-records" style="display: none;">
+            <div class="bx--col">
+                <label class="form-control">@SharedResource["ExportMax"]</label>
+            </div>
+        </div>
+        <div class="bx--row">
+            <div class="bx--col text-right">
+                <button type="submit" class="form-control" href="#">@SharedResource["Export"]</button>
+            </div>
+        </div>
+    }
+</div>

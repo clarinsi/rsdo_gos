@@ -1,0 +1,22 @@
+﻿@using Gos.ServiceModel.Requests.Concordance
+@using Gos.Web.Models.Concordance
+@model ConcordanceIndexViewModel
+@{
+    Layout = "~/Views/Shared/_IndexLayout.cshtml";
+}
+
+@section InputSection {
+    @using (Html.BeginForm("Search", "Concordance", FormMethod.Get))
+    {
+        @Html.Hidden(nameof(Model.Request.TranscriptionType), Model.Request.TranscriptionType)
+        <div class="carbon-icon" data-icon="search"><img src="~/images/search.svg"></div>
+        @Html.TextBox(nameof(ConcordanceSearch.Query), Model.Request.Query, new { autocapitalize = "off", autocomplete = "off", autocorrect = "off", spellcheck = "false" })
+        <div id="historyIcon" class="carbon-icon" data-icon="search"><a href="#" data-history-url="@Url.Action("History", "Concordance")" data-history-key="concordance-search-history" title="@SharedResource["History"]"><img src="~/images/zoom--reset.svg" alt="@SharedResource["History"]" /></a></div>
+        <div class="search-dropdown history" style="display: none;"></div>
+    }
+}
+
+@section HelpSection {
+    <p>@ConcordanceResource["SimpleSearchInUse"]</p>
+    @{ await Html.RenderPartialAsync("_Help"); }
+}

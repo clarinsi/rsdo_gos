@@ -1,0 +1,48 @@
+﻿@using Gos.ServiceModel.Requests.Concordance
+@using Gos.Web.HtmlHelpers
+@using Gos.Core
+@model ConcordanceSearchResponse
+
+@{
+    var rows = Math.Min(Model.Total, 100);
+    var maxRows = Math.Min(Model.Total, 1000);
+}
+
+<div class="module export" data-total="@Model.Total" style="display: none;">
+    <a class="btn-exit" href="#">
+        <img src="~/images/close.svg" alt="Close"/>
+    </a>
+    @using (Html.BeginForm("Export", "Concordance", FormMethod.Get))
+    {
+        var exportTypeName = $"{nameof(ConcordanceExport.Type)}";
+        var firstTypeId = $"{exportTypeName}_{ConcordanceExportType.FirstRows.ToString()}";
+        var randomTypeId = $"{exportTypeName}_{ConcordanceExportType.RandomRows.ToString()}";
+        @Html.CreateHiddenInputsFromQueryString()
+
+        <h3>@SharedResource["ExportData"]</h3>
+        <p class="total">@string.Format(SharedResource["ExportTotal"].Value, Model.Total.ToString(Constants.Formats.CountsFormat))</p>
+
+        <div class="bx--row">
+            <div class="bx--col">
+                <label style="margin-right: 0.5rem;">@SharedResource["ExportType"]</label>
+                <div class="form-radio-control-buttons">
+                    @Html.RadioButton(exportTypeName, ConcordanceExportType.FirstRows, true, new { id = firstTypeId })<label for="@firstTypeId">@SharedResource["ExportFirst"]</label>
+                </div>
+                <div class="form-radio-control-buttons">
+                    @Html.RadioButton(exportTypeName, ConcordanceExportType.RandomRows, false, new { id = randomTypeId })<label for="@randomTypeId">@SharedResource["ExportRandom"]</label>
+                </div>
+                <input class="form-control" type="number" name="@nameof(ConcordanceExport.Rows)" min="1" max="@maxRows" step="1" value="@rows"/><label>@SharedResource["ExportRecords"]</label>
+            </div>
+        </div>
+        <div class="bx--row max-records" style="display: none;">
+            <div class="bx--col">
+                <label class="form-control">@SharedResource["ExportMax"]</label>
+            </div>
+        </div>
+        <div class="bx--row">
+            <div class="bx--col text-right">
+                <button type="submit" class="form-control" href="#">@SharedResource["Export"]</button>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,240 @@
+﻿@import 'cjvt-theme';
+
+body.advanced #main-content {
+    /* Dropdowns */
+    .dropdown-list {
+        background-color: $grey-b-98;
+        box-sizing: border-box;
+        border: 1px solid $grey-b-94;
+        display: none;
+        max-height: 14.375rem;
+        overflow: auto;
+        position: absolute;
+        width: 100%;
+        z-index: 100;
+
+        li {
+            cursor: pointer;
+            font-size: 0.875rem;
+            padding: 1rem 1.5rem 1rem 1rem;
+
+            &:hover {
+                background-color: $grey-b-94;
+            }
+        }
+    }
+
+    .dropdown {
+        background-color: $grey-b-98;
+        background-image: url('~/images/chevron--down.svg');
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 1rem;
+        border: 1px solid $grey-b-98;
+        border-radius: 0.125rem;
+        color: $ui-black;
+        cursor: pointer;
+        height: 3.5rem;
+        position: relative;
+
+        p {
+            font-size: 0.875rem;
+            padding: 1rem 3rem 1rem 1rem;
+        }
+
+        &.open {
+            background-color: $white;
+            background-image: url('~/images/chevron--up.svg');
+            border: 1px solid $grey-b-94;
+
+            .dropdown-list {
+                display: block;
+            }
+        }
+    }
+
+    /* Advanced search */
+    .header {
+        border-bottom: 1px solid $grey-b-94;
+        padding: 0.875rem 1rem 1rem 1rem;
+
+        h3 {
+            color: $ui-black;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+    }
+
+    .content {
+        border-bottom: 1px solid $grey-b-94;
+        padding: 0.875rem 1rem 1.5rem 1rem;
+
+        h2 {
+            color: $red;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .basic-data {
+            border-bottom: 1px solid $grey-b-94;
+            padding-bottom: 1.5rem;
+        }
+
+        .word-input {
+            display: flex;
+
+            .input-dropdown {
+                flex-grow: 1;
+                position: relative;
+
+                input {
+                    width: 100%;
+                }
+            }
+
+            .word-selector {
+                align-items: center;
+                background-color: $grey-b-98;
+                background-image: url('~/images/chevron--down.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 1.25rem;
+                border-radius: 1.75rem;
+                cursor: pointer;
+                display: inline-flex;
+                height: 3.5rem;
+                justify-content: center;
+                margin-left: 0.5rem;
+                width: 3.5rem;
+
+                img {
+                    height: 1.25rem;
+                    width: 1.25rem;
+                }
+            }
+
+            &.expanded {
+                .word-selector {
+                    background-image: url('~/images/chevron--up.svg');
+                }
+
+                .dropdown-list {
+                    display: block;
+                }
+            }
+
+        }
+
+        .dropdown-list {
+            display: none;
+        }
+
+        .pos-wrapper {
+            display: flex;
+
+            .dropdown {
+                &.condition {
+                    margin-right: 0.5rem;
+                }
+
+                &.pos {
+                    flex-grow: 1;
+
+                    ul {
+                        max-height: 17.5rem;
+                        overflow: auto;
+
+                        li {
+                            align-items: center;
+                            cursor: pointer;
+                            display: flex;
+                            height: 3.5rem;
+                            padding: 0 1rem;
+
+                            .name {
+                                color: $ui-black;
+                                flex-grow: 1;
+                                font-size: 0.875rem;
+                            }
+
+                            .details {
+                                align-items: center;
+                                background-color: transparent;
+                                border: none;
+                                cursor: pointer;
+                                display: none;
+                                height: 2rem;
+
+                                img {
+                                    height: 1rem;
+                                    width: 1rem;
+                                }
+                            }
+
+                            &:hover {
+                                background-color: $grey-b-96;
+
+                                .details {
+                                    display: flex;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .distance-selector {
+            align-items: center;
+            display: flex;
+            margin-top: 1.5rem;
+
+            .number {
+                align-items: center;
+                border-radius: 0.75rem;
+                cursor: pointer;
+                display: inline-flex;
+                font-size: 0.75rem;
+                justify-content: center;
+                height: 1.5rem;
+                width: 1.5rem;
+
+                &.selected {
+                    background-color: $ui-black;
+                    color: $white;
+                    
+                    &.range {
+                        border-radius: 0;
+                        
+                        &.first {
+                            border-top-left-radius: 0.75rem;
+                            border-bottom-left-radius: 0.75rem;
+                        };
+                        
+                        &.last {
+                            border-top-right-radius: 0.75rem;
+                            border-bottom-right-radius: 0.75rem;
+                        }
+                    }
+                }
+
+                &.zero, &:hover {
+                    background-color: $grey-b-94;
+                }
+            }
+
+            .search-word {
+                background-color: $grey-b-96;
+                border-radius: 0.125rem;
+                font-size: 0.875rem;
+                margin: 0 0.5rem;
+                padding: 0.25rem 0.5rem;
+            }
+        }
+    }
+
+    .footer {
+        padding: 1rem;
+    }
+}

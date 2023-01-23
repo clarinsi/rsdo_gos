@@ -1,0 +1,119 @@
+﻿@using Gos.Web.UrlHelpers
+@using Gos.ServiceModel.Enums
+@using Gos.Core
+@model BaseViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    // Navigation variables
+    var controller = ViewContext.RouteData.Values["controller"].ToString().ToLower();
+    var lang = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+    var resultsViewModel = (IResultsViewModel)Model;
+    
+    // Concordance
+    var isConcordance = controller.Equals("Concordance", StringComparison.OrdinalIgnoreCase);
+    var concordanceClass = isConcordance  ? "active" : null;
+    var concordanceLetter = lang.Equals("sl", StringComparison.OrdinalIgnoreCase) ? "i" : "s";
+    var concordanceImage = isConcordance ? $"search-icon-{concordanceLetter}.svg" : $"search-icon-{concordanceLetter}-empty.svg";
+    
+    // List
+    var isList = controller.Equals("List", StringComparison.OrdinalIgnoreCase);
+    var listClass = isList  ? "active" : null;
+    var listLetter = lang.Equals("sl", StringComparison.OrdinalIgnoreCase) ? "s" : "l";
+    var listImage = isList ? $"search-icon-{listLetter}.svg" : $"search-icon-{listLetter}-empty.svg";
+
+    // Conversational form
+    var isConversationalForm = resultsViewModel.TranscriptionType == TranscriptionType.Conversational;
+    var conversationalFormClass = isConversationalForm ? "active" : null;
+    var conversationalFormImage = isConversationalForm ? "voice-activate-white.svg" : "voice-activate.svg";
+    
+    // Standard form
+    var isStandardForm = resultsViewModel.TranscriptionType == TranscriptionType.Standard;
+    var standardFormClass = isStandardForm  ? "active" : null;
+    var standardFormImage = isStandardForm ? "pen--fountain--white.svg" : "pen--fountain.svg";
+    
+    // Search
+    var concordanceSearch = Url.Action("Search", "Concordance");
+    var listSearch = Url.Action("Search", "List");
+    var dataHistoryKey = $"{controller}-search-history";
+    var searchDescription = (isConcordance ? SharedResource["Concordance"].Value : SharedResource["List"].Value) + " | " +
+                            (isConversationalForm ? SharedResource["TranscriptionTypeConversational"].Value : SharedResource["TranscriptionTypeStandard"].Value);
+}
+
+<header class="navbar bg-red">
+    <div class="bx--grid primary-navbar">
+        <div class="bx--row">
+            <div class="bx--col-md">
+                <a href="@Url.Action("Index", "Concordance")" class="logo">
+                    <img src="~/images/logo-full.svg" alt="CJVT Gos" class="hide-on-phone" />
+                    <img src="~/images/logo.svg" alt="CJVT Gos" class="show-on-phone" />
+                </a>                
+            </div>
+            <div class="bx--col-md">
+                @using (Html.BeginForm("Search", controller, FormMethod.Get, new { @class = "search-form" }))
+                {
+                    @RenderSection("InputSection", required: false)
+                    <div class="search-input">
+                        <div class="nav-input">
+                            <div class="area">
+                                <a href="#" class="@concordanceClass" data-search="@concordanceSearch" title="@SharedResource["ConcordanceHint"]"><img src="~/images/@concordanceImage" alt="@SharedResource["Concordance"]"/></a>
+                                <a href="#" class="@listClass" data-search="@listSearch" title="@SharedResource["ListHint"]"><img src="~/images/@listImage" alt="@SharedResource["List"]"/></a>
+                            </div>
+                            <div class="form">
+                                <a href="#" class="@conversationalFormClass" data-transcription-type="@TranscriptionType.Conversational" title="@SharedResource["TranscriptionTypeConversational"]" ><img src="~/images/@conversationalFormImage" alt="@SharedResource["TranscriptionTypeConversational"]"/></a>
+                                <a href="#" class="@standardFormClass" data-transcription-type="@TranscriptionType.Standard" title="@SharedResource["TranscriptionTypeStandard"]" ><img src="~/images/@standardFormImage" alt="@SharedResource["TranscriptionTypeStandard"]"/></a>
+                            </div>
+                            @Html.TextBox(nameof(resultsViewModel.Query), resultsViewModel.Query, new { autocapitalize = "off", autocomplete = "off", autocorrect = "off", spellcheck = "false" })
+                            <div id="historyIcon" class="carbon-icon" data-icon="search"><a href="#" data-history-url="@Url.Action("History", controller)" data-history-key="@dataHistoryKey" title="@SharedResource["History"]"><img src="~/images/zoom--reset.svg" alt="@SharedResource["History"]" /></a></div>
+                        </div>
+                        <div class="search-dropdown history" style="display: none;"></div>
+                        <div class="viri-btn hide-on-phone"><div class="carbon-icon" data-icon="switcher"><img src="~/images/switcher.svg"></div></div>
+                    </div>
+                }
+            </div>
+            <div class="bx--col-md">
+                <div class="pages">
+                    <a href="@Url.Action("About", "System")"><span>@SharedResource["About"]</span></a>
+                    <div class="dropdown">
+                        <a class="dropbtn">
+                            @Model.CurrentUiName
+                            <div class="carbon-icon" data-icon="chevron--down--white"><img src="~/images/chevron--down--white.svg"></div>
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="@Url.Action("SetLanguage", "System", new {culture = Constants.InterfaceLanguages.Slovene, returnUrl = Url.GetReturnUrl()})">@Constants.InterfaceLanguages.SloveneName</a>
+                            <a href="@Url.Action("SetLanguage", "System", new {culture = Constants.InterfaceLanguages.English, returnUrl = Url.GetReturnUrl()})">@Constants.InterfaceLanguages.EnglishName</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ViriCjvt"></div>
+    <div class="bg-white secondary-navbar">
+        <div class="bx--grid">
+            <div class="bx--row" style="height: 4rem;">
+                <div class="bx--col search-info">
+                    <h3>@resultsViewModel.Query</h3>
+                    <p>@searchDescription</p>
+                </div>
+                <div class="bx--col">
+                    <div style="position: relative; padding-top: 0.5rem;">
+                        <div class="icons">
+                            <div class="icon-item" id="export">
+                                <div class="carbon-icon" data-icon="download"><img src="~/images/download.svg" alt="Download"/></div>
+                            </div>
+                            <div class="icon-item" id="share-fb">
+                                <div class="carbon-icon" data-icon="logo--facebook"><img src="~/images/logo--facebook.svg" alt="Facebook"/></div>
+                            </div>
+                            <div class="icon-item" id="share-twitter">
+                                <div class="carbon-icon" data-icon="logo--twitter"><img src="~/images/logo--twitter.svg" alt="Twitter"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+@RenderBody()

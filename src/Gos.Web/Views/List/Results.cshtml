@@ -1,0 +1,115 @@
+﻿@using Gos.Web.Models.List
+@using Gos.Core.Extensions
+@using Gos.ServiceModel.Requests.List
+@using Gos.Web.UrlHelpers
+@model ListResultsViewModel
+@{
+    Layout = "~/Views/Shared/_ResultsLayout.cshtml";
+}
+
+@section InputSection
+{
+    @Html.Hidden(nameof(ListSearch.ConversationalForm))
+    @Html.Hidden(nameof(ListSearch.StandardForm))
+    @Html.Hidden(nameof(ListSearch.GroupByMsd))
+}
+
+<div style="min-height: 80vh; margin-bottom: 2rem;">
+    <div class="bx--grid" style="margin-top: 2rem;">
+        <div class="bx--row">
+            @if (!Model.Result.Items.IsNullOrEmpty())
+            {
+                <div class="bx--col-md-3 bx--col-lg-3" style="padding-right: 2rem;">
+                    <div class="module result-filters">
+                        @foreach (var aggregation in Model.Result.Aggregations)
+                        {
+                            @await Html.PartialAsync("_Aggregation", aggregation);
+                        }
+                    </div>
+                </div>                
+                <div class="bx--col-md-5 bx--col-lg-9">
+                    @await Html.PartialAsync("_ResultsHistory")
+                    @await Html.PartialAsync("_Export", Model.Result)
+                    <div class="module">
+                        <div class="pager">
+                            <div class="bx--row">
+                                <div class="bx--col count">@Html.Raw(Model.ResultsInfo)</div>
+                                <div class="bx--col pages">
+                                    @if (Model.Result.Total > 20)
+                                    {
+                                        <pager offset="@Model.Result.Offset" total="@Model.Result.Total"></pager>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-grouping">
+                            <div class="bx--row">
+                                <div class="bx--col">
+                                    <a class="grouping" data-selected="@Model.Request.GroupByMsd.ToString()" href="#">
+                                        @if (Model.Request.GroupByMsd)
+                                        {
+                                            <img src="~/images/radio-button--checked.svg" alt="Checked"/>    
+                                        }
+                                        else
+                                        {
+                                            <img src="~/images/radio-button.svg" alt="Checked"/>
+                                        } 
+                                        @ListResource["GroupByMsd"]
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-items">
+                            <div class="list-row list-header">
+                                <div class="bx--row">
+                                    <div class="bx--col">@ListResource["ConversationalForm"]</div>
+                                    <div class="bx--col">@ListResource["StandardForm"]</div>
+                                    @if (Model.Request.GroupByMsd)
+                                    {
+                                        <div class="bx--col">@ListResource["Msd"]</div>
+                                    }
+                                    <div class="bx--col text-right">@ListResource["Frequency"]</div>
+                                </div>
+                            </div>
+                            @foreach (var item in Model.Result.Items)
+                            {
+                                <div class="list-row list-item">
+                                    <div class="bx--row">
+                                        <div class="bx--col"><a class="conversational" href="#">@item.ConversationalForm</a></div>
+                                        <div class="bx--col"><a class="standard" href="#">@item.StandardForm</a></div>
+                                        @if (Model.Request.GroupByMsd)
+                                        {
+                                            <div class="bx--col secondary">@item.MsdDescription</div>
+                                        }
+                                        <div class="bx--col secondary text-right"><a href="@Url.ListFrequencyLink(Model.Request, item)">@item.Frequency</a></div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="pager bottom">
+                            <div class="bx--row">
+                                <div class="bx--col count">@Html.Raw(Model.ResultsInfo)</div>
+                                <div class="bx--col pages">
+                                    @if (Model.Result.Total > 20)
+                                    {
+                                        <pager offset="@Model.Result.Offset" total="@Model.Result.Total"></pager>
+                                    }
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="pure-u-1-1 pure-u-lg-1-4 pure-u-md-1-3 u-mobile-hidden" style="padding-right: 2rem;"></div>
+                <div class="pure-u-1-1 pure-u-lg-3-4 pure-u-md-2-3">
+                    @await Html.PartialAsync("_ResultsHistory")
+                    <div class="module no-results">
+                        <p>@SharedResource["NoResults"]</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

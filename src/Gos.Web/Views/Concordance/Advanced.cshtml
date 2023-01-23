@@ -1,0 +1,259 @@
+﻿@using Gos.Web.Models.Concordance
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using Gos.ServiceModel.Requests.Concordance
+@using Gos.ServiceModel.Enums
+@using Gos.Web.HtmlHelpers
+@model ConcordanceAdvancedViewModel
+@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+@*
+@section BarSection
+{
+    <p class="page-title">@ConcordanceResource["AdvancedSearch"]</p>
+}
+*@
+
+<div id="main-content" style="min-height: 80vh; margin-bottom: 2rem;">
+@using (Html.BeginForm("Search", "Concordance", FormMethod.Get))
+{
+    <div class="bx--grid" style="margin-top: 2rem;">
+    <div class="module">
+    <div class="header">
+        <h3>@ConcordanceResource["AdvancedSearch"]</h3>
+    </div>
+    <div class="content word">
+        <div class="basic-data">
+            <h2>@ConcordanceResource["SearchTheWord"]</h2>
+            <div class="bx--row labels">
+                <div class="bx--col-md-2">
+                    <label class="form-control">@ConcordanceResource["LeftMark"]</label>
+                </div>
+                <div class="bx--col-md-2">
+                    <label class="form-control">@ConcordanceResource["Word"]</label>
+                </div>
+                <div class="bx--col-md-2">
+                    <label class="form-control">@ConcordanceResource["RightMark"]</label>
+                </div>
+            </div>
+            <div class="bx--row">
+                <div class="bx--col-md-2">
+                    @Html.DropDown($"{nameof(ConcordanceSearch.MainWord)}.{nameof(ConcordanceSearchMainWord.LeftMark)}", Model.LeftMarkList)
+                </div>
+                <div class="bx--col-md-2">
+                    @{ await Html.RenderPartialAsync("_AdvancedWordInput", ($"{nameof(ConcordanceSearch.MainWord)}.{nameof(ConcordanceSearchWordInContext.Form)}", Model.WordList)); }
+                </div>
+                <div class="bx--col-md-2">
+                    @Html.DropDown($"{nameof(ConcordanceSearch.MainWord)}.{nameof(ConcordanceSearchMainWord.RightMark)}", Model.RightMarkList)
+                </div>
+            </div>
+            <div class="bx--row labels">
+                <div class="bx--col-md-2">
+                    <label class="form-control">@ConcordanceResource["SpellingType"]</label>
+                </div>
+            </div>
+            <div class="bx--row">
+                <div class="bx--col-md-2">
+                    @{
+                        var transcriptionTypeName = $"{nameof(ConcordanceSearch.MainWord)}.{nameof(ConcordanceSearchMainWord.TranscriptionType)}";
+                        var conversationalId = $"{transcriptionTypeName}_{TranscriptionType.Conversational.ToString()}";
+                        var standardId = $"{transcriptionTypeName}_{TranscriptionType.Standard.ToString()}";
+                    }
+                    <div class="form-radio-control">
+                        @Html.RadioButton(transcriptionTypeName, TranscriptionType.Conversational, true, new { id = conversationalId }) <label for="@conversationalId">@ConcordanceResource["TranscriptionTypeConversational"]</label>
+                    </div>
+                    <div class="form-radio-control">
+                        @Html.RadioButton(transcriptionTypeName, TranscriptionType.Standard, false, new { id = standardId }) <label for="@standardId">@ConcordanceResource["TranscriptionTypeStandard"]</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bx--row labels">
+            <div class="bx--col-md-2">
+                <label class="form-control">@ConcordanceResource["SearchType"]</label>
+            </div>
+            <div class="bx--col-md-2">
+                <label class="form-control">@ConcordanceResource["PartOfSpeech"]</label>
+            </div>
+        </div>
+        <div class="bx--row">
+            <div class="bx--col-md-2">
+                @{
+                    var formSearchTypeName = $"{nameof(ConcordanceSearch.MainWord)}.{nameof(ConcordanceSearchMainWord.FormSearchType)}";
+                    var allFormsId = $"{formSearchTypeName}_{FormSearchType.AllForms.ToString()}";
+                    var exactFormId = $"{formSearchTypeName}_{FormSearchType.ExactForm.ToString()}";
+                }
+                <div class="form-radio-control">
+                    @Html.RadioButton(formSearchTypeName, FormSearchType.AllForms, true, new { id = allFormsId }) <label for="@allFormsId">@ConcordanceResource["SearchTypeAllForms"]</label>
+                </div>
+                <div class="form-radio-control">
+                    @Html.RadioButton(formSearchTypeName, FormSearchType.ExactForm, false, new { id = exactFormId }) <label for="@exactFormId">@ConcordanceResource["SearchTypeExactForm"]</label>
+                </div>
+            </div>
+            <div class="bx--col-md-4">
+                @{
+                    var posName = $"{nameof(ConcordanceSearch.MainWord)}.{nameof(ConcordanceSearchWordInContext.PartOfSpeechId)}";
+                    var msdsName = $"{nameof(ConcordanceSearch.MainWord)}.{nameof(ConcordanceSearchMainWord.Msds)}";
+                }
+                <div class="pos-wrapper">
+                    @Html.DropDown($"{nameof(ConcordanceSearch.MainWord)}.{nameof(ConcordanceSearchMainWord.PartOfSpeechCondition)}", Model.ConditionsList, new { @class = "condition" })
+                    @{ await Html.RenderPartialAsync("_AdvancedPosInput", (posName, msdsName, Model.PartOfSpeechesList)); }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content word-in-context original" style="display: none;">
+        <div class="basic-data">
+            <div class="bx--row">
+                <div class="bx--col">
+                    <h2>@ConcordanceResource["WordInContext"]</h2>
+                </div>
+                <div class="bx--col text-right">
+                    <button type="button" class="form-control remove">
+                        <img src="~/images/trash-can.svg" alt="@ConcordanceResource["Remove"].Value"> @ConcordanceResource["Remove"].Value
+                    </button>
+                </div>
+            </div>
+            <div class="bx--row form-row">
+                <div class="bx--col bx--col-md-2">
+                    @{
+                        var wordInContextName = $"{nameof(ConcordanceSearch.WordsInContext)}Original.{nameof(ConcordanceSearchWordInContext.Condition)}";
+                        var isId = $"{wordInContextName}_{ConditionType.Is.ToString()}";
+                        var isNotId = $"{wordInContextName}_{ConditionType.IsNot.ToString()}";
+                    }
+                    <div class="form-radio-control">
+                        @Html.RadioButton(wordInContextName, ConditionType.Is, true, new { id = isId }) <label for="@isId">@ConcordanceResource["WordInContextIs"]</label>
+                    </div>
+                    <div class="form-radio-control">
+                        @Html.RadioButton(wordInContextName, ConditionType.IsNot, false, new { id = isNotId }) <label for="@isNotId">@ConcordanceResource["WordInContextIsNot"]</label>
+                    </div>
+                </div>
+            </div>
+            <div class="bx--row labels">
+                <div class="bx--col-md-2">
+                    <label class="form-control">@ConcordanceResource["LeftMark"]</label>
+                </div>
+                <div class="bx--col-md-2">
+                    <label class="form-control">@ConcordanceResource["Word"]</label>
+                </div>
+                <div class="bx--col-md-2">
+                    <label class="form-control">@ConcordanceResource["RightMark"]</label>
+                </div>
+            </div>
+            <div class="bx--row">
+                <div class="bx--col-md-2">
+                    @Html.DropDown($"{nameof(ConcordanceSearch.WordsInContext)}Original.{nameof(ConcordanceSearchWordInContext.LeftMark)}", Model.LeftMarkList)
+                </div>
+                <div class="bx--col-md-2">
+                    @{ await Html.RenderPartialAsync("_AdvancedWordInput", ($"{nameof(ConcordanceSearch.WordsInContext)}Original.{nameof(ConcordanceSearchWordInContext.Form)}", Model.WordList)); }
+                </div>
+                <div class="bx--col-md-2">
+                    @Html.DropDown($"{nameof(ConcordanceSearch.WordsInContext)}Original.{nameof(ConcordanceSearchWordInContext.RightMark)}", Model.RightMarkList)
+                </div>
+            </div>
+            <div class="bx--row labels">
+                <div class="bx--col-md-2">
+                    <label class="form-control">@ConcordanceResource["SpellingType"]</label>
+                </div>
+            </div>
+            <div class="bx--row">
+                <div class="bx--col-md-2">
+                    @{
+                        transcriptionTypeName = $"{nameof(ConcordanceSearch.WordsInContext)}Original.{nameof(ConcordanceSearchWordInContext.TranscriptionType)}";
+                        conversationalId = $"{transcriptionTypeName}_{TranscriptionType.Conversational.ToString()}";
+                        standardId = $"{transcriptionTypeName}_{TranscriptionType.Standard.ToString()}";
+                    }
+                    <div class="form-radio-control">
+                        @Html.RadioButton(transcriptionTypeName, TranscriptionType.Conversational, true, new { id = conversationalId }) <label for="@conversationalId">@ConcordanceResource["TranscriptionTypeConversational"]</label>
+                    </div>
+                    <div class="form-radio-control">
+                        @Html.RadioButton(transcriptionTypeName, TranscriptionType.Standard, false, new { id = standardId }) <label for="@standardId">@ConcordanceResource["TranscriptionTypeStandard"]</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bx--row labels">
+            <div class="bx--col-md-2">
+                <label class="form-control">@ConcordanceResource["SearchType"]</label>
+            </div>
+            <div class="bx--col-md-2">
+                <label class="form-control">@ConcordanceResource["PartOfSpeech"]</label>
+            </div>
+        </div>
+        <div class="bx--row">
+            <div class="bx--col-md-2">
+                @{
+                    formSearchTypeName = $"{nameof(ConcordanceSearch.WordsInContext)}Original.{nameof(ConcordanceSearchWordInContext.FormSearchType)}";
+                    allFormsId = $"{formSearchTypeName}_{FormSearchType.AllForms.ToString()}";
+                    exactFormId = $"{formSearchTypeName}_{FormSearchType.ExactForm.ToString()}";
+                }
+                <div class="form-radio-control">
+                    @Html.RadioButton(formSearchTypeName, FormSearchType.AllForms, true, new { id = allFormsId }) <label for="@allFormsId">@ConcordanceResource["SearchTypeAllForms"]</label>
+                </div>
+                <div class="form-radio-control">
+                    @Html.RadioButton(formSearchTypeName, FormSearchType.ExactForm, false, new { id = exactFormId }) <label for="@exactFormId">@ConcordanceResource["SearchTypeExactForm"]</label>
+                </div>
+            </div>
+            <div class="bx--col-md-4">
+                @{
+                    posName = $"{nameof(ConcordanceSearch.WordsInContext)}Original.{nameof(ConcordanceSearchWordInContext.PartOfSpeechId)}";
+                    msdsName = $"{nameof(ConcordanceSearch.WordsInContext)}Original.{nameof(ConcordanceSearchWordInContext.Msds)}";
+                }
+                @Html.Hidden(msdsName, null)
+                <div class="pos-wrapper">
+                    @Html.DropDown($"{nameof(ConcordanceSearch.WordsInContext)}Original.{nameof(ConcordanceSearchWordInContext.PartOfSpeechCondition)}", Model.ConditionsList, new { @class = "condition" })
+                    @{ await Html.RenderPartialAsync("_AdvancedPosInput", (posName, msdsName, Model.PartOfSpeechesList)); }
+                </div>                
+            </div>
+        </div>
+        <div class="bx--row labels">
+            <div class="bx--col-md-2">
+                <label class="form-control">@ConcordanceResource["Distance"]</label>
+            </div>
+        </div>
+        <div class="bx--row">
+            <div class="bx--col-md-2">
+                @{
+                    var distanceTypeName = $"{nameof(ConcordanceSearch.WordsInContext)}Original.{nameof(ConcordanceSearchWordInContext.DistanceType)}";
+                    var distanceId = $"{distanceTypeName}_{DistanceType.Distance.ToString()}";
+                    var positionId = $"{distanceTypeName}_{DistanceType.Position.ToString()}";
+                }
+                <div class="form-radio-control">
+                    @Html.RadioButton(distanceTypeName, DistanceType.Distance, true, new { id = distanceId }) <label for="@distanceId">@ConcordanceResource["SpecifyDistance"]</label>
+                </div>
+                <div class="form-radio-control">
+                    @Html.RadioButton(distanceTypeName, DistanceType.Position, false, new { id = positionId }) <label for="@positionId">@ConcordanceResource["SpecifyPosition"]</label>
+                </div>
+            </div>
+        </div>
+        <div class="bx--row">
+            <div class="bx--col bx--col-md-6">
+                <div class="distance-selector">
+                    @Html.DistanceSelector($"{nameof(ConcordanceSearch.WordsInContext)}Original.{nameof(ConcordanceSearchWordInContext.LeftPosition)}", true, new {@class="left"})
+                    <span class="search-word">@ConcordanceResource["SearchWord"]</span>
+                    @Html.DistanceSelector($"{nameof(ConcordanceSearch.WordsInContext)}Original.{nameof(ConcordanceSearchWordInContext.RightPosition)}", false, new {@class="right"})
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="bx--row">
+            <div class="bx--col">
+                <button class="form-control large add-word" type="button" data-add-text="@ConcordanceResource["AddWordInContext"]" data-additional-text="@ConcordanceResource["AddAdditionalWordInContext"]"><img src="~/images/add.svg" />@ConcordanceResource["AddWordInContext"]</button>        
+            </div>
+            <div class="bx--col text-right">
+                <button class="form-control large" type="submit">@SharedResource["Clear"]</button>        
+                <button class="form-control large primary" type="submit">@SharedResource["Find"]</button>        
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+}
+</div>
+
+<div class="pos-holder" style="display: none;">
+</div>

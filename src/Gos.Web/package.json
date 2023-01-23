@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "name": "gos",
+  "private": true,
+  "scripts": {
+    "build": "node_modules\\.bin\\webpack --mode=development --watch",
+    "build-prod": "node_modules\\.bin\\webpack"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^0.28.11",
+    "mini-css-extract-plugin": "^0.4.4",
+    "sass": "^1.54.0",
+    "sass-loader": "^7.0.2",
+    "script-loader": "^0.7.2",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^3.0.1"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

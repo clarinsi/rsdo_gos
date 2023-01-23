@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="SimpleSearchInUse" xml:space="preserve">
+        <value>Uporabljaš &lt;a class="show-help" href="#"&gt;enostavno iskanje&lt;/a&gt;</value>
+    </data>
+    <data name="AdvancedSearch" xml:space="preserve">
+        <value>Napredno iskanje</value>
+    </data>
+    <data name="DetailsDiscourseChannel" xml:space="preserve">
+        <value>kanal</value>
+    </data>
+    <data name="DetailsDiscourseEvent" xml:space="preserve">
+        <value>tip dogodka</value>
+    </data>
+    <data name="DetailsDiscourseDescription" xml:space="preserve">
+        <value>opis dogodka</value>
+    </data>
+    <data name="DetailsNumberOfSpeakers" xml:space="preserve">
+        <value>število udeležencev</value>
+    </data>
+    <data name="DetailsDiscourseSource" xml:space="preserve">
+        <value>vir</value>
+    </data>
+    <data name="DetailsDiscourseRegion" xml:space="preserve">
+        <value>regija snemanja</value>
+    </data>
+    <data name="DetailsSpeakerSex" xml:space="preserve">
+        <value>spol</value>
+    </data>
+    <data name="DetailsSpeakerAge" xml:space="preserve">
+        <value>starost</value>
+    </data>
+    <data name="DetailsSpeakerEducation" xml:space="preserve">
+        <value>izobrazba</value>
+    </data>
+    <data name="DetailsSpeakerRegion" xml:space="preserve">
+        <value>regija</value>
+    </data>
+    <data name="DetailsSpeakerLanguage" xml:space="preserve">
+        <value>prvi jezik</value>
+    </data>
+    <data name="DetailsSpeakerCode" xml:space="preserve">
+        <value>oznaka</value>
+    </data>
+    <data name="DetailsStandardForm" xml:space="preserve">
+        <value>Standardizirana različica</value>
+    </data>
+    <data name="DetailsSpeaker" xml:space="preserve">
+        <value>Govorec</value>
+    </data>
+    <data name="DetailsTokensConversationalForm" xml:space="preserve">
+        <value>Beseda</value>
+    </data>
+    <data name="DetailsTokensStandardForm" xml:space="preserve">
+        <value>Standardizirana oblika</value>
+    </data>
+    <data name="DetailsTokensLemma" xml:space="preserve">
+        <value>Standardizirana osnovna oblika</value>
+    </data>
+    <data name="DetailsTokensMsd" xml:space="preserve">
+        <value>Oblikoslovne lastnosti standardizirane oblike</value>
+    </data>
+    <data name="DetailsInformation" xml:space="preserve">
+        <value>Podatki o izjavi</value>
+    </data>
+    <data name="DetailsCorpusAnnotation" xml:space="preserve">
+        <value>Korpusne oznake</value>
+    </data>
+    <data name="ResultsInfo" xml:space="preserve">
+        <value>Prikazujem {0}-{1} od &lt;strong&gt;{2}&lt;/strong&gt; konkordanc.</value>
+    </data>
+    <data name="SearchTheWord" xml:space="preserve">
+        <value>Iskana beseda</value>
+    </data>
+    <data name="SearchType" xml:space="preserve">
+        <value>Način iskanja</value>
+    </data>
+    <data name="SearchTypeAllForms" xml:space="preserve">
+        <value>vse oblike besed</value>
+    </data>
+    <data name="SearchTypeExactForm" xml:space="preserve">
+        <value>samo vpisana oblika</value>
+    </data>
+    <data name="PartOfSpeech" xml:space="preserve">
+        <value>Besedna vrsta</value>
+    </data>
+    <data name="TranscriptionTypeConversational" xml:space="preserve">
+        <value>v pogovornem zapisu</value>
+    </data>
+    <data name="TranscriptionTypeStandard" xml:space="preserve">
+        <value>v standardiziranem zapisu</value>
+    </data>
+    <data name="AddWordInContext" xml:space="preserve">
+        <value>Beseda v okolici</value>
+    </data>
+    <data name="AddAdditionalWordInContext" xml:space="preserve">
+        <value>Dodatna beseda v okolici</value>
+    </data>
+    <data name="WordInContextIs" xml:space="preserve">
+        <value>je beseda</value>
+    </data>
+    <data name="WordInContextIsNot" xml:space="preserve">
+        <value>ni besede</value>
+    </data>
+    <data name="WordInContext" xml:space="preserve">
+        <value>V okolici</value>
+    </data>
+    <data name="Distance" xml:space="preserve">
+        <value>Oddaljenost</value>
+    </data>
+    <data name="SpecifyDistance" xml:space="preserve">
+        <value>Določi oddaljenost</value>
+    </data>
+    <data name="SpecifyPosition" xml:space="preserve">
+        <value>Določi točno mesto</value>
+    </data>
+    <data name="SearchWord" xml:space="preserve">
+        <value>iskana beseda</value>
+    </data>
+    <data name="HistoryWord" xml:space="preserve">
+        <value>Beseda</value>
+    </data>
+    <data name="HistoryPartOfSpeech" xml:space="preserve">
+        <value>Vrsta</value>
+    </data>
+    <data name="HistoryWordInContext" xml:space="preserve">
+        <value>Beseda v okolici</value>
+    </data>
+    <data name="HistoryWordInContextDistance" xml:space="preserve">
+        <value>Oddaljenost</value>
+    </data>
+    <data name="HistoryLeft" xml:space="preserve">
+        <value>levo</value>
+    </data>
+    <data name="HistoryRight" xml:space="preserve">
+        <value>desno</value>
+    </data>
+    <data name="Word" xml:space="preserve">
+        <value>Beseda</value>
+    </data>
+    <data name="LeftMark" xml:space="preserve">
+        <value>Oznaka pred</value>
+    </data>
+    <data name="RightMark" xml:space="preserve">
+        <value>Oznaka za</value>
+    </data>
+    <data name="SpellingType" xml:space="preserve">
+        <value>Tip zapisa</value>
+    </data>
+    <data name="WordName" xml:space="preserve">
+        <value>ime</value>
+    </data>
+    <data name="WordSurname" xml:space="preserve">
+        <value>priimek</value>
+    </data>
+    <data name="WordUnclear" xml:space="preserve">
+        <value>nerazumljivo besedilo</value>
+    </data>
+    <data name="WordPause" xml:space="preserve">
+        <value>premor</value>
+    </data>
+    <data name="PlayAll" xml:space="preserve">
+        <value>Predvajaj vse</value>
+    </data>
+    <data name="Play" xml:space="preserve">
+        <value>Predvajaj</value>
+    </data>
+    <data name="NoMark" xml:space="preserve">
+        <value>Brez oznake</value>
+    </data>
+</root>

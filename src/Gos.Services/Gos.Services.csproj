@@ -1,0 +1,74 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Gos.Core\Gos.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="6.4.0" />
+      <PackageReference Include="EFCore.BulkExtensions" Version="6.5.6" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.11" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.7" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Framework\SeedData\CsvFiles" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Framework\SeedData\CsvFiles\abbreviation.csv" />
+      <EmbeddedResource Include="Framework\SeedData\CsvFiles\abbreviation.csv" />
+      <None Remove="Framework\SeedData\CsvFiles\adjective.csv" />
+      <EmbeddedResource Include="Framework\SeedData\CsvFiles\adjective.csv" />
+      <None Remove="Framework\SeedData\CsvFiles\adposition.csv" />
+      <EmbeddedResource Include="Framework\SeedData\CsvFiles\adposition.csv" />
+      <None Remove="Framework\SeedData\CsvFiles\adverb.csv" />
+      <EmbeddedResource Include="Framework\SeedData\CsvFiles\adverb.csv" />
+      <None Remove="Framework\SeedData\CsvFiles\conjunction.csv" />
+      <EmbeddedResource Include="Framework\SeedData\CsvFiles\conjunction.csv" />
+      <None Remove="Framework\SeedData\CsvFiles\interjection.csv" />
+      <EmbeddedResource Include="Framework\SeedData\CsvFiles\interjection.csv" />
+      <None Remove="Framework\SeedData\CsvFiles\noun.csv" />
+      <EmbeddedResource Include="Framework\SeedData\CsvFiles\noun.csv" />
+      <None Remove="Framework\SeedData\CsvFiles\numeral.csv" />
+      <EmbeddedResource Include="Framework\SeedData\CsvFiles\numeral.csv" />
+      <None Remove="Framework\SeedData\CsvFiles\particle.csv" />
+      <EmbeddedResource Include="Framework\SeedData\CsvFiles\particle.csv" />
+      <None Remove="Framework\SeedData\CsvFiles\pronoun.csv" />
+      <EmbeddedResource Include="Framework\SeedData\CsvFiles\pronoun.csv" />
+      <None Remove="Framework\SeedData\CsvFiles\punctuation.csv" />
+      <EmbeddedResource Include="Framework\SeedData\CsvFiles\punctuation.csv" />
+      <None Remove="Framework\SeedData\CsvFiles\residual.csv" />
+      <EmbeddedResource Include="Framework\SeedData\CsvFiles\residual.csv" />
+      <None Remove="Framework\SeedData\CsvFiles\verb.csv" />
+      <EmbeddedResource Include="Framework\SeedData\CsvFiles\verb.csv" />
+      <None Remove="Framework\SeedData\CsvFiles\msd.csv" />
+      <EmbeddedResource Include="Framework\SeedData\CsvFiles\msd.csv" />
+      <EmbeddedResource Update="Resources\ExportResource.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>ExportResource.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\ExportResource.en.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>ExportResource.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resources\ExportResource.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ExportResource.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\ExportResource.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ExportResource.en.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+</Project>

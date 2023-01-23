@@ -1,0 +1,48 @@
+﻿@using Gos.ServiceModel.Requests.Concordance
+@model (ConcordanceDetailsResponseStatement model, bool isVisible)
+@{
+    var data = Model.model;
+    var display = Model.isVisible ? "visible" : "none";
+}
+
+@if (data != null)
+{
+    <div class="annotation-wrapper" data-statement-id="@data.Id" style="display: @display;">
+        <div class="annotation-header">
+            <div class="bx--row">
+                <div class="bx--col bx--col-md-3">@ConcordanceResource["DetailsTokensConversationalForm"]</div>
+                <div class="bx--col bx--col-md-3">@ConcordanceResource["DetailsTokensStandardForm"]</div>
+                <div class="bx--col bx--col-md-3">@ConcordanceResource["DetailsTokensLemma"]</div>
+                <div class="bx--col bx--col-md-3">@ConcordanceResource["DetailsTokensMsd"]</div>
+            </div>
+        </div>
+        @foreach (var token in data.Tokens)
+        {
+            <div class="annotation-item">
+                <div class="bx--row">
+                    @if (token.IsCenterMatch)
+                    {
+                        <div class="bx--col bx--col-md-3 center-word">@token.ConversationalForm</div>
+                        <div class="bx--col bx--col-md-3 center-word">@token.StandardForm</div>
+                        <div class="bx--col bx--col-md-3 center-word">@token.Lemma</div>
+                        <div class="bx--col bx--col-md-3 center-word">@token.MsdDescription</div>
+                    }
+                    else if (token.IsWordInContextMatch)
+                    {
+                        <div class="bx--col bx--col-md-3 word-in-context">@token.ConversationalForm</div>
+                        <div class="bx--col bx--col-md-3 word-in-context">@token.StandardForm</div>
+                        <div class="bx--col bx--col-md-3 word-in-context">@token.Lemma</div>
+                        <div class="bx--col bx--col-md-3 word-in-context">@token.MsdDescription</div>
+                    }
+                    else
+                    {
+                        <div class="bx--col bx--col-md-3">@token.ConversationalForm</div>
+                        <div class="bx--col bx--col-md-3 secondary">@token.StandardForm</div>
+                        <div class="bx--col bx--col-md-3 secondary">@token.Lemma</div>
+                        <div class="bx--col bx--col-md-3 secondary">@token.MsdDescription</div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+}

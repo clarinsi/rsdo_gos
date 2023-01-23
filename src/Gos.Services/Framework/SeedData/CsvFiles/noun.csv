@@ -1,0 +1,18 @@
+﻿P;Attribute (sl);Value (sl);Code (sl);Attribute (en);Value (en);Code (en)
+0;besedna_vrsta;samostalnik;S;CATEGORY;Noun;N
+1;vrsta;občno_ime;o;Type;common;c
+;;lastno_ime;l;;proper;p
+2;spol;moški;m;Gender;masculine;m
+;;ženski;z;;feminine;f
+;;srednji;s;;neuter;n
+3;število;ednina;e;Number;singular;s
+;;dvojina;d;;dual;d
+;;množina;m;;plural;p
+4;sklon;imenovalnik;i;Case;nominative;n
+;;rodilnik;r;;genitive;g
+;;dajalnik;d;;dative;d
+;;tožilnik;t;;accusative;a
+;;mestnik;m;;locative;l
+;;orodnik;o;;instrumental;i
+5;živost;ne;n;Animate;no;n
+;;da;d;;yes;y

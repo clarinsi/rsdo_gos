@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="About" xml:space="preserve">
+        <value>O viru</value>
+    </data>
+    <data name="ProvidedBy" xml:space="preserve">
+        <value>Upravljanje vira</value>
+    </data>
+    <data name="Licence" xml:space="preserve">
+        <value>Dostopnost vira</value>
+    </data>
+    <data name="LicenceInfo" xml:space="preserve">
+        <value>Delo je dostopno pod licenco</value>
+    </data>
+    <data name="Information" xml:space="preserve">
+        <value>Informacije o viru</value>
+    </data>
+    <data name="Cjvt" xml:space="preserve">
+        <value>Center za jezikovne vire in tehnologije</value>
+    </data>
+    <data name="Download" xml:space="preserve">
+        <value>Prenos vira</value>
+    </data>
+    <data name="Corpora" xml:space="preserve">
+        <value>Korpus govorjene slovenščine</value>
+    </data>
+    <data name="Concordance" xml:space="preserve">
+        <value>Iskanje</value>
+    </data>
+    <data name="List" xml:space="preserve">
+        <value>Seznam</value>
+    </data>
+    <data name="StatsDiscourses" xml:space="preserve">
+        <value>diskurzov</value>
+    </data>
+    <data name="StatsStatements" xml:space="preserve">
+        <value>izjav</value>
+    </data>
+    <data name="StatsWords" xml:space="preserve">
+        <value>besed</value>
+    </data>
+    <data name="DiscourseTypeAggregation" xml:space="preserve">
+        <value>Tip govora</value>
+    </data>
+    <data name="DiscourseChannelAggregation" xml:space="preserve">
+        <value>Kanal</value>
+    </data>
+    <data name="DiscourseEventAggregation" xml:space="preserve">
+        <value>Tip govornega dogodka</value>
+    </data>
+    <data name="DiscourseRegionAggregation" xml:space="preserve">
+        <value>Regija snemanja</value>
+    </data>
+    <data name="DiscourseYearAggregation" xml:space="preserve">
+        <value>Leto snemanja</value>
+    </data>
+    <data name="SpeakerAgeAggregation" xml:space="preserve">
+        <value>Starost govorca</value>
+    </data>
+    <data name="SpeakerEducationAggregation" xml:space="preserve">
+        <value>Izobrazba govorca</value>
+    </data>
+    <data name="SpeakerLanguageAggregation" xml:space="preserve">
+        <value>Prvi jezik govorca</value>
+    </data>
+    <data name="SpeakerRegionAggregation" xml:space="preserve">
+        <value>Regija govorca</value>
+    </data>
+    <data name="SpeakerSexAggregation" xml:space="preserve">
+        <value>Spol govorca</value>
+    </data>
+    <data name="IsCondition" xml:space="preserve">
+        <value>je</value>
+    </data>
+    <data name="IsNotCondition" xml:space="preserve">
+        <value>ni</value>
+    </data>
+    <data name="Any" xml:space="preserve">
+        <value>vseeno</value>
+    </data>
+    <data name="Details" xml:space="preserve">
+        <value>Podrobnosti</value>
+    </data>
+    <data name="Clear" xml:space="preserve">
+        <value>Počisti</value>
+    </data>
+    <data name="Apply" xml:space="preserve">
+        <value>Uporabi</value>
+    </data>
+    <data name="Export" xml:space="preserve">
+        <value>Izvoz</value>
+    </data>
+    <data name="ExportData" xml:space="preserve">
+        <value>Izvoz podatkov</value>
+    </data>
+    <data name="ExportFirst" xml:space="preserve">
+        <value>prvih</value>
+    </data>
+    <data name="ExportMax" xml:space="preserve">
+        <value>Izvoziš lahko največ 1000 zapisov!</value>
+    </data>
+    <data name="ExportRandom" xml:space="preserve">
+        <value>naključnih</value>
+    </data>
+    <data name="ExportRecords" xml:space="preserve">
+        <value>zapisov.</value>
+    </data>
+    <data name="ExportTotal" xml:space="preserve">
+        <value>Število zapisov je {0}.</value>
+    </data>
+    <data name="PartOfSpeechAggregation" xml:space="preserve">
+        <value>Besedna vrsta</value>
+    </data>
+    <data name="LemmaAggregation" xml:space="preserve">
+        <value>Standardizirana osnovna oblika</value>
+    </data>
+    <data name="Find" xml:space="preserve">
+        <value>Najdi</value>
+    </data>
+    <data name="HistoryEmpty" xml:space="preserve">
+        <value>Zgodovina iskanj je prazna!</value>
+    </data>
+    <data name="History" xml:space="preserve">
+        <value>Zgodovina iskanj</value>
+    </data>
+    <data name="TranscriptionTypeConversational" xml:space="preserve">
+        <value>Pogovorni zapis</value>
+    </data>
+    <data name="TranscriptionTypeStandard" xml:space="preserve">
+        <value>Standardizirani zapis</value>
+    </data>
+    <data name="LemmasAlternateSearch" xml:space="preserve">
+        <value>Osnovne oblike</value>
+    </data>
+    <data name="NoResults" xml:space="preserve">
+        <value>Vaše iskanje ni obrodilo sadov.</value>
+    </data>
+    <data name="AllSources" xml:space="preserve">
+        <value>Vsi viri</value>
+    </data>
+    <data name="ExportType" xml:space="preserve">
+        <value>Izvozi</value>
+    </data>
+    <data name="TranscriptionTypeConversationalShort" xml:space="preserve">
+        <value>Pogovorno</value>
+    </data>
+    <data name="TranscriptionTypeStandardShort" xml:space="preserve">
+        <value>Standardizirano</value>
+    </data>
+    <data name="ConcordanceHint" xml:space="preserve">
+        <value>Enostavno iskanje</value>
+    </data>
+    <data name="ListHint" xml:space="preserve">
+        <value>Iskanje po seznamih</value>
+    </data>
+</root>

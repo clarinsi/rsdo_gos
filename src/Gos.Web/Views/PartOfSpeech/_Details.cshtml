@@ -1,0 +1,40 @@
+﻿@using Gos.Web.Models.PartOfSpeech;
+@model PartOfSpeechDetailsViewModel
+@{
+    var pos = Model.Result;
+}
+
+<div class="pos-details">
+    <div class="header">
+        <h4>@pos.Title</h4>
+        <a class="btn-exit" href="#"><img src="~/images/close.svg" alt="Close"/></a>
+    </div>
+    <div class="body">
+        <form>
+            @foreach (var attr in pos.Attributes)
+            {
+                <div class="attribute">
+                    <div class="bx--row">
+                        <div class="bx--col"><h5>@attr.Title</h5></div>
+                    </div>
+                    <div class="bx--row">
+                        @foreach (var value in attr.Values)
+                        {
+                            var cbValue = $"{attr.RecordOrder}_{value.Code}";
+                            var id = $"Msd_{cbValue}";
+                            <div class="bx--col-lg-3">
+                                <div class="form-check-control">
+                                    <input type="checkbox" name="@id" id="@id" value="@cbValue"/><label for="@id">@value.Title</label>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </form>
+    </div>
+    <div class="footer">
+        <button type="button" class="form-control medium clear">@SharedResource["Clear"]</button>
+        <button type="button" class="form-control medium primary">@SharedResource["Apply"]</button>
+    </div>
+</div>

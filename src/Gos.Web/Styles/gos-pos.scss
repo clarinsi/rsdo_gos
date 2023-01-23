@@ -1,0 +1,75 @@
+﻿@import 'cjvt-theme';
+
+.pos-holder {
+    background-color: $grey-b-40;
+    background-blend-mode: multiply;
+    background-image: linear-gradient(to bottom, $grey-b-40, $grey-b-40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000001;
+
+    .pos-details {
+        background-color: $white;
+        border-radius: 0.125rem;
+        box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+        max-height: 80%;
+        max-width: 80%;
+
+        .header {
+            align-items: center;
+            border-bottom: 1px solid $grey-b-94;
+            display: flex;
+            height: 3rem;
+            padding: 0 1rem;
+
+            h4 {
+                flex-grow: 1;
+                font-size: 0.875rem;
+            }
+
+            a {
+                margin-left: auto;
+
+                img {
+                    height: 1rem;
+                    width: 1rem;
+                }
+            }
+        }
+
+        .body {
+            padding: 0 1rem;
+
+            h5 {
+                font-size: 0.75rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .attribute {
+                padding: 0.875rem 0 1.25rem 0;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $grey-b-94;
+                }
+            }
+        }
+
+        .footer {
+            align-items: center;
+            border-top: 1px solid $grey-b-94;
+            display: flex;
+            height: 4.5rem;
+            padding: 0 1rem;
+
+            button.primary {
+                margin-left: auto;
+            }
+        }
+    }
+}
