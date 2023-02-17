@@ -16,12 +16,10 @@ namespace Gos.Core.Entities
     public enum SpeakerAgeKeys
     {
         Do10Let = 1,
-        Od10Do14Let = 2,
-        Od15Do18Let = 3,
-        Od19Do24Let = 4,
-        Od25Do34Let = 5,
-        Od35Do59Let = 6,
-        Nad60Let = 7,
-        Neznano = 8,
+        Od10Do18Let = 2,
+        Od18Do34Let = 3,
+        Od30Do59Let = 4,
+        Nad60Let = 5,
+        Neznano = 6,
     }
 }

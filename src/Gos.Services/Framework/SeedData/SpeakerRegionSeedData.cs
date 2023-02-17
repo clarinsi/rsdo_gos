@@ -10,210 +10,191 @@ namespace Gos.Services.Framework.SeedData
         {
             yield return new SpeakerRegion
             {
-                Id = (int)SpeakerRegionKeys.Celjska,
+                Id = (int)SpeakerRegionKeys.Savinjska,
                 Translations = new TranslationCollection<SpeakerRegionTranslation>()
                 {
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.Slovene,
-                        ShortTitle = "CE",
-                        Title = "Celjska",
+                        ShortTitle = "Savinjska regija",
+                        Title = "Savinjska regija",
                     },
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.English,
-                        ShortTitle = "CE",
-                        Title = "Celje",
+                        ShortTitle = "Savinja region",
+                        Title = "Savinja region",
                     },
                 },
             };
             yield return new SpeakerRegion
             {
-                Id = (int)SpeakerRegionKeys.Novogoriska,
+                Id = (int)SpeakerRegionKeys.Goriska,
                 Translations = new TranslationCollection<SpeakerRegionTranslation>()
                 {
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.Slovene,
-                        ShortTitle = "GO",
-                        Title = "Novogoriška",
+                        ShortTitle = "Goriška regija",
+                        Title = "Goriška regija",
                     },
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.English,
-                        ShortTitle = "GO",
-                        Title = "Nova Gorica",
+                        ShortTitle = "Gorica region",
+                        Title = "Gorica region",
                     },
                 },
             };
             yield return new SpeakerRegion
             {
-                Id = (int)SpeakerRegionKeys.Krska,
+                Id = (int)SpeakerRegionKeys.Posavska,
                 Translations = new TranslationCollection<SpeakerRegionTranslation>()
                 {
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.Slovene,
-                        ShortTitle = "KK",
-                        Title = "Krška",
+                        ShortTitle = "Posavska regija",
+                        Title = "Posavska regija",
                     },
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.English,
-                        ShortTitle = "KK",
-                        Title = "Krško",
+                        ShortTitle = "Posavska region",
+                        Title = "Posavska region",
                     },
                 },
             };
             yield return new SpeakerRegion
             {
-                Id = (int)SpeakerRegionKeys.Koprska,
+                Id = (int)SpeakerRegionKeys.ObalnoKraska,
                 Translations = new TranslationCollection<SpeakerRegionTranslation>()
                 {
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.Slovene,
-                        ShortTitle = "KP",
-                        Title = "Koprska",
+                        ShortTitle = "Obalno-kraška regija",
+                        Title = "Obalno-kraška regija",
                     },
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.English,
-                        ShortTitle = "KP",
-                        Title = "Koper",
+                        ShortTitle = "Coastal Karst region",
+                        Title = "Coastal Karst region",
                     },
                 },
             };
             yield return new SpeakerRegion
             {
-                Id = (int)SpeakerRegionKeys.Kranjska,
+                Id = (int)SpeakerRegionKeys.Gorenjska,
                 Translations = new TranslationCollection<SpeakerRegionTranslation>()
                 {
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.Slovene,
-                        ShortTitle = "KR",
-                        Title = "Kranjska",
+                        ShortTitle = "Gorenjska regija",
+                        Title = "Gorenjska regija",
                     },
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.English,
-                        ShortTitle = "KR",
-                        Title = "Kranj",
+                        ShortTitle = "Gorenjska region",
+                        Title = "Gorenjska region",
                     },
                 },
             };
             yield return new SpeakerRegion
             {
-                Id = (int)SpeakerRegionKeys.Ljubljanska,
+                Id = (int)SpeakerRegionKeys.Osrednjeslovenska,
                 Translations = new TranslationCollection<SpeakerRegionTranslation>()
                 {
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.Slovene,
-                        ShortTitle = "LJ",
-                        Title = "Ljubljanska",
+                        ShortTitle = "Osrednjeslovenska regija",
+                        Title = "Osrednjeslovenska regija",
                     },
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.English,
-                        ShortTitle = "LJ",
-                        Title = "Ljubljana",
+                        ShortTitle = "Central Slovenia",
+                        Title = "Central Slovenia",
                     },
                 },
             };
             yield return new SpeakerRegion
             {
-                Id = (int)SpeakerRegionKeys.Mariborska,
+                Id = (int)SpeakerRegionKeys.Podravska,
                 Translations = new TranslationCollection<SpeakerRegionTranslation>()
                 {
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.Slovene,
-                        ShortTitle = "MB",
-                        Title = "Mariborska",
+                        ShortTitle = "Podravska regija",
+                        Title = "Podravska regija",
                     },
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.English,
-                        ShortTitle = "MB",
-                        Title = "Maribor",
+                        ShortTitle = "Drava region",
+                        Title = "Drava region",
                     },
                 },
             };
             yield return new SpeakerRegion
             {
-                Id = (int)SpeakerRegionKeys.Murskosoboska,
+                Id = (int)SpeakerRegionKeys.Pomurska,
                 Translations = new TranslationCollection<SpeakerRegionTranslation>()
                 {
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.Slovene,
-                        ShortTitle = "MS",
-                        Title = "Murskosoboška",
+                        ShortTitle = "Pomurska regija",
+                        Title = "Pomurska regija",
                     },
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.English,
-                        ShortTitle = "MS",
-                        Title = "Murska Sobota",
+                        ShortTitle = "Pomurje region",
+                        Title = "Pomurje region",
                     },
                 },
             };
             yield return new SpeakerRegion
             {
-                Id = (int)SpeakerRegionKeys.Novomeska,
+                Id = (int)SpeakerRegionKeys.JugovzhodnaSlovenija,
                 Translations = new TranslationCollection<SpeakerRegionTranslation>()
                 {
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.Slovene,
-                        ShortTitle = "NM",
-                        Title = "Novomeška",
+                        ShortTitle = "Jugovzhodna Slovenija",
+                        Title = "Jugovzhodna Slovenija",
                     },
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.English,
-                        ShortTitle = "NM",
-                        Title = "Novo mesto",
+                        ShortTitle = "Southeast Slovenia",
+                        Title = "Southeast Slovenia",
                     },
                 },
             };
             yield return new SpeakerRegion
             {
-                Id = (int)SpeakerRegionKeys.Postojnska,
+                Id = (int)SpeakerRegionKeys.Koroška,
                 Translations = new TranslationCollection<SpeakerRegionTranslation>()
                 {
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.Slovene,
-                        ShortTitle = "PO",
-                        Title = "Postojnska",
+                        ShortTitle = "Koroška regija",
+                        Title = "Koroška regija",
                     },
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.English,
-                        ShortTitle = "PO",
-                        Title = "Postojna",
-                    },
-                },
-            };
-            yield return new SpeakerRegion
-            {
-                Id = (int)SpeakerRegionKeys.Slovenjgraska,
-                Translations = new TranslationCollection<SpeakerRegionTranslation>()
-                {
-                    new()
-                    {
-                        CultureName = Constants.InterfaceLanguages.Slovene,
-                        ShortTitle = "SG",
-                        Title = "Slovenjgraška",
-                    },
-                    new()
-                    {
-                        CultureName = Constants.InterfaceLanguages.English,
-                        ShortTitle = "SG",
-                        Title = "Slovenj Gradec",
+                        ShortTitle = "Carinthia region",
+                        Title = "Carinthia region",
                     },
                 },
             };

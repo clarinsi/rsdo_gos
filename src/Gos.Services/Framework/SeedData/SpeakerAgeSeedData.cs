@@ -27,86 +27,52 @@ namespace Gos.Services.Framework.SeedData
             };
             yield return new SpeakerAge
             {
-                Id = (int)SpeakerAgeKeys.Od10Do14Let,
+                Id = (int)SpeakerAgeKeys.Od10Do18Let,
                 Translations = new TranslationCollection<SpeakerAgeTranslation>()
                 {
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.Slovene,
-                        Title = "10 do 14",
+                        Title = "10 do 18",
                     },
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.English,
-                        Title = "10 to 14",
+                        Title = "10 to 18",
                     },
                 },
             };
             yield return new SpeakerAge
             {
-                Id = (int)SpeakerAgeKeys.Od15Do18Let,
+                Id = (int)SpeakerAgeKeys.Od18Do34Let,
                 Translations = new TranslationCollection<SpeakerAgeTranslation>()
                 {
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.Slovene,
-                        Title = "15 do 18",
+                        Title = "18 do 34",
                     },
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.English,
-                        Title = "15 to 18",
+                        Title = "18 to 34",
                     },
                 },
             };
             yield return new SpeakerAge
             {
-                Id = (int)SpeakerAgeKeys.Od19Do24Let,
+                Id = (int)SpeakerAgeKeys.Od30Do59Let,
                 Translations = new TranslationCollection<SpeakerAgeTranslation>()
                 {
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.Slovene,
-                        Title = "19 do 24",
+                        Title = "30 do 59",
                     },
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.English,
-                        Title = "19 to 24",
-                    },
-                },
-            };
-            yield return new SpeakerAge
-            {
-                Id = (int)SpeakerAgeKeys.Od25Do34Let,
-                Translations = new TranslationCollection<SpeakerAgeTranslation>()
-                {
-                    new()
-                    {
-                        CultureName = Constants.InterfaceLanguages.Slovene,
-                        Title = "25 do 34",
-                    },
-                    new()
-                    {
-                        CultureName = Constants.InterfaceLanguages.English,
-                        Title = "25 to 34",
-                    },
-                },
-            };
-            yield return new SpeakerAge
-            {
-                Id = (int)SpeakerAgeKeys.Od35Do59Let,
-                Translations = new TranslationCollection<SpeakerAgeTranslation>()
-                {
-                    new()
-                    {
-                        CultureName = Constants.InterfaceLanguages.Slovene,
-                        Title = "35 do 59",
-                    },
-                    new()
-                    {
-                        CultureName = Constants.InterfaceLanguages.English,
-                        Title = "35 to 59",
+                        Title = "30 to 59",
                     },
                 },
             };

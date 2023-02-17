@@ -26,29 +26,19 @@ namespace Gos.Services.RequestHandlers.Corpus
                 return await dbContext.SpeakerAges.SingleAsync(x => x.Id == (int)SpeakerAgeKeys.Do10Let);
             }
 
-            if (atLeast == "10" && atMost == "14")
+            if (atLeast == "10" && atMost == "18")
             {
-                return await dbContext.SpeakerAges.SingleAsync(x => x.Id == (int)SpeakerAgeKeys.Od10Do14Let);
+                return await dbContext.SpeakerAges.SingleAsync(x => x.Id == (int)SpeakerAgeKeys.Od10Do18Let);
             }
 
-            if (atLeast == "15" && atMost == "18")
+            if (atLeast == "18" && atMost == "34")
             {
-                return await dbContext.SpeakerAges.SingleAsync(x => x.Id == (int)SpeakerAgeKeys.Od15Do18Let);
+                return await dbContext.SpeakerAges.SingleAsync(x => x.Id == (int)SpeakerAgeKeys.Od18Do34Let);
             }
 
-            if (atLeast == "19" && atMost == "24")
+            if (atLeast == "30" && atMost == "59")
             {
-                return await dbContext.SpeakerAges.SingleAsync(x => x.Id == (int)SpeakerAgeKeys.Od19Do24Let);
-            }
-
-            if (atLeast == "25" && atMost == "34")
-            {
-                return await dbContext.SpeakerAges.SingleAsync(x => x.Id == (int)SpeakerAgeKeys.Od25Do34Let);
-            }
-
-            if (atLeast == "35" && atMost == "59")
-            {
-                return await dbContext.SpeakerAges.SingleAsync(x => x.Id == (int)SpeakerAgeKeys.Od35Do59Let);
+                return await dbContext.SpeakerAges.SingleAsync(x => x.Id == (int)SpeakerAgeKeys.Od30Do59Let);
             }
 
             if (atLeast == "60")
@@ -130,33 +120,31 @@ namespace Gos.Services.RequestHandlers.Corpus
 
             switch (region)
             {
-                case "CE":
-                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Celjska);
-                case "GO":
-                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Novogoriska);
-                case "KK":
-                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Krska);
-                case "KP":
-                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Koprska);
-                case "KR":
-                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Kranjska);
-                case "LJ":
-                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Ljubljanska);
-                case "MB":
-                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Mariborska);
-                case "MS":
-                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Murskosoboska);
-                case "NM":
-                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Novomeska);
-                case "PO":
-                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Postojnska);
-                case "SG":
-                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Slovenjgraska);
+                case "savinjska":
+                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Savinjska);
+                case "goriška":
+                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Goriska);
+                case "posavska":
+                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Posavska);
+                case "obalno-kraška":
+                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.ObalnoKraska);
+                case "gorenjska":
+                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Gorenjska);
+                case "osrednjeslovenska":
+                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Osrednjeslovenska);
+                case "podravska":
+                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Podravska);
+                case "pomurska":
+                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Pomurska);
+                case "jugovzhodna Slovenija":
+                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.JugovzhodnaSlovenija);
+                case "koroška":
+                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Koroška);
                 case "Avstrija":
                     return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Avstrija);
                 case "Italija":
                     return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Italija);
-                case "Madzarska":
+                case "Madžarska":
                     return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Madzarska);
                 case "tujina":
                     return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Tujina);
