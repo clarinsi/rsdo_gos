@@ -31,10 +31,12 @@ namespace Gos.Core.Entities
         Pomurska = 8,
         JugovzhodnaSlovenija = 9,
         Koroška = 10,
-        Avstrija = 11,
-        Italija = 12,
-        Madzarska = 13,
-        Tujina = 14,
-        Neznano = 15,
+        Zasavska = 11,
+        PrimorskoNotranjska = 12,
+        Avstrija = 13,
+        Italija = 14,
+        Madzarska = 15,
+        Tujina = 16,
+        Neznano = 17,
     }
 }

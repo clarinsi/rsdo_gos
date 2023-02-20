@@ -27,23 +27,6 @@ namespace Gos.Services.Framework.SeedData
             };
             yield return new SpeakerLanguage
             {
-                Id = (int)SpeakerLanguageKeys.Anglescina,
-                Translations = new TranslationCollection<SpeakerLanguageTranslation>()
-                {
-                    new()
-                    {
-                        CultureName = Constants.InterfaceLanguages.Slovene,
-                        Title = "Angleščina",
-                    },
-                    new()
-                    {
-                        CultureName = Constants.InterfaceLanguages.English,
-                        Title = "English",
-                    },
-                },
-            };
-            yield return new SpeakerLanguage
-            {
                 Id = (int)SpeakerLanguageKeys.Nemscina,
                 Translations = new TranslationCollection<SpeakerLanguageTranslation>()
                 {
@@ -61,18 +44,35 @@ namespace Gos.Services.Framework.SeedData
             };
             yield return new SpeakerLanguage
             {
-                Id = (int)SpeakerLanguageKeys.Italijanscina,
+                Id = (int)SpeakerLanguageKeys.Anglescina,
                 Translations = new TranslationCollection<SpeakerLanguageTranslation>()
                 {
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.Slovene,
-                        Title = "Italijanščina",
+                        Title = "Angleščina",
                     },
                     new()
                     {
                         CultureName = Constants.InterfaceLanguages.English,
-                        Title = "Italian",
+                        Title = "English",
+                    },
+                },
+            };
+            yield return new SpeakerLanguage
+            {
+                Id = (int)SpeakerLanguageKeys.Francoscina,
+                Translations = new TranslationCollection<SpeakerLanguageTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Francoščina",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "French",
                     },
                 },
             };
@@ -95,6 +95,74 @@ namespace Gos.Services.Framework.SeedData
             };
             yield return new SpeakerLanguage
             {
+                Id = (int)SpeakerLanguageKeys.Hrvascina,
+                Translations = new TranslationCollection<SpeakerLanguageTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Hrvaščina",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Croatian",
+                    },
+                },
+            };
+            yield return new SpeakerLanguage
+            {
+                Id = (int)SpeakerLanguageKeys.Srbscina,
+                Translations = new TranslationCollection<SpeakerLanguageTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Srbščina",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Serbian",
+                    },
+                },
+            };
+            yield return new SpeakerLanguage
+            {
+                Id = (int)SpeakerLanguageKeys.Italijanscina,
+                Translations = new TranslationCollection<SpeakerLanguageTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Italijanščina",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Italian",
+                    },
+                },
+            };
+            yield return new SpeakerLanguage
+            {
+                Id = (int)SpeakerLanguageKeys.Ruscina,
+                Translations = new TranslationCollection<SpeakerLanguageTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Ruščina",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Russian",
+                    },
+                },
+            };
+            yield return new SpeakerLanguage
+            {
                 Id = (int)SpeakerLanguageKeys.Juznoslovanski,
                 Translations = new TranslationCollection<SpeakerLanguageTranslation>()
                 {
@@ -107,23 +175,6 @@ namespace Gos.Services.Framework.SeedData
                     {
                         CultureName = Constants.InterfaceLanguages.English,
                         Title = "South Slavic",
-                    },
-                },
-            };
-            yield return new SpeakerLanguage
-            {
-                Id = (int)SpeakerLanguageKeys.Albanscina,
-                Translations = new TranslationCollection<SpeakerLanguageTranslation>()
-                {
-                    new()
-                    {
-                        CultureName = Constants.InterfaceLanguages.Slovene,
-                        Title = "Albanščina",
-                    },
-                    new()
-                    {
-                        CultureName = Constants.InterfaceLanguages.English,
-                        Title = "Albanian",
                     },
                 },
             };
@@ -146,23 +197,6 @@ namespace Gos.Services.Framework.SeedData
             };
             yield return new SpeakerLanguage
             {
-                Id = (int)SpeakerLanguageKeys.DrugiGermanski,
-                Translations = new TranslationCollection<SpeakerLanguageTranslation>()
-                {
-                    new()
-                    {
-                        CultureName = Constants.InterfaceLanguages.Slovene,
-                        Title = "Drugi germanski",
-                    },
-                    new()
-                    {
-                        CultureName = Constants.InterfaceLanguages.English,
-                        Title = "Other Germanic",
-                    },
-                },
-            };
-            yield return new SpeakerLanguage
-            {
                 Id = (int)SpeakerLanguageKeys.DrugiRomanski,
                 Translations = new TranslationCollection<SpeakerLanguageTranslation>()
                 {
@@ -175,23 +209,6 @@ namespace Gos.Services.Framework.SeedData
                     {
                         CultureName = Constants.InterfaceLanguages.English,
                         Title = "Other Romanic",
-                    },
-                },
-            };
-            yield return new SpeakerLanguage
-            {
-                Id = (int)SpeakerLanguageKeys.Neindoevropski,
-                Translations = new TranslationCollection<SpeakerLanguageTranslation>()
-                {
-                    new()
-                    {
-                        CultureName = Constants.InterfaceLanguages.Slovene,
-                        Title = "Neindoevropski",
-                    },
-                    new()
-                    {
-                        CultureName = Constants.InterfaceLanguages.English,
-                        Title = "non-Indo-European",
                     },
                 },
             };

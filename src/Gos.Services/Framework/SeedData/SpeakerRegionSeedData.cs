@@ -200,6 +200,44 @@ namespace Gos.Services.Framework.SeedData
             };
             yield return new SpeakerRegion
             {
+                Id = (int)SpeakerRegionKeys.Zasavska,
+                Translations = new TranslationCollection<SpeakerRegionTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        ShortTitle = "Zasavska regija",
+                        Title = "Zasavska regija",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        ShortTitle = "Zasavska region",
+                        Title = "Zasavska region",
+                    },
+                },
+            };
+            yield return new SpeakerRegion
+            {
+                Id = (int)SpeakerRegionKeys.PrimorskoNotranjska,
+                Translations = new TranslationCollection<SpeakerRegionTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        ShortTitle = "Primorsko-notranjska regija",
+                        Title = "Primorsko-notranjska regija",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        ShortTitle = "Primorsko-notranjska region",
+                        Title = "Primorsko-notranjska region",
+                    },
+                },
+            };
+            yield return new SpeakerRegion
+            {
                 Id = (int)SpeakerRegionKeys.Avstrija,
                 Translations = new TranslationCollection<SpeakerRegionTranslation>()
                 {

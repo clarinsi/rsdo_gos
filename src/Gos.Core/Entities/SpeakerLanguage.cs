@@ -16,16 +16,17 @@ namespace Gos.Core.Entities
     public enum SpeakerLanguageKeys
     {
         Slovenscina = 1,
-        Anglescina = 2,
-        Nemscina = 3,
-        Italijanscina = 4,
+        Nemscina = 2,
+        Anglescina = 3,
+        Francoscina = 4,
         Madzarscina = 5,
-        Juznoslovanski = 6,
-        Albanscina = 7,
-        DrugiSlovanski = 8,
-        DrugiGermanski = 9,
-        DrugiRomanski = 10,
-        Neindoevropski = 11,
-        Neznano = 12,
+        Hrvascina = 6,
+        Srbscina = 7,
+        Italijanscina = 8,
+        Ruscina = 9,
+        Juznoslovanski = 10,
+        DrugiSlovanski = 11,
+        DrugiRomanski = 12,
+        Neznano = 13,
     }
 }

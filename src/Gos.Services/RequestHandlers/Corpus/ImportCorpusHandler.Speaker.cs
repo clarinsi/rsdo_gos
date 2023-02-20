@@ -86,13 +86,24 @@ namespace Gos.Services.RequestHandlers.Corpus
             {
                 case "sl":
                     return await dbContext.SpeakerLanguages.SingleAsync(x => x.Id == (int)SpeakerLanguageKeys.Slovenscina);
-                case "en":
-                    return await dbContext.SpeakerLanguages.SingleAsync(x => x.Id == (int)SpeakerLanguageKeys.Anglescina);
                 case "de":
                     return await dbContext.SpeakerLanguages.SingleAsync(x => x.Id == (int)SpeakerLanguageKeys.Nemscina);
+                case "en":
+                    return await dbContext.SpeakerLanguages.SingleAsync(x => x.Id == (int)SpeakerLanguageKeys.Anglescina);
+                case "fr":
+                    return await dbContext.SpeakerLanguages.SingleAsync(x => x.Id == (int)SpeakerLanguageKeys.Francoscina);
+                case "hu":
+                    return await dbContext.SpeakerLanguages.SingleAsync(x => x.Id == (int)SpeakerLanguageKeys.Madzarscina);
+                case "hr":
+                    return await dbContext.SpeakerLanguages.SingleAsync(x => x.Id == (int)SpeakerLanguageKeys.Hrvascina);
+                case "sr":
+                    return await dbContext.SpeakerLanguages.SingleAsync(x => x.Id == (int)SpeakerLanguageKeys.Srbscina);
                 case "it":
                     return await dbContext.SpeakerLanguages.SingleAsync(x => x.Id == (int)SpeakerLanguageKeys.Italijanscina);
+                case "ru":
+                    return await dbContext.SpeakerLanguages.SingleAsync(x => x.Id == (int)SpeakerLanguageKeys.Ruscina);
                 case "zls":
+                    return await dbContext.SpeakerLanguages.SingleAsync(x => x.Id == (int)SpeakerLanguageKeys.Juznoslovanski);
                 case "sla":
                     return await dbContext.SpeakerLanguages.SingleAsync(x => x.Id == (int)SpeakerLanguageKeys.DrugiSlovanski);
                 case "roa":
@@ -140,6 +151,10 @@ namespace Gos.Services.RequestHandlers.Corpus
                     return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.JugovzhodnaSlovenija);
                 case "koroška":
                     return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Koroška);
+                case "zasavska":
+                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Zasavska);
+                case "primorsko-notranjska":
+                    return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.PrimorskoNotranjska);
                 case "Avstrija":
                     return await dbContext.SpeakerRegions.SingleAsync(x => x.Id == (int)SpeakerRegionKeys.Avstrija);
                 case "Italija":
