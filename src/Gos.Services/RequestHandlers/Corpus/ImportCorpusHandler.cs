@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -49,10 +50,11 @@ namespace Gos.Services.RequestHandlers.Corpus
                 var particDescEl = profileDescEl.Element(Constants.TeiNs + "particDesc");
 
                 // listPerson
-                var listPersonEl = particDescEl.Element(Constants.TeiNs + "listPerson");
-
-                // Import speakers
-                await ImportSpeakers(listPersonEl);
+                foreach (var listPersonEl in particDescEl.Elements(Constants.TeiNs + "listPerson"))
+                {
+                    // Import speakers
+                    await ImportSpeakers(listPersonEl);
+                }
 
                 // Import texts
                 var sourceFolder = Path.GetDirectoryName(sourcePath);
