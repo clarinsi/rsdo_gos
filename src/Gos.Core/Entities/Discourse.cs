@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Gos.Core.Entities
 {
@@ -17,6 +18,8 @@ namespace Gos.Core.Entities
         public int NumberOfSpeakers { get; set; }
 
         public string Source { get; set; }
+
+        public List<Statement> Statements { get; set; }
 
         public DiscourseType Type { get; set; }
     }

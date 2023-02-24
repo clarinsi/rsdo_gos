@@ -1,4 +1,6 @@
-﻿namespace Gos.Core.Entities
+﻿using System.Collections.Generic;
+
+namespace Gos.Core.Entities
 {
     public class Segment : BaseEntity
     {
@@ -7,5 +9,7 @@
         public string SoundFile { get; set; }
 
         public Statement Statement { get; set; }
+
+        public List<Token> Tokens { get; set; }
     }
 }

@@ -1,7 +1,7 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Linq;
 using Gos.Core;
@@ -17,7 +17,7 @@ namespace Gos.Services.RequestHandlers.Corpus
         {
             var discourse = new Discourse();
             discourse.Code = discourseEl.Attribute(Constants.XmlNs + "id").Value;
-            await dbContext.Discourses.AddAsync(discourse);
+            discourse.Statements = new List<Statement>();
 
             // Header
             var headerEl = discourseEl.Element(Constants.TeiNs + "teiHeader");
@@ -28,7 +28,11 @@ namespace Gos.Services.RequestHandlers.Corpus
             await ImportText(textEl, discourse);
 
             // Save all data for single discourse
+            await dbContext.Discourses.AddAsync(discourse);
             await dbContext.SaveChangesAsync();
+
+            // Remove tracked entities
+            dbContext.ChangeTracker.Clear();
         }
 
         private async Task ImportTextFile(string sourcePath)
@@ -74,9 +78,10 @@ namespace Gos.Services.RequestHandlers.Corpus
                 Code = statementEl.Attribute(Constants.XmlNs + "id").Value,
                 Discourse = discourse,
                 Order = statementOrder,
+                Segments = new List<Segment>(),
                 Speaker = await GetSpeaker(statementEl),
             };
-            await dbContext.Statements.AddAsync(statement);
+            discourse.Statements.Add(statement);
 
             // Loop through segments
             var segmentOrder = 0;
@@ -95,14 +100,14 @@ namespace Gos.Services.RequestHandlers.Corpus
                 Order = segmentOrder,
                 Statement = statement,
                 SoundFile = GetSoundFile(segEl),
+                Tokens = new List<Token>(),
             };
-            await dbContext.Segments.AddAsync(segment);
+            statement.Segments.Add(segment);
 
             // Get tokens
             var tokens = segmentParser.GetTokens(segEl).ToList();
 
             // apply marks and order tokens
-            var orderedTokens = new List<Token>();
             for (var i = 0; i < tokens.Count; i++)
             {
                 var token = tokens[i];
@@ -126,12 +131,10 @@ namespace Gos.Services.RequestHandlers.Corpus
 
                 discourseTokenOrder.Value += 1;
                 token.DiscourseOrder = discourseTokenOrder.Value;
-                token.Order = orderedTokens.Count + 1;
+                token.Order = segment.Tokens.Count + 1;
                 token.Segment = segment;
-                orderedTokens.Add(token);
+                segment.Tokens.Add(token);
             }
-
-            await dbContext.Tokens.AddRangeAsync(orderedTokens);
         }
 
         private async Task<Speaker> GetSpeaker(XElement statementEl)

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -204,8 +203,15 @@ namespace Gos.Services.RequestHandlers.Corpus
 
             // Date
             var dateEl = biblEl.Element(Constants.TeiNs + "date");
-            var dateParts = dateEl.Value.Split("-");
-            discourse.Date = new DateTime(int.Parse(dateParts[0]), int.Parse(dateParts[1]), 1, 0, 0, 0, DateTimeKind.Utc);
+            if (dateEl != null)
+            {
+                var dateParts = dateEl.Value.Split("-");
+                discourse.Date = new DateTime(int.Parse(dateParts[0]), int.Parse(dateParts[1]), 1, 0, 0, 0, DateTimeKind.Utc);
+            }
+            else
+            {
+                discourse.Date = DateTime.UtcNow;
+            }
         }
 
         private async Task ImportHeader(XElement headerEl, Discourse discourse)

@@ -52,20 +52,20 @@ namespace Gos.Services.RequestHandlers.Corpus
             var lastId = 0;
             List<Statement> statements = null;
             while ((statements = dbContext.Statements.AsNoTracking()
-                .Include(s => s.Discourse)
-                .Include(s => s.Discourse.Type)
-                .Include(s => s.Discourse.Channel)
-                .Include(s => s.Discourse.Event)
-                .Include(s => s.Speaker)
-                .Include(s => s.Speaker.Age)
-                .Include(s => s.Speaker.Education)
-                .Include(s => s.Speaker.Language)
-                .Include(s => s.Speaker.Region1)
-                .Include(s => s.Speaker.Sex)
-                .Where(s => s.Id > lastId)
-                .OrderBy(s => s.Id)
-                .Take(5000)
-                .ToList()).Any())
+                       .Include(s => s.Discourse)
+                       .Include(s => s.Discourse.Type)
+                       .Include(s => s.Discourse.Channel)
+                       .Include(s => s.Discourse.Event)
+                       .Include(s => s.Speaker)
+                       .Include(s => s.Speaker.Age)
+                       .Include(s => s.Speaker.Education)
+                       .Include(s => s.Speaker.Language)
+                       .Include(s => s.Speaker.Region1)
+                       .Include(s => s.Speaker.Sex)
+                       .Where(s => s.Id > lastId)
+                       .OrderBy(s => s.Id)
+                       .Take(5000)
+                       .ToList()).Any())
             {
                 await IndexStatements(statements);
                 lastId = statements[statements.Count - 1].Id;
@@ -77,7 +77,8 @@ namespace Gos.Services.RequestHandlers.Corpus
             var batch = new List<Core.Model.Concordance>();
             foreach (var statement in statements)
             {
-                var tokens = await dbContext.Tokens.Include(t => t.Segment)
+                var tokens = await dbContext.Tokens.AsNoTracking()
+                    .Include(t => t.Segment)
                     .Where(t => t.Segment.Statement.Id == statement.Id)
                     .OrderBy(t => t.Segment.Order)
                     .ThenBy(t => t.Order)
