@@ -19,5 +19,6 @@ namespace Gos.Core.Entities
         Televizija = 2,
         OsebniStik = 3,
         Telefon = 4,
+        Internet = 5,
     }
 }

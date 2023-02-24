@@ -11,14 +11,7 @@ namespace Gos.Services.Framework.Fragments
     {
         public IEnumerable<Token> GetTokens(XElement element)
         {
-            if (element.Attribute("type")?.Value == "applause")
-            {
-                yield return new Token(TokenType.Word).WithConversationForm("[aplavz]").WithStandardForm("[aplavz]").WithLemma("[aplavz]").WithMsd("mte:Xt");
-            }
-            else
-            {
-                throw new Exception($"Unknown kinesic type {element.Attribute("type")?.Value}!");
-            }
+            yield return new Token(TokenType.Word).WithConversationForm("[aplavz]").WithStandardForm("[aplavz]").WithLemma("[aplavz]").WithMsd("mte:Xt");
         }
     }
 }

@@ -25,7 +25,6 @@ namespace Gos.Infrastructure.Search.Converters
                 DiscourseId = discourse.Id,
                 DiscourseChannelId = discourse.Channel?.Id,
                 DiscourseEventId = discourse.Event?.Id,
-                DiscourseRegionId = discourse.Region?.Id,
                 DiscourseTypeId = discourse.Type?.Id,
                 DiscourseYear = discourse.Date.Year,
                 SpeakerAgeId = speaker?.Age?.Id,

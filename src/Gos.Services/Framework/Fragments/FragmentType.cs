@@ -15,5 +15,6 @@
         Pause,
         Foreign,
         Gap,
+        Delete,
     }
 }

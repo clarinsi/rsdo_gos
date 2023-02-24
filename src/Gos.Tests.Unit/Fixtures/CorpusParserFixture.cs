@@ -19,7 +19,7 @@ namespace Gos.Tests.Unit.Fixtures
             indexMock.Setup(x => x[FragmentType.Vocal]).Returns(new VocalFragmentParser());
             indexMock.Setup(x => x[FragmentType.Correction]).Returns(new CorrectionFragmentParser(FragmentParserFactory));
             indexMock.Setup(x => x[FragmentType.CorrectedWord]).Returns(new CorrectedWordFragmentParser());
-            indexMock.Setup(x => x[FragmentType.Unclear]).Returns(new UnclearWordFragmentParser());
+            indexMock.Setup(x => x[FragmentType.Unclear]).Returns(new UnclearWordFragmentParser(FragmentParserFactory));
             indexMock.Setup(x => x[FragmentType.Gap]).Returns(new GapFragmentParser());
         }
     }

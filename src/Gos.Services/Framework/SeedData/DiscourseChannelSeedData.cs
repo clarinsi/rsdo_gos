@@ -76,6 +76,25 @@ namespace Gos.Services.Framework.SeedData
                     },
                 },
             };
+
+            // Artur
+            yield return new DiscourseChannel
+            {
+                Id = (int)DiscourseChannelKeys.Internet,
+                Translations = new TranslationCollection<DiscourseChannelTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Internet",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Internet",
+                    },
+                },
+            };
         }
     }
 }

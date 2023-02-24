@@ -40,8 +40,6 @@ namespace Gos.Services.Services.StatementService
                 .Include(s => s.Discourse.Channel.Translations)
                 .Include(s => s.Discourse.Event)
                 .Include(s => s.Discourse.Event.Translations)
-                .Include(s => s.Discourse.Region)
-                .Include(s => s.Discourse.Region.Translations)
                 .Include(s => s.Discourse.Type)
                 .Include(s => s.Discourse.Type.Translations)
                 .Include(s => s.Speaker.Age)

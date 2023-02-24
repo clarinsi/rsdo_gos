@@ -10,8 +10,6 @@ namespace Gos.ServiceModel.Requests.Concordance
 
         public string DiscourseEvent { get; set; }
 
-        public string DiscourseRegion { get; set; }
-
         public string DiscourseSource { get; set; }
 
         public string DiscourseType { get; set; }

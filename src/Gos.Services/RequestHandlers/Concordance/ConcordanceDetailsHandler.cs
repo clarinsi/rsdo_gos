@@ -57,7 +57,6 @@ namespace Gos.Services.RequestHandlers.Concordance
                 DiscourseChannel = statement.Discourse.Channel?.Title,
                 DiscourseDescription = statement.Discourse.Description,
                 DiscourseEvent = statement.Discourse.Event?.Title,
-                DiscourseRegion = statement.Discourse.Region?.Title,
                 DiscourseSource = statement.Discourse.Source,
                 DiscourseType = statement.Discourse.Type?.Title,
                 Id = statement.Id,

@@ -12,7 +12,7 @@ namespace Gos.Services.Framework.Fragments
 
         protected override bool IsChildAllowed(XName name)
         {
-            return name == Constants.TeiNs + "gap" || name == Constants.TeiNs + "w";
+            return name == Constants.TeiNs + "gap" || name == Constants.TeiNs + "w" || name == Constants.TeiNs + "del";
         }
     }
 }

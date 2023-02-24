@@ -83,7 +83,6 @@ namespace Gos.Infrastructure.CompositionRoot
             builder.RegisterType<AggregatorFactory>().As<IAggregatorFactory>().SingleInstance();
             builder.RegisterType<DiscourseChannelAggregator>().Keyed<IAggregator>(AggregationType.DiscourseChannel).SingleInstance();
             builder.RegisterType<DiscourseEventAggregator>().Keyed<IAggregator>(AggregationType.DiscourseEvent).SingleInstance();
-            builder.RegisterType<DiscourseRegionAggregator>().Keyed<IAggregator>(AggregationType.DiscourseRegion).SingleInstance();
             builder.RegisterType<DiscourseTypeAggregator>().Keyed<IAggregator>(AggregationType.DiscourseType).SingleInstance();
             builder.RegisterType<DiscourseYearAggregator>().Keyed<IAggregator>(AggregationType.DiscourseYear).SingleInstance();
             builder.RegisterType<SpeakerAgeAggregator>().Keyed<IAggregator>(AggregationType.SpeakerAge).SingleInstance();

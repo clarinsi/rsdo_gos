@@ -11,8 +11,6 @@ namespace Gos.Infrastructure.Search.Dtos
         [Number(Store = true)]
         public int DiscourseId { get; set; }
 
-        public int? DiscourseRegionId { get; set; }
-
         public int? DiscourseTypeId { get; set; }
 
         public int? DiscourseYear { get; set; }

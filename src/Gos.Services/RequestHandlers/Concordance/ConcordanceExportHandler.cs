@@ -53,7 +53,6 @@ namespace Gos.Services.RequestHandlers.Concordance
                 await writer.WriteAsync(ExportResource.StandardizedForm + "\t");
                 await writer.WriteAsync(ExportResource.DiscourseType + "\t");
                 await writer.WriteAsync(ExportResource.DiscourseChannel + "\t");
-                await writer.WriteAsync(ExportResource.DiscourseRegion + "\t");
                 await writer.WriteAsync(ExportResource.DiscourseSource + "\t");
                 await writer.WriteAsync(ExportResource.DiscourseYear + "\t");
                 await writer.WriteAsync(ExportResource.DiscourseEvent + "\t");
@@ -74,7 +73,6 @@ namespace Gos.Services.RequestHandlers.Concordance
                     await writer.WriteAsync(GetStandardizedForm(item) + "\t");
                     await writer.WriteAsync(centerStatement.Discourse.Type.Title + "\t");
                     await writer.WriteAsync(centerStatement.Discourse.Channel.Title + "\t");
-                    await writer.WriteAsync(centerStatement.Discourse.Region.Title + "\t");
                     await writer.WriteAsync(centerStatement.Discourse.Source + "\t");
                     await writer.WriteAsync(centerStatement.Discourse.Date.Year + "\t");
                     await writer.WriteAsync(centerStatement.Discourse.Event.Title + "\t");

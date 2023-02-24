@@ -399,6 +399,197 @@ namespace Gos.Services.Framework.SeedData
                     },
                 },
             };
+
+            // GosVL in Artur
+            yield return new DiscourseEvent
+            {
+                Id = (int)DiscourseEventKeys.Predavanje,
+                Translations = new TranslationCollection<DiscourseEventTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Predavanje",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Lecture",
+                    },
+                },
+            };
+
+            // Artur
+            yield return new DiscourseEvent
+            {
+                Id = (int)DiscourseEventKeys.SejaDrzavnegaZbora,
+                Translations = new TranslationCollection<DiscourseEventTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Seja državnega zbora",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Sessions of the National Assembly",
+                    },
+                },
+            };
+            yield return new DiscourseEvent
+            {
+                Id = (int)DiscourseEventKeys.OkroglaMiza,
+                Translations = new TranslationCollection<DiscourseEventTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Okrogla miza",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Round table",
+                    },
+                },
+            };
+            yield return new DiscourseEvent
+            {
+                Id = (int)DiscourseEventKeys.Intervju,
+                Translations = new TranslationCollection<DiscourseEventTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Intervju",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Interview",
+                    },
+                },
+            };
+            yield return new DiscourseEvent
+            {
+                Id = (int)DiscourseEventKeys.NagovorNaDogodku,
+                Translations = new TranslationCollection<DiscourseEventTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Nagovor na dogodku",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Speech at the event",
+                    },
+                },
+            };
+            yield return new DiscourseEvent
+            {
+                Id = (int)DiscourseEventKeys.NovinarskaKonferenca,
+                Translations = new TranslationCollection<DiscourseEventTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Novinarska konferenca",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Press conference",
+                    },
+                },
+            };
+            yield return new DiscourseEvent
+            {
+                Id = (int)DiscourseEventKeys.SpletniDogodek,
+                Translations = new TranslationCollection<DiscourseEventTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Spletni dogodek",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Online event",
+                    },
+                },
+            };
+            yield return new DiscourseEvent
+            {
+                Id = (int)DiscourseEventKeys.Seminar,
+                Translations = new TranslationCollection<DiscourseEventTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Seminar",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Seminar",
+                    },
+                },
+            };
+            yield return new DiscourseEvent
+            {
+                Id = (int)DiscourseEventKeys.ProstiDialogMedDvemaSogovornikoma,
+                Translations = new TranslationCollection<DiscourseEventTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Prosti dialog med dvema sogovornikoma",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Casual dialogue between two collocutors",
+                    },
+                },
+            };
+            yield return new DiscourseEvent
+            {
+                Id = (int)DiscourseEventKeys.ProstiMonoloskiGovor,
+                Translations = new TranslationCollection<DiscourseEventTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Prosti monološki govor",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Casual monologue speech",
+                    },
+                },
+            };
+            yield return new DiscourseEvent
+            {
+                Id = (int)DiscourseEventKeys.RazlaganjeInOpisovanje,
+                Translations = new TranslationCollection<DiscourseEventTranslation>()
+                {
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.Slovene,
+                        Title = "Razlaganje in opisovanje",
+                    },
+                    new()
+                    {
+                        CultureName = Constants.InterfaceLanguages.English,
+                        Title = "Explaining and describing",
+                    },
+                },
+            };
         }
     }
 }

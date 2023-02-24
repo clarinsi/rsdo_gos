@@ -27,8 +27,6 @@ namespace Gos.Services.Framework
 
         public DbSet<DiscourseEvent> DiscourseEvents { get; set; }
 
-        public DbSet<DiscourseRegion> DiscourseRegions { get; set; }
-
         public DbSet<Discourse> Discourses { get; set; }
 
         public DbSet<DiscourseType> DiscourseTypes { get; set; }
@@ -70,7 +68,6 @@ namespace Gos.Services.Framework
             // Setup entities for localization
             modelBuilder.Entity<DiscourseChannel>().Ignore(x => x.Title);
             modelBuilder.Entity<DiscourseEvent>().Ignore(x => x.Title);
-            modelBuilder.Entity<DiscourseRegion>().Ignore(x => x.ShortTitle).Ignore(x => x.Title);
             modelBuilder.Entity<DiscourseType>().Ignore(x => x.ShortTitle).Ignore(x => x.Title);
             modelBuilder.Entity<Msd>().Ignore(x => x.Title);
             modelBuilder.Entity<PartOfSpeech>().Ignore(x => x.Title);
@@ -94,7 +91,6 @@ namespace Gos.Services.Framework
 
             await SeedSingle(DiscourseChannels, DiscourseChannelSeedData.Get());
             await SeedSingle(DiscourseEvents, DiscourseEventSeedData.Get());
-            await SeedSingle(DiscourseRegions, DiscourseRegionSeedData.Get());
             await SeedSingle(DiscourseTypes, DiscourseTypeSeedData.Get());
             await SeedSingle(Msds, MsdSeedData.Get());
             await SeedSingle(PartOfSpeeches, PartOfSpeechSeedData.Get());

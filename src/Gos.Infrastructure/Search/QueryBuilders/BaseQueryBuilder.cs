@@ -42,16 +42,6 @@ namespace Gos.Infrastructure.Search.QueryBuilders
                     });
             }
 
-            if (!query.DiscourseRegionIds.IsNullOrEmpty())
-            {
-                queries.Add(
-                    new TermsQuery()
-                    {
-                        Field = "discourseRegionId",
-                        Terms = query.DiscourseRegionIds.Cast<object>(),
-                    });
-            }
-
             if (!query.DiscourseYears.IsNullOrEmpty())
             {
                 queries.Add(

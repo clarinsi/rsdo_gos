@@ -12,8 +12,6 @@ namespace Gos.Core.Search.Queries
 
         public List<int> DiscourseEventIds { get; set; }
 
-        public List<int> DiscourseRegionIds { get; set; }
-
         public List<int> DiscourseYears { get; set; }
 
         public int From { get; set; } = 0;

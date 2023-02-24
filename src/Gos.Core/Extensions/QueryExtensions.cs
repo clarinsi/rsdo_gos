@@ -11,7 +11,6 @@ namespace Gos.Core.Extensions
             query.DiscourseTypeIds = request.DiscourseTypeIds;
             query.DiscourseChannelIds = request.DiscourseChannelIds;
             query.DiscourseEventIds = request.DiscourseEventIds;
-            query.DiscourseRegionIds = request.DiscourseRegionIds;
             query.DiscourseYears = request.DiscourseYears;
             query.SpeakerAgeIds = request.SpeakerAgeIds;
             query.SpeakerEducationIds = request.SpeakerEducationIds;

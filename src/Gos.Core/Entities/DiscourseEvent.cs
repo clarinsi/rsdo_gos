@@ -38,5 +38,20 @@ namespace Gos.Core.Entities
         Tajnistvo = 21,
         PogovorVDruzini = 22,
         PogovorMedPrijateljiZnanci = 23,
+
+        // GosVL in Artur
+        Predavanje = 24,
+
+        // Artur
+        SejaDrzavnegaZbora = 25,
+        OkroglaMiza = 26,
+        Intervju = 27,
+        NagovorNaDogodku = 28,
+        NovinarskaKonferenca = 29,
+        SpletniDogodek = 30,
+        Seminar = 31,
+        ProstiDialogMedDvemaSogovornikoma = 32,
+        ProstiMonoloskiGovor = 33,
+        RazlaganjeInOpisovanje = 34,
     }
 }

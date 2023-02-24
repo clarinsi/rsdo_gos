@@ -56,7 +56,6 @@ namespace Gos.Services.RequestHandlers.Corpus
                 .Include(s => s.Discourse.Type)
                 .Include(s => s.Discourse.Channel)
                 .Include(s => s.Discourse.Event)
-                .Include(s => s.Discourse.Region)
                 .Include(s => s.Speaker)
                 .Include(s => s.Speaker.Age)
                 .Include(s => s.Speaker.Education)

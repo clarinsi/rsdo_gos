@@ -100,7 +100,6 @@ namespace Gos.Services.CompositionRoot
                 .Keyed<IAggregationProvider>(AggregationType.DiscourseChannel)
                 .InstancePerLifetimeScope();
             builder.RegisterType<DiscourseEventAggregationProvider>().Keyed<IAggregationProvider>(AggregationType.DiscourseEvent).InstancePerLifetimeScope();
-            builder.RegisterType<DiscourseRegionAggregationProvider>().Keyed<IAggregationProvider>(AggregationType.DiscourseRegion).InstancePerLifetimeScope();
             builder.RegisterType<DiscourseTypeAggregationProvider>().Keyed<IAggregationProvider>(AggregationType.DiscourseType).InstancePerLifetimeScope();
             builder.RegisterType<DiscourseYearAggregationProvider>().Keyed<IAggregationProvider>(AggregationType.DiscourseYear).InstancePerLifetimeScope();
             builder.RegisterType<SpeakerAgeAggregationProvider>().Keyed<IAggregationProvider>(AggregationType.SpeakerAge).InstancePerLifetimeScope();

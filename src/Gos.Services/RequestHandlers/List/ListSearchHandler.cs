@@ -59,7 +59,6 @@ namespace Gos.Services.RequestHandlers.List
                     GetAggregation(AggregationType.PartOfSpeech, c => c.PartOfSpeechIds?.Clear()),
                     GetAggregation(AggregationType.DiscourseType, c => c.DiscourseTypeIds?.Clear()),
                     GetAggregation(AggregationType.DiscourseChannel, c => c.DiscourseChannelIds?.Clear()),
-                    GetAggregation(AggregationType.DiscourseRegion, c => c.DiscourseRegionIds?.Clear()),
                     GetAggregation(AggregationType.DiscourseYear, c => c.DiscourseYears?.Clear()),
                     GetAggregation(AggregationType.DiscourseEvent, c => c.DiscourseEventIds?.Clear()),
                     GetAggregation(AggregationType.SpeakerSex, c => c.SpeakerSexIds?.Clear()),

@@ -12,7 +12,6 @@ namespace Gos.Web.Extensions
                 AggregationType.DiscourseType => "DiscourseTypeIds",
                 AggregationType.DiscourseChannel => "DiscourseChannelIds",
                 AggregationType.DiscourseEvent => "DiscourseEventIds",
-                AggregationType.DiscourseRegion => "DiscourseRegionIds",
                 AggregationType.DiscourseYear => "DiscourseYears",
                 AggregationType.SpeakerAge => "SpeakerAgeIds",
                 AggregationType.SpeakerEducation => "SpeakerEducationIds",

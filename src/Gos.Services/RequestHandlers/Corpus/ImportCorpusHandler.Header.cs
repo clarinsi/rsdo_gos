@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -24,36 +25,24 @@ namespace Gos.Services.RequestHandlers.Corpus
                     return await dbContext.DiscourseChannels.SingleAsync(x => x.Id == (int)DiscourseChannelKeys.OsebniStik);
                 case "#gos.K.P":
                     return await dbContext.DiscourseChannels.SingleAsync(x => x.Id == (int)DiscourseChannelKeys.Telefon);
+                case "#gos.K.I":
+                    return await dbContext.DiscourseChannels.SingleAsync(x => x.Id == (int)DiscourseChannelKeys.Internet);
                 default:
                     throw new Exception($"Invalid discourse channel {channel}!");
             }
         }
 
-        private DateTime GetDiscourseDate(XElement settingEl)
-        {
-            // Date
-            var date = settingEl.Element(Constants.TeiNs + "date").Value;
-            var dateParts = date.Split('-');
-            var year = int.Parse(dateParts[0]);
-            var month = int.Parse(dateParts[1]);
-            var day = int.Parse(dateParts[2]);
-
-            // Time
-            var time = settingEl.Element(Constants.TeiNs + "time")?.Value;
-            if (string.IsNullOrEmpty(time))
-            {
-                return new DateTime(year, month, day, 0, 0, 0, DateTimeKind.Utc);
-            }
-
-            var timeParts = time.Split(':');
-            var hour = int.Parse(timeParts[0]);
-            var minutes = int.Parse(timeParts[1]);
-            return new DateTime(year, month, day, hour, minutes, 0, DateTimeKind.Utc);
-        }
-
         private async Task<DiscourseEvent> GetDiscourseEvent(XElement eventEl)
         {
             var @event = eventEl.Value;
+
+            // GosVL
+            if (@event.StartsWith("javno predavanje,", StringComparison.OrdinalIgnoreCase))
+            {
+                return await dbContext.DiscourseEvents.SingleAsync(x => x.Id == (int)DiscourseEventKeys.Predavanje);
+            }
+
+            // Gos
             switch (@event)
             {
                 case "PopTV, 24ur":
@@ -153,75 +142,32 @@ namespace Gos.Services.RequestHandlers.Corpus
                 case "delovno mesto, sodelavci":
                 case "klic sodelavcu": // Not in use
                     return await dbContext.DiscourseEvents.SingleAsync(x => x.Id == (int)DiscourseEventKeys.PogovorMedPrijateljiZnanci);
+
+                // Artur
+                case "seja državnega zbora":
+                    return await dbContext.DiscourseEvents.SingleAsync(x => x.Id == (int)DiscourseEventKeys.SejaDrzavnegaZbora);
+                case "okrogla miza":
+                    return await dbContext.DiscourseEvents.SingleAsync(x => x.Id == (int)DiscourseEventKeys.OkroglaMiza);
+                case "intervju":
+                    return await dbContext.DiscourseEvents.SingleAsync(x => x.Id == (int)DiscourseEventKeys.Intervju);
+                case "nagovor na dogodku":
+                    return await dbContext.DiscourseEvents.SingleAsync(x => x.Id == (int)DiscourseEventKeys.NagovorNaDogodku);
+                case "novinarska konferenca":
+                    return await dbContext.DiscourseEvents.SingleAsync(x => x.Id == (int)DiscourseEventKeys.NovinarskaKonferenca);
+                case "spletni dogodek":
+                    return await dbContext.DiscourseEvents.SingleAsync(x => x.Id == (int)DiscourseEventKeys.SpletniDogodek);
+                case "seminar":
+                    return await dbContext.DiscourseEvents.SingleAsync(x => x.Id == (int)DiscourseEventKeys.Seminar);
+                case "prosti dialog med dvema sogovornikoma":
+                    return await dbContext.DiscourseEvents.SingleAsync(x => x.Id == (int)DiscourseEventKeys.ProstiDialogMedDvemaSogovornikoma);
+                case "prosti monološki govor":
+                    return await dbContext.DiscourseEvents.SingleAsync(x => x.Id == (int)DiscourseEventKeys.ProstiMonoloskiGovor);
+                case "predavanje":
+                    return await dbContext.DiscourseEvents.SingleAsync(x => x.Id == (int)DiscourseEventKeys.Predavanje);
+                case "razlaganje in opisovanje":
+                    return await dbContext.DiscourseEvents.SingleAsync(x => x.Id == (int)DiscourseEventKeys.RazlaganjeInOpisovanje);
                 default:
                     throw new Exception($"Invalid discourse event {@event}!");
-            }
-        }
-
-        private int GetDiscourseLength(XElement recordingEl)
-        {
-            var duration = recordingEl.Attribute("dur").Value;
-            duration = duration.Replace("PT", "");
-
-            var minutes = int.Parse(duration.Substring(0, duration.IndexOf('M')));
-            var seconds = int.Parse(duration.Substring(duration.IndexOf('M') + 1, duration.IndexOf('S') - duration.IndexOf('M') - 1));
-
-            return minutes * 60 + seconds;
-        }
-
-        private async Task<DiscourseRegion> GetDiscourseRegion(XElement regionEl)
-        {
-            return await GetDiscourseRegionInternal(regionEl.Value);
-        }
-
-        private async Task<DiscourseRegion> GetDiscourseRegionInternal(string region)
-        {
-            switch (region)
-            {
-                case "CE":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.Celjska);
-                case "GO":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.Novogoriska);
-                case "KK":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.Krska);
-                case "KP":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.Koprska);
-                case "KR":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.Kranjska);
-                case "LJ":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.Ljubljanska);
-                case "MB":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.Mariborska);
-                case "MS":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.Murskosoboska);
-                case "NM":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.Novomeska);
-                case "PO":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.Postojnska);
-                case "SG":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.Slovenjgraska);
-                case "celotna Slo":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.CelotnaSlovenija);
-                case "SV Slo":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.SeverovzhodnaSlovenija);
-                case "JZ Slo":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.JugozahodnaSlovenija);
-                case "Avstrija":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.Avstrija);
-                case "Italija":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.Italija);
-                case "Madžarska":
-                    return await dbContext.DiscourseRegions.SingleAsync(x => x.Id == (int)DiscourseRegionKeys.Madzarska);
-                default:
-                    // If there are multiple regions (separated by space) then take only first region
-                    var spaceIdx = region.IndexOf(' ');
-                    if (spaceIdx >= 0)
-                    {
-                        var firstRegion = region.Substring(0, spaceIdx);
-                        return await GetDiscourseRegionInternal(firstRegion);
-                    }
-
-                    throw new Exception($"Invalid discourse region {region}!");
             }
         }
 
@@ -251,17 +197,15 @@ namespace Gos.Services.RequestHandlers.Corpus
             // Description
             discourse.Description = titleEl.Value;
 
-            // Location
-            discourse.Location = fileDescEl.Element(Constants.TeiNs + "publicationStmt").Element(Constants.TeiNs + "pubPlace").Value;
-
-            // Length
-            var recordingEl = fileDescEl.Element(Constants.TeiNs + "sourceDesc")
-                .Element(Constants.TeiNs + "recordingStmt")
-                .Element(Constants.TeiNs + "recording");
-            discourse.Length = GetDiscourseLength(recordingEl);
-
             // Source
-            discourse.Source = recordingEl.Element(Constants.TeiNs + "broadcast").Element(Constants.TeiNs + "bibl").Element(Constants.TeiNs + "title").Value;
+            var biblEl = fileDescEl.Element(Constants.TeiNs + "sourceDesc").Element(Constants.TeiNs + "bibl");
+            var publisherEl = biblEl.Element(Constants.TeiNs + "publisher");
+            discourse.Source = publisherEl?.Value;
+
+            // Date
+            var dateEl = biblEl.Element(Constants.TeiNs + "date");
+            var dateParts = dateEl.Value.Split("-");
+            discourse.Date = new DateTime(int.Parse(dateParts[0]), int.Parse(dateParts[1]), 1, 0, 0, 0, DateTimeKind.Utc);
         }
 
         private async Task ImportHeader(XElement headerEl, Discourse discourse)
@@ -299,15 +243,6 @@ namespace Gos.Services.RequestHandlers.Corpus
             // Number of speakers
             var listPersonEl = profileDescEl.Element(Constants.TeiNs + "particDesc").Element(Constants.TeiNs + "listPerson");
             discourse.NumberOfSpeakers = listPersonEl.Elements(Constants.TeiNs + "person").Count();
-
-            // Discourse region
-            var settingDescEl = profileDescEl.Element(Constants.TeiNs + "settingDesc");
-            var regionEl = settingDescEl.Element(Constants.TeiNs + "place")?.Element(Constants.TeiNs + "region");
-            discourse.Region = await GetDiscourseRegion(regionEl);
-
-            // Date
-            var settingEl = settingDescEl.Element(Constants.TeiNs + "setting");
-            discourse.Date = GetDiscourseDate(settingEl);
         }
     }
 }

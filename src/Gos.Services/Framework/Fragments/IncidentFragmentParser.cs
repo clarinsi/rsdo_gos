@@ -11,14 +11,7 @@ namespace Gos.Services.Framework.Fragments
     {
         public IEnumerable<Token> GetTokens(XElement element)
         {
-            if (element.Attribute("type")?.Value == "sound")
-            {
-                yield return new Token(TokenType.Word).WithConversationForm("[zvok]").WithStandardForm("[zvok]").WithLemma("[zvok]").WithMsd("mte:Xt");
-            }
-            else
-            {
-                throw new Exception($"Unknown incident type {element.Attribute("type")?.Value}!");
-            }
+            yield return new Token(TokenType.Word).WithConversationForm("[zvok]").WithStandardForm("[zvok]").WithLemma("[zvok]").WithMsd("mte:Xt");
         }
     }
 }

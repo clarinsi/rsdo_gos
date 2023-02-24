@@ -63,6 +63,21 @@ namespace Gos.Services.Framework.Fragments
                 return parsers[FragmentType.Foreign];
             }
 
+            if (elementName == Constants.TeiNs + "unclear")
+            {
+                return parsers[FragmentType.Unclear];
+            }
+
+            if (elementName == Constants.TeiNs + "kinesic")
+            {
+                return parsers[FragmentType.Kinesic];
+            }
+
+            if (elementName == Constants.TeiNs + "delete")
+            {
+                return parsers[FragmentType.Delete];
+            }
+
             throw new Exception($"Parser for element {elementName} not found!");
         }
     }

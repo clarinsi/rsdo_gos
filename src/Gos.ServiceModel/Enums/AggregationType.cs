@@ -5,7 +5,6 @@
         DiscourseType,
         DiscourseChannel,
         DiscourseEvent,
-        DiscourseRegion,
         DiscourseYear,
         SpeakerAge,
         SpeakerEducation,

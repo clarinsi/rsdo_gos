@@ -6,14 +6,20 @@ using Gos.Core.Model;
 
 namespace Gos.Services.Framework.Fragments
 {
-    public class UnclearWordFragmentParser : IFragmentParser
+    public class UnclearWordFragmentParser : BaseContainerParser
     {
-        public IEnumerable<Token> GetTokens(XElement element)
+        public UnclearWordFragmentParser(IFragmentParserFactory parserFactory)
+            : base(parserFactory)
         {
-            yield return new Token(TokenType.Word).WithConversationForm("[nerazumljivo]")
-                .WithStandardForm("[nerazumljivo]")
-                .WithLemma("[nerazumljivo]")
-                .WithMsd("mte:Cc");
+        }
+
+        public override IEnumerable<Token> GetTokens(XElement element)
+        {
+            var tokens = new List<Token>();
+            tokens.Add(new Token(TokenType.Mark).WithConversationForm("("));
+            tokens.AddRange(base.GetTokens(element));
+            tokens.Add(new Token(TokenType.Mark).WithConversationForm(")"));
+            return tokens;
         }
     }
 }

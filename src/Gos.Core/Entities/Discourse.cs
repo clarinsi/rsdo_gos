@@ -14,13 +14,7 @@ namespace Gos.Core.Entities
 
         public DiscourseEvent Event { get; set; }
 
-        public int Length { get; set; }
-
-        public string Location { get; set; }
-
         public int NumberOfSpeakers { get; set; }
-
-        public DiscourseRegion Region { get; set; }
 
         public string Source { get; set; }
 

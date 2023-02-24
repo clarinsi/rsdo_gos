@@ -15,10 +15,12 @@ namespace Gos.Services.Framework.Fragments
             {
                 "laughter" => "[smeh]",
                 "voice" => "[glas]",
+                "breath" => "[dih]",
+                "speech" => "[govor]",
                 _ => throw new Exception($"Unknown vocal type {element.Attribute("type")?.Value}!"),
             };
 
-            yield return new Token(TokenType.Mark).WithConversationForm(type).WithStandardForm(type).WithLemma(type).WithMsd("mte:Xt");
+            yield return new Token(TokenType.Mark).WithConversationForm(type);
         }
     }
 }
