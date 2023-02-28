@@ -88,18 +88,18 @@ namespace Gos.Services.RequestHandlers.Corpus
             foreach (var segEl in statementEl.Elements(Constants.TeiNs + "seg"))
             {
                 segmentOrder++;
-                await ImportSegment(statement, segEl, segmentOrder, discourseTokenOrder);
+                await ImportSegment(discourse, statement, segEl, segmentOrder, discourseTokenOrder);
             }
         }
 
-        private async Task ImportSegment(Statement statement, XElement segEl, int segmentOrder, DiscourseTokenOrder discourseTokenOrder)
+        private async Task ImportSegment(Discourse discourse, Statement statement, XElement segEl, int segmentOrder, DiscourseTokenOrder discourseTokenOrder)
         {
             // Add segment
             var segment = new Segment()
             {
                 Order = segmentOrder,
                 Statement = statement,
-                SoundFile = GetSoundFile(segEl),
+                SoundFile = GetSoundFile(discourse, segEl),
                 Tokens = new List<Token>(),
             };
             statement.Segments.Add(segment);
@@ -149,15 +149,15 @@ namespace Gos.Services.RequestHandlers.Corpus
             return await dbContext.Speakers.SingleAsync(s => s.Code == speakerCode);
         }
 
-        private string GetSoundFile(XElement segEl)
+        private string GetSoundFile(Discourse discourse, XElement segEl)
         {
-            var synchAttr = segEl.Attribute("synch");
-            if (synchAttr == null || string.IsNullOrEmpty(synchAttr.Value))
+            var idAttr = segEl.Attribute(Constants.XmlNs + "id");
+            if (idAttr == null || string.IsNullOrEmpty(idAttr.Value))
             {
                 return null;
             }
 
-            return synchAttr.Value.Replace("#", "") + ".mp3";
+            return discourse.Code + "/" + idAttr.Value + ".mp3";
         }
 
         private class DiscourseTokenOrder
