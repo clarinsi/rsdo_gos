@@ -1,4 +1,5 @@
 ﻿@using Gos.Web.UrlHelpers
+@using Gos.Core
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -17,15 +18,13 @@
                     <a href="@Url.Action("About", "System")"><span>@SharedResource["About"]</span></a>
                     <div class="dropdown">
                         <a class="dropbtn">
-                            Slovenščina
+                            @Model.CurrentUiName
                             <div class="carbon-icon" data-icon="chevron--down--white"><img src="~/images/chevron--down--white.svg"></div>
                         </a>
                         <div class="dropdown-content">
-                            <a href="/slovensko-madzarski/slv/">Slovenščina</a>
-                            <a href="/slovensko-madzarski/eng/">English</a>
-                            <a href="/slovensko-madzarski/hun/">Magyar</a>
+                            <a href="@Url.Action("SetLanguage", "System", new {culture = Constants.InterfaceLanguages.Slovene, returnUrl = Url.GetReturnUrl()})">@Constants.InterfaceLanguages.SloveneName</a>
+                            <a href="@Url.Action("SetLanguage", "System", new {culture = Constants.InterfaceLanguages.English, returnUrl = Url.GetReturnUrl()})">@Constants.InterfaceLanguages.EnglishName</a>
                         </div>
-                        <a class="viri-btn-full" href="https://viri.cjvt.si/"><div class="carbon-icon" data-icon="switcher"><img src="~/images/switcher.svg"></div> <span>Vsi viri</span></a>
                     </div>
                 </div>
             </div>
