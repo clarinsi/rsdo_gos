@@ -186,4 +186,10 @@
     <data name="NoMark" xml:space="preserve">
         <value>No tag</value>
     </data>
+    <data name="WordApplause" xml:space="preserve">
+        <value>Applause</value>
+    </data>
+    <data name="WordSound" xml:space="preserve">
+        <value>Sound</value>
+    </data>
 </root>

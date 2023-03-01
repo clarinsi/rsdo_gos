@@ -34,6 +34,16 @@ public class MarkSelectListProvider : ISelectListProvider
                 Value = "[glas]",
                 Text = "[glas]",
             },
+            new()
+            {
+                Value = "[dih]",
+                Text = "[dih]",
+            },
+            new()
+            {
+                Value = "[govor]",
+                Text = "[govor]",
+            },
         };
 
         var selectList = new SelectList(items, nameof(SelectListItem.Value), nameof(SelectListItem.Text), selectedValue);

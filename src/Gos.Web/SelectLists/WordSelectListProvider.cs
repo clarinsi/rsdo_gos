@@ -39,6 +39,16 @@ public class WordSelectListProvider : ISelectListProvider
                 Value = "[premor]",
                 Text = concordanceResource["WordPause"].Value,
             },
+            new()
+            {
+                Value = "[zvok]",
+                Text = concordanceResource["WordSound"].Value,
+            },
+            new()
+            {
+                Value = "[aplavz]",
+                Text = concordanceResource["WordApplause"].Value,
+            },
         };
 
         var selectList = new SelectList(items, nameof(SelectListItem.Value), nameof(SelectListItem.Text), selectedValue);

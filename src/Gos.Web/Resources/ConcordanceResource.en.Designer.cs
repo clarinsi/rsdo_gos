@@ -501,6 +501,15 @@ namespace Gos.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Applause.
+        /// </summary>
+        public static string WordApplause {
+            get {
+                return ResourceManager.GetString("WordApplause", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Word in context.
         /// </summary>
         public static string WordInContext {
@@ -542,6 +551,15 @@ namespace Gos.Web.Resources {
         public static string WordPause {
             get {
                 return ResourceManager.GetString("WordPause", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sound.
+        /// </summary>
+        public static string WordSound {
+            get {
+                return ResourceManager.GetString("WordSound", resourceCulture);
             }
         }
         
