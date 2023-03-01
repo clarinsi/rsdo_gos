@@ -3,6 +3,7 @@ import './../Styles/footer.scss';
 import './../Styles/styles_new.scss';
 import './../Styles/phone.scss';
 import './../Styles/index.scss';
+import './../Styles/about.scss';
 
 import './../Styles/gos-common.scss';
 import './../Styles/gos-forms.scss';
