@@ -240,7 +240,7 @@ namespace Gos.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Standardizirana osnovna oblika.
+        ///   Looks up a localized string similar to Osnovna oblika.
         /// </summary>
         public static string DetailsTokensLemma {
             get {
@@ -249,7 +249,7 @@ namespace Gos.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Oblikoslovne lastnosti standardizirane oblike.
+        ///   Looks up a localized string similar to Oblikoslovne lastnosti.
         /// </summary>
         public static string DetailsTokensMsd {
             get {

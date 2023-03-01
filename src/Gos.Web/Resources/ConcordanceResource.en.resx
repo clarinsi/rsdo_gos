@@ -73,10 +73,10 @@
         <value>Standardized form</value>
     </data>
     <data name="DetailsTokensLemma" xml:space="preserve">
-        <value>Standardized basic form</value>
+        <value>Basic form</value>
     </data>
     <data name="DetailsTokensMsd" xml:space="preserve">
-        <value>Morphological characteristics // POS-related characteristics of the word in the standardized form</value>
+        <value>Morphological characteristics // POS-related characteristics of the word</value>
     </data>
     <data name="DetailsInformation" xml:space="preserve">
         <value>Information</value>

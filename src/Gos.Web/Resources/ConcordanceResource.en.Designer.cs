@@ -240,7 +240,7 @@ namespace Gos.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Standardized basic form.
+        ///   Looks up a localized string similar to Basic form.
         /// </summary>
         public static string DetailsTokensLemma {
             get {
@@ -249,7 +249,7 @@ namespace Gos.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Morphological characteristics // POS-related characteristics of the word in the standardized form.
+        ///   Looks up a localized string similar to Morphological characteristics // POS-related characteristics of the word.
         /// </summary>
         public static string DetailsTokensMsd {
             get {

@@ -73,10 +73,10 @@
         <value>Standardizirana oblika</value>
     </data>
     <data name="DetailsTokensLemma" xml:space="preserve">
-        <value>Standardizirana osnovna oblika</value>
+        <value>Osnovna oblika</value>
     </data>
     <data name="DetailsTokensMsd" xml:space="preserve">
-        <value>Oblikoslovne lastnosti standardizirane oblike</value>
+        <value>Oblikoslovne lastnosti</value>
     </data>
     <data name="DetailsInformation" xml:space="preserve">
         <value>Podatki o izjavi</value>
