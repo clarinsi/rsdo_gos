@@ -1,11 +1,83 @@
 ﻿@{
     Layout = "~/Views/Shared/_BaseLayout.cshtml";
+    var currentDate = DateTime.UtcNow.ToString("dd. MM. yyyy");
 }
 
 <div class="bx--grid about" style="margin-top:2rem;">
     <div class="bx--row">
-        <div class="bx-col">
-            <div class="panel">
+        <div class="bx--col">
+            <a class="panel panel-short active" href="#kolofon" data-set-active="kolofon" style="">
+                <h4 class="text-red">Korpus GOS 2.0</h4>
+                <p>Korpus govorjene slovenščine</p>
+                <div class="bottom-url">
+                    <h5 class="weight-semi-bold">Kolofon <div class="carbon-icon" data-icon="chevron--right"><img src="~/images/chevron--right.svg" /></div></h5>
+                </div>
+            </a>
+            <a class="panel panel-short" href="#about" data-set-active="about">
+                <h4 class="text-red">O korpusu</h4>
+                <p>Korpus GOS 2.0 je referenčni korpus govorjene slovenščine, ki obsega več kot 300 ur posnetkov spontanega govora v najrazličnejših situacijah.</p>
+                <div class="bottom-url">
+                    <h5 class="weight-semi-bold">O viru <div class="carbon-icon" data-icon="chevron--right"><img src="~/images/chevron--right.svg" /></div></h5>
+                </div>
+            </a>
+            <a class="panel panel-short" href="#versions" data-set-active="versions">
+                <h4 class="text-red">Trenutna različica</h4>
+                <p>
+                    Trenutna različica korpusa je 2.0.<br/>
+                    Datum zadnje posodobitve: 28. 2. 2023
+                </p>
+                <div class="bottom-url">
+                    <h5 class="weight-semi-bold">Različlice <div class="carbon-icon" data-icon="chevron--right"><img src="~/images/chevron--right.svg" /></div></h5>
+                </div>
+            </a>             
+            <div class="panel panel-short">
+                <h4 class="text-red">Dostopnost</h4>
+                <p>
+                    Transkripcije korpusa so dostopne v repozitoriju <a href="https://www.clarin.si/info/about/">CLARIN.SI</a>.<br/>
+                    To delo je dostopno pod licenco <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Priznanje avtorstva - Deljenje pod enakimi pogoji 4.0</a>.
+                </p>
+                <a class="bottom-url" href="http://hdl.handle.net/11356/1771" target="_blank">
+                    <h5 class="weight-semi-bold">Transkripcije korpusa <div class="carbon-icon" data-icon="chevron--right"><img src="~/images/chevron--right.svg" /></div></h5>
+                </a>
+            </div>
+        </div>
+        <div class="bx--col">
+            <div class="panel" data-hash="kolofon" style="display: none;">
+                <h3>GOS 2.0</h3>
+                <p>
+                    Korpus govorjene slovenščine<br />
+                    Ljubljana, 2023
+                </p>
+
+                <p>Delo je dostopno pod licenco Creative Commons: Priznanje avtorstva-Deljenje pod enakimi pogoji 4.0 Mednarodna.</p>
+
+                <p>
+                    <strong>Avtorji korpusa GOS 2.0</strong><br />
+                    Ana Zwitter Vitez, Jana Zemljarič Miklavčič, Simon Krek, Marko Stabej, Tomaž Erjavec, Darinka Verdonik, Tomaž Potočnik, Mirjam Sepesy Maučec, Simona Majhenič, Andrej Žgank, Andreja Bizjak, Lucija Gril, Simon Dobrišek, Janez Križaj, Marko Bajec, Iztok Lebar Bajec, Tjaša Jelovšek, Mitja Trojar, Mitja Bernjak, Naum Dretnik, Gregor Strle
+                </p>
+                
+                <p>
+                    <strong>Oblikovanje vmesnika</strong><br />
+                    Gašper Uršič (Studio Kruh)
+                </p>
+                <p>
+                    <strong>Izdelava spletnega vmesnika</strong><br />
+                    Rok Rejc
+                </p>
+                <p>
+                    <strong>Uredniki spletnega vmesnika</strong><br />
+                    Kaja Dobrovoljc, Jaka Čibej, Polona Gantar, Špela Arhar Holdt, Iztok Kosem, Simon Krek, Luka Terčon
+                </p>
+                <p>
+                    <strong>Izdajatelj</strong><br />
+                    Center za jezikovne vire in tehnologije, Univerza v Ljubljani
+                </p>
+                <p>
+                    <strong>Citiranje</strong><br />
+                    Gos 2.0: Korpus govorjene slovenščine, viri.cjvt.si/gos, dostop @currentDate
+                </p>
+            </div>
+            <div class="panel" data-hash="about" style="display: block;">
                 <h3>O viru</h3>
                 <p>
                     GOS je referenčni korpus govorjene slovenščine. Obsega transkripcije okrog 320 ur posnetkov (po)govora v najrazličnejših situacijah, ki smo jim izpostavljeni vsak dan: od radijskih in televizijskih oddaj prek šolskih ur in predavanj do zasebnih pogovorov med prijatelji ali v krogu družine ter raznih delovnih sestankov, svetovanj, pogovora ob prodaji, storitvah ipd. Zapis govora na posnetkih je narejen v dveh različicah, standardizirani in pogovorni, ter obsega več kot dva milijona besed.
@@ -16,6 +88,14 @@
                 <p>
                     Po korpusu lahko iščemo prek spletnega vmesnika na teh spletnih straneh, ki poleg različnih možnosti iskanja po obeh ravneh zapisa omogoča tudi poslušanje pripadajočih posnetkov in filtriranje zadetkov po bogatem naboru metapodatkov, kot so vrsta dogodka in komunikacijski kanal ter spol, starost, izobrazba in regionalna pripadnost govorca. Za jezikoslovno rabo je korpus prosto dostopen tudi v konkordančnikih <a href="https://www.clarin.si/ske/#dashboard?corpname=gos20">NoSketchEngine</a> in <a href="https://www.clarin.si/kontext/query?corpname=gos20">Kontext</a>, ki jih vzdržuje raziskovalna infrastruktura <a href="https://www.clarin.si/">CLARIN.SI</a>.
                 </p>
+            </div>
+            <div class="panel" data-hash="versions" style="display: none;">
+                <h3>Različice</h3>
+                <p>
+                    Različica<br/>
+                    <strong>Korpus govorjene slovenščine GOS 2.0</strong>
+                </p>
+                <p>Datum izdaje posodobitve: 28. 2. 2023</p>
             </div>
         </div>
     </div>

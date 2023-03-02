@@ -97,6 +97,7 @@ const Gos = {
         Gos.bindListSearchResults();
         Gos.bindPlay();
         Gos.bindViri();
+        Gos.bindAbout();
     },
 
     bindCommon: function () {
@@ -794,6 +795,34 @@ const Gos = {
         } else if (window.attachEvent) {
             window.attachEvent("onmessage", resizeIframe);
         }
+    },
+
+    bindAbout: function () {
+        if (!($('body').hasClass('about'))) {
+            return;
+        }
+
+        const showPage = function () {
+            let hash = "about";
+            if (window.location.hash) {
+                hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
+            }
+            try {
+                document.querySelectorAll("div[data-hash]").forEach(page => {
+                    page.style.display = "none";
+                });
+                document.querySelector("div[data-hash=" + hash + "]").style.display = "block";
+                document.querySelectorAll("[data-set-active]").forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.querySelector("[data-set-active=" + hash + "]").classList.add('active');
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        showPage();
+        window.onhashchange = showPage;
     }
 };
 

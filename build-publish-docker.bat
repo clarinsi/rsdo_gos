@@ -4,12 +4,12 @@ docker build -t gos-console -f src/Gos.Console/Dockerfile .
 docker login ghcr.io
 
 docker tag gos-web ghcr.io/clarinsi/gos-web:latest
-docker tag gos-web ghcr.io/clarinsi/gos-web:v1.0.0
+docker tag gos-web ghcr.io/clarinsi/gos-web:v1.0.2
 docker tag gos-web ghcr.io/clarinsi/gos-web:v1.0
 docker tag gos-web ghcr.io/clarinsi/gos-web:v1
 
 docker tag gos-console ghcr.io/clarinsi/gos-console:latest
-docker tag gos-console ghcr.io/clarinsi/gos-console:v1.0.0
+docker tag gos-console ghcr.io/clarinsi/gos-console:v1.0.2
 docker tag gos-console ghcr.io/clarinsi/gos-console:v1.0
 docker tag gos-console ghcr.io/clarinsi/gos-console:v1
 
