@@ -132,7 +132,7 @@ namespace Gos.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The corpus of spoken Slovene.
+        ///   Looks up a localized string similar to Corpus of Spoken Slovene.
         /// </summary>
         public static string Corpora {
             get {
@@ -456,7 +456,7 @@ namespace Gos.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to discourses.
+        ///   Looks up a localized string similar to speech events.
         /// </summary>
         public static string StatsDiscourses {
             get {
@@ -465,7 +465,7 @@ namespace Gos.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to statements.
+        ///   Looks up a localized string similar to utterances.
         /// </summary>
         public static string StatsStatements {
             get {

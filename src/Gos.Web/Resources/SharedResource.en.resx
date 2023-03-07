@@ -40,7 +40,7 @@
         <value>Download source</value>
     </data>
     <data name="Corpora" xml:space="preserve">
-        <value>The corpus of spoken Slovene</value>
+        <value>Corpus of Spoken Slovene</value>
     </data>
     <data name="List" xml:space="preserve">
         <value>List</value>
@@ -49,10 +49,10 @@
         <value>Search</value>
     </data>
     <data name="StatsDiscourses" xml:space="preserve">
-        <value>discourses</value>
+        <value>speech events</value>
     </data>
     <data name="StatsStatements" xml:space="preserve">
-        <value>statements</value>
+        <value>utterances</value>
     </data>
     <data name="StatsWords" xml:space="preserve">
         <value>words</value>
