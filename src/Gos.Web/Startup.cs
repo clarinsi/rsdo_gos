@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text.Json.Serialization;
 using Autofac;
+using Gos.Core;
 using Gos.Infrastructure.CompositionRoot;
 using Gos.Services.CompositionRoot;
 using Gos.Services.Framework;
@@ -12,6 +13,7 @@ using Gos.Web.Framework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -97,6 +99,26 @@ namespace Gos.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var configuration = new ConfigurationBuilder().AddEnvironmentVariables().Build();
+
+            // Configure settings if used in proxy
+            var proxyBasePath = configuration[ConfigurationKey.Web.ProxyBasePath] ?? string.Empty;
+            if (!string.IsNullOrEmpty(proxyBasePath))
+            {
+                app.Use(
+                    (context, next) =>
+                    {
+                        context.Request.PathBase = new PathString(proxyBasePath);
+                        return next();
+                    });
+            }
+
+            app.UseForwardedHeaders(
+                new ForwardedHeadersOptions
+                {
+                    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+                });
+
             // Localization
             var localizationOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(localizationOptions.Value);

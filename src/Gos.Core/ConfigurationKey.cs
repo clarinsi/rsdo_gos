@@ -20,5 +20,10 @@
         {
             public static string LogPath => $"{Prefix}:{nameof(Logging)}:{nameof(LogPath)}";
         }
+
+        public static class Web
+        {
+            public static string ProxyBasePath => $"{Prefix}:{nameof(Web)}:{nameof(ProxyBasePath)}";
+        }
     }
 }
